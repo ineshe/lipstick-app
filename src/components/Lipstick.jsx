@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useScroll, useMotionValueEvent } from "motion/react"
 import './Lipstick.css'
 
@@ -13,6 +13,8 @@ function Lipstick() {
     })
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        // console.log("scrollYProgress changed to", latest);
+
         const svg = svgRef.current;
         const path = svg.querySelector('#lipstickPath');
 
@@ -22,23 +24,29 @@ function Lipstick() {
         }
 
         const length = path.getTotalLength();
+
         const pt = path.getPointAtLength(length * latest);
-        const ctm = svg.getCTM();
-        const screenPt = pt.matrixTransform(ctm);        
+
+        const ctm = svg.getScreenCTM();
+
+        const screenPt = pt.matrixTransform(ctm);
+
+        console.log(screenPt);
+        
 
         const img = imgRef.current;
 
-        // img.style.transform = `translate(${screenPt.x}px, ${screenPt.y}px)`;
-        img.style.left  = `${screenPt.x}px`;
-        img.style.top   = `${screenPt.y}px`;
+        img.style.transform = `translate(${screenPt.x}px, ${screenPt.y}px)`;
+        // img.style.left  = `${screenPt.x}px`;
+        // img.style.top   = `${screenPt.y}px`;
     });
     
     return (
         <>
-            <div ref={wrapperRef} className="lipstick-wrapper" style={{ position: "relative", height: "500vh", width: "100%" }}>
+            <div ref={wrapperRef} className="lipstick-wrapper" style={{ /* position: "relative", */ height: "500vh", width: "100%" }}>
                 <svg 
                     ref={svgRef} 
-                    viewBox="0 0 1500 1700" 
+                    viewBox="-400 -200 1500 1700" 
                     style=
                     {{ 
                         position: "absolute", 
@@ -50,7 +58,7 @@ function Lipstick() {
                 >
                     <path 
                         id="lipstickPath" 
-                        d="M1000,200 L200,1000 V1600" 
+                        d="M800,0 L0,800 V1600" 
                         fill="none" 
                         stroke="#ccc"
                     />
@@ -61,10 +69,10 @@ function Lipstick() {
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAGQCAYAAAA5juetAAAAAXNSR0IArs4c6QAABItJREFUeF7t1LENwDAMBDF7Oo+SeTNRAngEXUv11xAP7fc533JjgQ1wbHdDgM0PYPQDCLAKxN4PBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmP74Q5p5ix6GsAAAAAElFTkSuQmCC"
                     alt="Lipstick"
                     style={{
-                        position: "absolute",
+                        position: "fixed"
+/*                         position: "absolute",
                         top: 0,
-                        left: 0,
-                        transform: "translate(-50%, -50%)",
+                        left: 0, */
                     }}
                 />
             </div>
