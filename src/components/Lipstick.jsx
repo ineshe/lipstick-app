@@ -1,29 +1,70 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
+import { useScroll, useMotionValueEvent } from "motion/react"
 import './Lipstick.css'
-import { motion, useScroll, useTransform, useMotionValue } from "motion/react"
-import { animate } from "motion"
 
 function Lipstick() {
-    const pathRef = useRef(null);
-    const { scrollYProgress } = useScroll();
-    const offset = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-    const path = "M800,0 L0,800 V1600";
+    const svgRef = useRef(null);
+    const imgRef = useRef(null);
+    const wrapperRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: svgRef,
+        offset: ["start start", "end center"],
+    })
+
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        const svg = svgRef.current;
+        const path = svg.querySelector('#lipstickPath');
+
+        if (!path) { 
+            console.error('Pfad #lipstickPath nicht gefunden');
+            return;
+        }
+
+        const length = path.getTotalLength();
+        const pt = path.getPointAtLength(length * latest);
+        const ctm = svg.getCTM();
+        const screenPt = pt.matrixTransform(ctm);        
+
+        const img = imgRef.current;
+
+        // img.style.transform = `translate(${screenPt.x}px, ${screenPt.y}px)`;
+        img.style.left  = `${screenPt.x}px`;
+        img.style.top   = `${screenPt.y}px`;
+    });
     
     return (
         <>
-            <div className="lipstick-wrapper" style={{ position: "relative", height: "500vh", width: "100%"}}>
-                <svg viewBox="0 0 800 1600" style={{ position: "absolute", width: "100vw", height: "auto", top: 0, left: 0 }}>
-                    <path id="lipstickPath" ref={pathRef} d={path} fill="none" stroke="#ccc"/>
+            <div ref={wrapperRef} className="lipstick-wrapper" style={{ position: "relative", height: "500vh", width: "100%" }}>
+                <svg 
+                    ref={svgRef} 
+                    viewBox="0 0 1500 1700" 
+                    style=
+                    {{ 
+                        position: "absolute", 
+                        width: "100vw", 
+                        height: "auto", 
+                        top: 0, 
+                        left: 0 
+                    }}
+                >
+                    <path 
+                        id="lipstickPath" 
+                        d="M1000,200 L200,1000 V1600" 
+                        fill="none" 
+                        stroke="#ccc"
+                    />
                 </svg>
-                <motion.img
+                <img
+                    ref={imgRef} 
                     className="lipstick"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAGQCAYAAAA5juetAAAAAXNSR0IArs4c6QAABItJREFUeF7t1LENwDAMBDF7Oo+SeTNRAngEXUv11xAP7fc533JjgQ1wbHdDgM0PYPQDCLAKxN4PBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmP74Q5p5ix6GsAAAAAElFTkSuQmCC"
                     alt="Lipstick"
                     style={{
-                        position: "fixed",
-                        offsetPath: "url(#lipstickPath)",
-                        offsetDistance: offset,
-                        offsetRotate: "0deg",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        transform: "translate(-50%, -50%)",
                     }}
                 />
             </div>
