@@ -5,7 +5,6 @@ import './Lipstick.css'
 function Lipstick() {
     const svgRef = useRef(null);
     const imgRef = useRef(null);
-    const wrapperRef = useRef(null);
 
     const { scrollYProgress } = useScroll({
         target: svgRef,
@@ -42,7 +41,6 @@ function Lipstick() {
 
         const screenPt = pt.matrixTransform(ctm);
         
-        
         img.style.position  = "fixed";
         img.style.left  = `${screenPt.x}px`;
         img.style.top   = `${screenPt.y}px`;
@@ -50,7 +48,7 @@ function Lipstick() {
     
     return (
         <>
-            <div ref={wrapperRef} className="lipstick-wrapper" style={{ position: "relative", height: "600vh", width: "100%" }}>
+            <div className="lipstick-wrapper" style={{ position: "relative", height: "600vh", width: "100%" }}>
                 <svg 
                     ref={svgRef} 
                     viewBox="0 0 12 34" 
