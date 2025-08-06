@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'motion/react'
+import { useRef, useEffect } from 'react'
+import { motion, useScroll, useMotionValueEvent } from 'motion/react'
 import './Lipstick.css'
 
 function UspList() {
@@ -54,31 +54,64 @@ function UspList() {
 
 function Lipstick() {
     const animationWrapper = useRef(null);
+    const canvasRef = useRef(null);
 
     const { scrollYProgress } = useScroll({
         target: animationWrapper,
+        offset: ['start start', 'end end']
     });
 
-    const left = useTransform(scrollYProgress, [0, 0.2], ['80%', '50%']);
-    const rotate = useTransform(scrollYProgress, [0, 0.2], ['45deg', '0deg']);
+
+    const frameCount = 100;
+    const currentFrame = index => (
+        `/assets/image-sequenz/Render${index
+        .toString()
+        .padStart(4, '0')}.jpg`
+    )
+
+    const drawFrame = (index) => {
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext('2d');
+        if(!ctx) return;        
+
+        const img = new Image();
+        img.src = currentFrame(index);
+        img.onload = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const scale = canvas.width / img.naturalWidth;
+            const imgHeight = img.naturalHeight * scale;
+            const y = (canvas.height - imgHeight) / 2;
+
+            ctx.drawImage(img, 0, y, canvas.width, imgHeight);
+        }
+    }
+
+    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+        const index = Math.min(frameCount - 1, Math.floor(latest * frameCount));
+        drawFrame(index);
+    });    
+
+    useEffect(() => {
+        drawFrame(1);
+    }, []);
     
     return (
         <>
             <div ref={animationWrapper} className='viewport-content' style={{ position: 'relative', height: '500vh', width: '100%' }}>
-                <motion.img
-                    className='lipstick'
-                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAGQCAYAAAA5juetAAAAAXNSR0IArs4c6QAABItJREFUeF7t1LENwDAMBDF7Oo+SeTNRAngEXUv11xAP7fc533JjgQ1wbHdDgM0PYPQDCLAKxN4PBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmFggwCsTcAgFGgZhbIMAoEHMLBBgFYm6BAKNAzC0QYBSIuQUCjAIxt0CAUSDmP74Q5p5ix6GsAAAAAElFTkSuQmCC'
-                    alt='Lipstick'
+                <canvas
+                    ref={canvasRef}
+                    aria-hidden='true'
+                    role='presentation'
                     style={{
-                        position: 'sticky',
-                        top: '50%',
-                        x: '-50%', 
-                        y: '-50%', 
-                        left,
-                        rotate,
+                        position: 'fixed',
+                        left: '0',
+                        top: '0',
+                        width: '100vw',
+                        height: '100vh',
                     }}
                 />
-                <UspList />
             </div>
             <div style={{ height: '100vh', width: '100%' }}></div>
         </>
