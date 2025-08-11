@@ -66,7 +66,7 @@ function Lipstick() {
     const currentFrame = index => (
         `/assets/image-sequenz/Render${index
         .toString()
-        .padStart(4, '0')}.jpg`
+        .padStart(4, '0')}.webp`
     )
 
     const drawFrame = (index) => {
