@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react'
+import { useRef, useEffect, useMemo, useCallback } from 'react'
 import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react'
 import './Lipstick.css'
 
@@ -90,7 +90,7 @@ function Lipstick() {
         drawFrame(1);
     }, []);
 
-    const drawFrame = (index) => {
+    const drawFrame = useCallback((index) => {
         const canvas = canvasRef.current;
         const ctx = canvas?.getContext('2d');
         if(!ctx) return;
@@ -112,7 +112,7 @@ function Lipstick() {
         const y = (canvas.height - imgHeight) / 2;
 
         ctx.drawImage(img, 0, y, canvas.width, imgHeight);
-    }
+    }, [images]);
     
     return (
         <>
@@ -129,6 +129,7 @@ function Lipstick() {
                         height: '100%',
                     }}
                 />
+                <UspList />
             </div>
             <div style={{ height: '100vh', width: '100%' }}></div>
         </>
