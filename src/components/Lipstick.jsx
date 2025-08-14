@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react'
-import { motion, useScroll, useMotionValueEvent } from 'motion/react'
+import { useRef, useEffect, useMemo } from 'react'
+import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react'
 import './Lipstick.css'
 
 function UspList() {
@@ -55,47 +55,64 @@ function UspList() {
 function Lipstick() {
     const animationWrapper = useRef(null);
     const canvasRef = useRef(null);
-
+    const frameCount = 100;
     const { scrollYProgress } = useScroll({
         target: animationWrapper,
         offset: ['start start', 'end end']
     });
-
-
-    const frameCount = 100;
     const currentFrame = index => (
         `/assets/image-sequenz/Render${index
         .toString()
         .padStart(4, '0')}.webp`
-    )
+    );
 
-    const drawFrame = (index) => {
-        const canvas = canvasRef.current;
-        const ctx = canvas?.getContext('2d');
-        if(!ctx) return;        
-
-        const img = new Image();
-        img.src = currentFrame(index);
-        img.onload = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const scale = canvas.width / img.naturalWidth;
-            const imgHeight = img.naturalHeight * scale;
-            const y = (canvas.height - imgHeight) / 2;
-
-            ctx.drawImage(img, 0, y, canvas.width, imgHeight);
-        }
-    }
-
+    const lastIndexRef = useRef(0);
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-        const index = Math.min(frameCount - 1, Math.floor(latest * frameCount));
-        drawFrame(index);
-    });    
+        const index = Math.max(1, Math.min(frameCount, Math.floor(latest * frameCount)));        
+        
+        if (index !== lastIndexRef.current) {
+            lastIndexRef.current = index;
+            drawFrame(index);
+        }
+    });
+    
+    const images = useMemo(() => {
+        const arr = [];
+        for (let i = 1; i <= frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            arr.push(img);
+        }
+        return arr;
+    }, [frameCount, currentFrame]);
 
     useEffect(() => {
         drawFrame(1);
     }, []);
+
+    const drawFrame = (index) => {
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext('2d');
+        if(!ctx) return;
+
+        const img = images[index - 1];
+        if (!img.complete) {
+            img.onload = () => drawFrame(index);
+            return;
+        }
+
+        // set canvas to full screen
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+
+        const scale = canvas.width / img.naturalWidth;
+        const imgHeight = img.naturalHeight * scale;
+
+        // center image vertically
+        const y = (canvas.height - imgHeight) / 2;
+
+        ctx.drawImage(img, 0, y, canvas.width, imgHeight);
+    }
     
     return (
         <>
@@ -108,8 +125,8 @@ function Lipstick() {
                         position: 'fixed',
                         left: '0',
                         top: '0',
-                        width: '100vw',
-                        height: '100vh',
+                        width: '100%',
+                        height: '100%',
                     }}
                 />
             </div>
