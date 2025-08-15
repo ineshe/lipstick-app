@@ -81,6 +81,9 @@ function Lipstick() {
         for (let i = 1; i <= frameCount; i++) {
             const img = new Image();
             img.src = currentFrame(i);
+            if(img.decode) {
+                img.decode().catch(() => {});
+            }
             arr.push(img);
         }
         return arr;
