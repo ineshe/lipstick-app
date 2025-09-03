@@ -66,13 +66,14 @@ function Lipstick() {
         .padStart(4, '0')}.webp`
     );
 
-    const lastIndexRef = useRef(0);
+    const lastIndexRef = useRef(1);
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-        const index = Math.max(1, Math.min(frameCount, Math.floor(latest * frameCount)));        
-        
+        const index = Math.max(1, Math.min(frameCount, Math.floor(latest * frameCount)));
         if (index !== lastIndexRef.current) {
-            lastIndexRef.current = index;
-            drawFrame(index);
+            lastIndexRef.current = index; 
+            requestAnimationFrame(() => {
+                drawFrame(index);
+            });
         }
     });
     
