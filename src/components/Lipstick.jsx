@@ -21,7 +21,6 @@ function UspList() {
         const start = 50;
         const step = 100;
         const top = `${start + (usp.id + 1) * step}vh`;
-
         const right = usp.id % 2 === 1 ? '0px' : 'undefined';
 
         return (
@@ -29,6 +28,7 @@ function UspList() {
                 style={{
                     position: 'absolute',
                     width: '35%',
+                    padding: '1rem',
                     top,
                     right,
                 }}
@@ -107,9 +107,8 @@ function Lipstick() {
             return;
         }
 
-        // set canvas to full screen
-        canvas.width = document.documentElement.clientWidth;
-        canvas.height = document.documentElement.clientHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
         const scale = canvas.width / img.naturalWidth;
         const imgHeight = img.naturalHeight * scale;
