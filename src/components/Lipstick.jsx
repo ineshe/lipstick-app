@@ -2,6 +2,7 @@ import { useRef, useEffect, useMemo, useCallback } from 'react';
 import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react';
 import './Lipstick.css';
 import UspList from './UspList';
+import Stage from './Stage';
 
 function Lipstick() {
     const animationWrapper = useRef(null);
@@ -85,6 +86,7 @@ function Lipstick() {
                         height: '100%',
                     }}
                 />
+                <Stage />
                 <UspList />
             </div>
             <div style={{ height: '100vh', width: '100%' }}></div>
