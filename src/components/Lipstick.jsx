@@ -91,7 +91,9 @@ function Lipstick() {
     }, [frameCount, currentFrame]);
 
     useEffect(() => {
-        drawFrame(1);
+        const handleResize = () => drawFrame(lastIndexRef.current);
+        window.addEventListener('resize', handleResize);
+        drawFrame(lastIndexRef.current);
     }, []);
 
     const drawFrame = useCallback((index) => {
