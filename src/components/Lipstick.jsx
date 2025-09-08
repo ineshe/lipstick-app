@@ -86,9 +86,9 @@ function Lipstick() {
                         height: '100%',
                     }}
                 />
-                <Stage />
                 <UspList />
             </div>
+            <Stage />
             <div style={{ height: '100vh', width: '100%' }}></div>
         </>
     )
