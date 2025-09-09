@@ -1,7 +1,4 @@
-import { useRef, useEffect, useMemo, useCallback } from 'react';
-import { useScroll, useMotionValueEvent } from 'motion/react';
 import './App.css';
-import UspList from './components/UspList';
 import Stage from './components/StageText';
 import LipstickAnimation from './components/LipstickAnimation';
 import LipstickLine from './components/LipstickLine';
