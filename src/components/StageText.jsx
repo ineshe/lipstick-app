@@ -12,18 +12,15 @@ function Stage() {
             }}
         >
             <div 
-                className='viewport-content'
                 style={{
-                    // marginTop: '20vh',
                     position: 'relative',
-                    top: '30%',
+                    marginTop: '14%',
+                    marginLeft: '5%',
                 }}
             >
                 <h1
                     style={{
-                        color: '#000',
-                        WebkitTextStroke: '0.15rem #fff',
-                        fontSize: '5rem',
+                        fontSize: '6rem',
                     }}
                 >
                     Velvet Lips Color Crush
