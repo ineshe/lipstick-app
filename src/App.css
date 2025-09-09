@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Panchang';
+  src: url('./assets/fonts/Panchang-Regular.woff2') format('woff2'),
+       url('./assets/fonts/Panchang-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   width: 100%;
   --global-content-max-width: 1080px;

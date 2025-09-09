@@ -8,6 +8,7 @@ function Stage() {
                 inset: '0px',
                 height: '100vh',
                 width: '100vw',
+                fontFamily: 'Panchang, Arial, sans-serif',
             }}
         >
             <div 
