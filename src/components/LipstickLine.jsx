@@ -3,9 +3,7 @@ function LipstickLine() {
         <div 
             style={{
                 position: 'absolute',
-                inset: '0px',
-                height: '100vh',
-                width: '100vw',
+                inset: '-10% -10%',
                 background: 'url("/assets/lipstick-line.png") center/contain no-repeat',
             }}
         ></div>
