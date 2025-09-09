@@ -1,10 +1,10 @@
 import { useRef, useEffect, useMemo, useCallback } from 'react';
 import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react';
-import './Lipstick.css';
+import './LipstickAnimation.css';
 import UspList from './UspList';
-import Stage from './Stage';
+import Stage from './StageText';
 
-function Lipstick() {
+function LipstickAnimation() {
     const animationWrapper = useRef(null);
     const canvasRef = useRef(null);
     const frameCount = 100;
@@ -72,26 +72,22 @@ function Lipstick() {
     }, [images]);
     
     return (
-        <>
-            <div ref={animationWrapper} className='viewport-content' style={{ position: 'relative', height: '500vh', width: '100%' }}>
-                <canvas
-                    ref={canvasRef}
-                    aria-hidden='true'
-                    role='presentation'
-                    style={{
-                        position: 'fixed',
-                        left: '0',
-                        top: '0',
-                        width: '100%',
-                        height: '100%',
-                    }}
-                />
-                <UspList />
-            </div>
-            <Stage />
-            <div style={{ height: '100vh', width: '100%' }}></div>
-        </>
+        <div ref={animationWrapper} className='viewport-content' style={{ position: 'relative', height: '500vh', width: '100%' }}>
+            <canvas
+                ref={canvasRef}
+                aria-hidden='true'
+                role='presentation'
+                style={{
+                    position: 'fixed',
+                    left: '0',
+                    top: '0',
+                    width: '100%',
+                    height: '100%',
+                }}
+            />
+            <UspList />
+        </div>
     )
 }
 
-export default Lipstick
+export default LipstickAnimation
