@@ -9,6 +9,7 @@
 #root {
   width: 100%;
   --global-content-max-width: 1080px;
+  font-family: 'Open Sans Pro', Arial, sans-serif;
 }
 
 .viewport-content {
