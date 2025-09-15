@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import './UspList.css';
 
 function UspList() {
     const usps = [{
@@ -23,10 +24,8 @@ function UspList() {
 
         return (
             <motion.div 
+                className='usp-animation'
                 style={{
-                    position: 'absolute',
-                    maxWidth: '35%',
-                    padding: '1rem',
                     top,
                     right,
                 }}
@@ -41,21 +40,8 @@ function UspList() {
                 }}
                 viewport={{ margin: '-30% 0px -30% 0px' }}
             >
-                <h2 
-                    style={{
-                        fontSize: '2.5rem',
-                        marginBlock: '0',
-                        fontFamily: 'Panchang',
-                        textTransform:'lowercase',
-                    }}
-                >{usp.headline}</h2>
-                <p
-                    style={{
-                        fontSize: '1.2rem',
-                        color: '#999',
-                        marginBlock: '0.5rem',
-                    }}
-                >{usp.content}</p>
+                <h2 className='usp-headline'>{usp.headline}</h2>
+                <p className='usp-content'>{usp.content}</p>
             </motion.div>
         );
     });

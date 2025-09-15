@@ -1,0 +1,18 @@
+.usp-animation {
+    position: absolute;
+    max-width: 35%;
+    padding: '1rem';
+}
+
+.usp-headline {
+    font-size: 2.75rem;
+    margin-block: 0;
+    font-family: 'Panchang';
+    text-transform: lowercase;
+}
+
+.usp-content {
+    font-size: 1.25rem;
+    color: #999;
+    margin-block: 0.5rem;
+}
