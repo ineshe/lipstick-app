@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import StageButton from './StageButton';
 
 function Stage() {
     return (
@@ -8,7 +8,6 @@ function Stage() {
                 inset: '0px',
                 height: '100vh',
                 width: '100vw',
-                fontFamily: 'Panchang, Arial, sans-serif',
             }}
         >
             <div 
@@ -20,12 +19,21 @@ function Stage() {
             >
                 <h1
                     style={{
-                        fontSize: '6rem',
+                        textShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                        fontSize: '5rem',
+                        textTransform:'lowercase',
+                        fontFamily: 'Panchang, Arial, sans-serif',
+                        marginBlock: '0.75em',
                     }}
                 >
                     Velvet Lips Color Crush
                 </h1>
-                <p>Mauris sit amet risus faucibus, pharetra arcu.</p>
+                <p
+                    style={{
+                        marginBlock: '1.5rem',
+                    }}
+                >Mauris sit amet risus faucibus, pharetra arcu</p>
+                <StageButton />
             </div>
 
         </div>
