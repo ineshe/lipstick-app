@@ -1,3 +1,4 @@
+/* Panchang-regular */
 @font-face {
   font-family: 'Panchang';
   src: url('./assets/fonts/Panchang-Regular.woff2') format('woff2'),
@@ -6,10 +7,38 @@
   font-style: normal;
 }
 
+/* fahkwang-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fahkwang';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/fahkwang-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fahkwang-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fahkwang';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/fahkwang-v17-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fahkwang-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fahkwang';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/fahkwang-v17-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 #root {
   width: 100%;
   --global-content-max-width: 1080px;
   font-family: 'Open Sans Pro', Arial, sans-serif;
+  /* font-family: 'Source Sans Pro', Arial, sans-serif; */
+  font-family: 'Fahkwang', Arial, sans-serif;
+
 }
 
 .viewport-content {
