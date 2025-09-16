@@ -72,17 +72,17 @@ function LipstickAnimation() {
     }, [images]);
     
     return (
-        <div ref={animationWrapper} className='viewport-content' style={{ position: 'relative', height: '500vh', width: '100%' }}>
+        <div ref={animationWrapper} style={{ position: 'relative', height: '500vh', width: '100%' }}>
             <canvas
                 ref={canvasRef}
                 aria-hidden='true'
                 role='presentation'
                 style={{
-                    position: 'fixed',
+                    position: 'sticky',
                     left: '0',
                     top: '0',
-                    width: '100%',
-                    height: '100%',
+                    width: '100vw',
+                    height: '100vh',
                 }}
             />
             <UspList />

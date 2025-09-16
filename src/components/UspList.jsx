@@ -17,10 +17,9 @@ function UspList() {
     }];
 
     const uspList = usps.map((usp) => {
-        const start = 50;
-        const step = 100;
-        const top = `${start + (usp.id + 1) * step}vh`;
         const right = usp.id % 2 === 1 ? '0px' : 'undefined';
+        const step = 25;
+        const top = `${(usp.id + 1) * step}%`;
 
         return (
             <motion.div 
