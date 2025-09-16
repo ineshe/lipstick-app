@@ -7,7 +7,7 @@ import Stage from './StageText';
 function LipstickAnimation() {
     const animationWrapper = useRef(null);
     const canvasRef = useRef(null);
-    const frameCount = 100;
+    const frameCount = 140;
     const { scrollYProgress } = useScroll({
         target: animationWrapper,
         offset: ['start start', 'end end']
