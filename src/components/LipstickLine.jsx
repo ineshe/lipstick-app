@@ -1,12 +1,8 @@
+import "./LipstickLine.css";
+
 function LipstickLine() {
     return (
-        <div 
-            style={{
-                position: 'absolute',
-                inset: '-10% -10%',
-                background: 'url("/assets/lipstick-line.png") center/contain no-repeat',
-            }}
-        ></div>
+        <div className="lipstick-line"></div>
     )
 }
 
