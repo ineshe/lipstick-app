@@ -2,7 +2,7 @@ import './Menu.css';
 
 function Menu() {
     return (
-        <div className='top-bar-border'>
+        <div className='top-bar-wrapper'>
             <div className='top-bar'>
                 <nav className='menu'>
                     <ul className='menu-list'>
