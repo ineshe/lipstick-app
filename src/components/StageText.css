@@ -12,9 +12,12 @@
 }
 
 .stage-headline {
+/*     font-family: 'Panchang', Arial, sans-serif;
     font-size: 5rem;
-    text-transform: lowercase;
-    font-family: 'Panchang', Arial, sans-serif;
+    font-family: 'Camforta', Arial, sans-serif;
+    font-family: 'Josefin Sans', Arial, sans-serif; */
+    font-family: 'Candal', Arial, sans-serif;
+    font-size: 6rem;
     margin-block: 0.75em;
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }

@@ -7,8 +7,10 @@
 .usp-headline {
     font-size: 2.75rem;
     margin-block: 0;
-    font-family: 'Panchang';
-    text-transform: lowercase;
+    /* font-family: 'Panchang'; */
+    font-family: 'Candal', Arial, sans-serif;
+    font-weight: 500;
+    /* text-transform: lowercase; */
 }
 
 .usp-content {
