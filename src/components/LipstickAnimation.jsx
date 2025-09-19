@@ -62,13 +62,26 @@ function LipstickAnimation() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const scale = canvas.width / img.naturalWidth;
-        const imgHeight = img.naturalHeight * scale;
+        // "Cover"-Verhalten wie bei CSS background-size: cover
+        const canvasRatio = canvas.width / canvas.height;
+        const imgRatio = img.naturalWidth / img.naturalHeight;
 
-        // center image vertically
-        const y = (canvas.height - imgHeight) / 2;
+        let drawWidth, drawHeight;
+        if (imgRatio > canvasRatio) {
+            // Bild ist breiter als Canvas, also an Höhe anpassen
+            drawHeight = canvas.height;
+            drawWidth = img.naturalWidth * (canvas.height / img.naturalHeight);
+        } else {
+            // Bild ist höher als Canvas, also an Breite anpassen
+            drawWidth = canvas.width;
+            drawHeight = img.naturalHeight * (canvas.width / img.naturalWidth);
+        }
 
-        ctx.drawImage(img, 0, y, canvas.width, imgHeight);
+        // center image
+        const x = (canvas.width - drawWidth) / 2;
+        const y = (canvas.height - drawHeight) / 2;
+
+        ctx.drawImage(img, x, y, drawWidth, drawHeight);
     }, [images]);
     
     return (
@@ -81,7 +94,7 @@ function LipstickAnimation() {
                     position: 'sticky',
                     left: '0',
                     top: '0',
-                    width: '100vw',
+                    width: '100%',
                     height: '100vh',
                 }}
             />
