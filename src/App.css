@@ -25,6 +25,149 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Boska-Extralight';
+  src: url('../fonts/Boska-Extralight.woff2') format('woff2'),
+       url('../fonts/Boska-Extralight.woff') format('woff'),
+       url('../fonts/Boska-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-ExtralightItalic';
+  src: url('../fonts/Boska-ExtralightItalic.woff2') format('woff2'),
+       url('../fonts/Boska-ExtralightItalic.woff') format('woff'),
+       url('../fonts/Boska-ExtralightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Light';
+  src: url('../fonts/Boska-Light.woff2') format('woff2'),
+       url('../fonts/Boska-Light.woff') format('woff'),
+       url('../fonts/Boska-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-LightItalic';
+  src: url('../fonts/Boska-LightItalic.woff2') format('woff2'),
+       url('../fonts/Boska-LightItalic.woff') format('woff'),
+       url('../fonts/Boska-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Regular';
+  src: url('../fonts/Boska-Regular.woff2') format('woff2'),
+       url('../fonts/Boska-Regular.woff') format('woff'),
+       url('../fonts/Boska-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-Italic';
+  src: url('../fonts/Boska-Italic.woff2') format('woff2'),
+       url('../fonts/Boska-Italic.woff') format('woff'),
+       url('../fonts/Boska-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Medium';
+  src: url('../fonts/Boska-Medium.woff2') format('woff2'),
+       url('../fonts/Boska-Medium.woff') format('woff'),
+       url('../fonts/Boska-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-MediumItalic';
+  src: url('../fonts/Boska-MediumItalic.woff2') format('woff2'),
+       url('../fonts/Boska-MediumItalic.woff') format('woff'),
+       url('../fonts/Boska-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Bold';
+  src: url('../fonts/Boska-Bold.woff2') format('woff2'),
+       url('../fonts/Boska-Bold.woff') format('woff'),
+       url('../fonts/Boska-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-BoldItalic';
+  src: url('../fonts/Boska-BoldItalic.woff2') format('woff2'),
+       url('../fonts/Boska-BoldItalic.woff') format('woff'),
+       url('../fonts/Boska-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Black';
+  src: url('../fonts/Boska-Black.woff2') format('woff2'),
+       url('../fonts/Boska-Black.woff') format('woff'),
+       url('../fonts/Boska-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-BlackItalic';
+  src: url('../fonts/Boska-BlackItalic.woff2') format('woff2'),
+       url('../fonts/Boska-BlackItalic.woff') format('woff'),
+       url('../fonts/Boska-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: italic;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 200.0;
+*
+* available axes:
+'wght' (range from 200.0 to 900.0
+*/
+@font-face {
+  font-family: 'Boska-Variable';
+  src: url('../fonts/Boska-Variable.woff2') format('woff2'),
+       url('../fonts/Boska-Variable.woff') format('woff'),
+       url('../fonts/Boska-Variable.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 200.0;
+*
+* available axes:
+'wght' (range from 200.0 to 900.0
+*/
+@font-face {
+  font-family: 'Boska-VariableItalic';
+  src: url('../fonts/Boska-VariableItalic.woff2') format('woff2'),
+       url('../fonts/Boska-VariableItalic.woff') format('woff'),
+       url('../fonts/Boska-VariableItalic.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: italic;
+}
+
 /* fahkwang-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -50,122 +193,6 @@
   src: url('./assets/fonts/fahkwang-v17-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* comfortaa-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/comfortaa-v47-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* comfortaa-500 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 500;
-  src: url('./assets/fonts/comfortaa-v47-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* comfortaa-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 600;
-  src: url('./assets/fonts/comfortaa-v47-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* comfortaa-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 700;
-  src: url('./assets/fonts/comfortaa-v47-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* josefin-sans-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/josefin-sans-v34-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-italic - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: italic;
-  font-weight: 400;
-  src: url('./assets/fonts/josefin-sans-v34-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-500 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: normal;
-  font-weight: 500;
-  src: url('./assets/fonts/josefin-sans-v34-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-500italic - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: italic;
-  font-weight: 500;
-  src: url('./assets/fonts/josefin-sans-v34-latin-500italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: url('./assets/fonts/josefin-sans-v34-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-600italic - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: italic;
-  font-weight: 600;
-  src: url('./assets/fonts/josefin-sans-v34-latin-600italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: url('./assets/fonts/josefin-sans-v34-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* josefin-sans-700italic - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Josefin Sans';
-  font-style: italic;
-  font-weight: 700;
-  src: url('./assets/fonts/josefin-sans-v34-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* candal-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Candal';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/candal-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* merriweather-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/merriweather-v33-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
 /* lora-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -175,10 +202,133 @@
   src: url('./assets/fonts/lora-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* Sedgwick Ave */
+/* Lobster */
+/* Cormorant Infant */
+/* Merriweather */
+/* Candal */
+/* Josefin Sans */
+/* Comfortaa */
+
+/* birthstone-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Birthstone';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/birthstone-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* allura-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Allura';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/allura-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* vujahday-script-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Vujahday Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/vujahday-script-v10-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* yellowtail-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/yellowtail-v25-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* permanent-marker-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/permanent-marker-v16-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kaushan-script-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Kaushan Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/kaushan-script-v19-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* sedgwick-ave-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Sedgwick Ave';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/sedgwick-ave-v13-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* protest-riot-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Protest Riot';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/protest-riot-v2-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* caramel-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Caramel';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/caramel-v8-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* caveat-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/caveat-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* caveat-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/caveat-v23-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* caveat-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/caveat-v23-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* caveat-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/caveat-v23-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 #root {
   width: 100%;
-  --global-content-max-width: 1080px;
-  font-family: 'Lora', Arial, sans-serif;
+  --global-content-max-width: 1260px;
+  font-family: 'Fahkwang', Arial, sans-serif;
 }
 
 .viewport-content {
