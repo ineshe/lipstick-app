@@ -1,6 +1,6 @@
 .lipstick-line {
     position: absolute;
+    inset: 0;
     z-index: -1;
-    inset: -10% -10%;
     background: url("/assets/lipstick-line.webp") center/contain no-repeat;
 } 
