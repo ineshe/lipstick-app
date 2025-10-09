@@ -1,27 +1,23 @@
 .stage-wrapper {
     position: absolute;
     inset: 0px;
-    height: 100vh;
-    width: 100vw;
 }
 
 .stage-content {
     position: relative;
-    margin-top: 14%;
-    margin-left: 5%;
+    padding-top: 100px;
 }
 
 .stage-headline {
-/*     font-family: 'Panchang', Arial, sans-serif;
-    font-size: 5rem;
-    font-family: 'Camforta', Arial, sans-serif;
-    font-family: 'Josefin Sans', Arial, sans-serif; */
-    font-family: 'Candal', Arial, sans-serif;
-    font-size: 6rem;
-    margin-block: 0.75em;
+    font-family: 'Sedgwick Ave', cursive;
+    font-weight: 700;
+    font-size: clamp(4rem, 20vw, 10rem);
+    line-height: 1.2;
+    margin-block: 0.4em;
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 .stage-subline {
     margin-block: 1.5rem;
+    font-size: larger;
 }
