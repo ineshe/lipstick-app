@@ -1,19 +1,31 @@
-.usp-animation {
+.usp-list-wrapper {
+    position: absolute;
+    inset: 0;
+}
+
+.usp-item {
     position: absolute;
     max-width: 35%;
     padding: '1rem';
 }
 
-.usp-headline {
-    font-size: 2.75rem;
-    margin-block: 0;
-    /* font-family: 'Panchang'; */
-    font-family: 'Candal', Arial, sans-serif;
-    font-weight: 500;
-    /* text-transform: lowercase; */
+.usp-item.left {
+    left: 0;
 }
 
-.usp-content {
+.usp-item.right {
+    right: 0;
+}
+
+.usp-item-headline {
+    font-size: 3.5rem;
+    margin-block: 0;
+    font-family: 'Caveat', cursive;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.usp-item-content {
     font-size: 1.25rem;
     color: #999;
     margin-block: 0.5rem;

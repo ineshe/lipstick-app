@@ -17,16 +17,15 @@ function UspList() {
     }];
 
     const uspList = usps.map((usp) => {
-        const right = usp.id % 2 === 1 ? '0px' : 'undefined';
+        const side = usp.id % 2 === 0 ? 'left' : 'right';
         const step = 25;
         const top = `${(usp.id + 1) * step}%`;
 
         return (
             <motion.div 
-                className='usp-animation'
+                className={`usp-item ${side}`}
                 style={{
-                    top,
-                    right,
+                    top
                 }}
                 key={usp.id}
                 initial= {{ opacity: 0 }}
@@ -39,13 +38,17 @@ function UspList() {
                 }}
                 viewport={{ margin: '-30% 0px -30% 0px' }}
             >
-                <h2 className='usp-headline'>{usp.headline}</h2>
-                <p className='usp-content'>{usp.content}</p>
+                <h2 className='usp-item-headline'>{usp.headline}</h2>
+                <p className='usp-item-content'>{usp.content}</p>
             </motion.div>
         );
     });
 
-    return uspList;
+    return (
+        <div className="usp-list-wrapper viewport-content">
+            {uspList}
+        </div>
+    );
 }
 
 export default UspList
