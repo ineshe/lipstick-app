@@ -7,8 +7,10 @@ function StageButton() {
             style={{
                 color: 'white',
                 marginTop: '1.5rem',
-                borderRadius: '3px',
+                borderRadius: '2px',
                 fontWeight: '600',
+                fontSize: '1.2rem',
+                padding: '1rem',
             }}
         >Jetzt sichern</button>
     );
