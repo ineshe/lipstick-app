@@ -1,0 +1,73 @@
+
+
+.customer-reviews-container {
+    display: flex;
+    padding-block: 1.5rem;
+    gap: 1.5rem;
+}
+
+.review-box {
+    flex: 1;
+    padding: 1.5rem;
+    color: #cccccc;
+}
+
+.review-image {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-inline: auto;
+}
+
+.review-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-title {
+    font-weight: 600;
+    color: white;
+}
+
+.review-author {
+    font-style: italic;
+    font-size: 0.875em;
+}
+
+/* glowing-border */
+
+.glowing-border {
+    --glow-intensity: 0.125;
+    --glow-size: 1rem;
+    --border-width: 2px;
+    position: relative;
+    isolation: isolate;
+    border: var(--border-width) solid transparent;
+    background: 
+        linear-gradient(var(--background-color, canvas) 0 0) padding-box,
+        linear-gradient(45deg, #ff6f91, #8d2f45) border-box;
+}
+
+.glowing-border::before,
+.glowing-border::after {
+    content: '';
+    position: absolute;
+}
+
+.glowing-border::before {
+    z-index: -1;
+    background: var(--background-color, canvas);
+    inset: 0.5rem;
+    filter: blur(var(--glow-size, 1rem));
+}
+
+.glowing-border::after {
+    z-index: -2;
+    inset: -0.5rem;
+    background: linear-gradient(45deg, #ff6f91, #8d2f45) border-box;
+    filter: blur(var(--glow-size, 1rem));
+    opacity: var(--glow-intensity, 0.125);
+}
+
