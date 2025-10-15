@@ -1,22 +1,48 @@
 
 
-.customer-reviews-container {
-    display: flex;
+.reviews-container {
+    --glow-size: 1rem;
     padding-block: 1.5rem;
-    gap: 1.5rem;
+    padding-inline: 2rem;
+    box-sizing: border-box;
+}
+
+.reviews-grid {
+    --grid-max-col-count: 3;
+    --grid-min-col-size: 200px;
+    --grid-gap: 1.2rem;
+    --grid-padding-inline: 2rem;
+
+    --grid-col-size-calc: calc(
+        (100% - var(--grid-gap) * (var(--grid-max-col-count) - 1) /* + var(--grid-padding-inline) */) /
+        var(--grid-max-col-count)
+    );
+
+    display: grid;
+    gap: var(--grid-gap);
+    grid-auto-flow: column;
+    grid-auto-columns: var(--grid-col-size-calc);    
+    padding-block: var(--glow-size);
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
 }
 
 .review-box {
-    flex: 1;
     padding: 1.5rem;
     color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    scroll-snap-align: center;
 }
 
 .review-image {
     width: 50px;
     height: 50px;
-    display: block;
     margin-inline: auto;
+    padding-bottom: 0.5rem;
 }
 
 .review-image img {
@@ -31,16 +57,22 @@
     color: white;
 }
 
+.review-content {
+    flex: 1;
+}
+
 .review-author {
     font-style: italic;
     font-size: 0.875em;
+    height: 2.625rem;
+    margin-top: 0;
 }
 
 /* glowing-border */
 
 .glowing-border {
     --glow-intensity: 0.125;
-    --glow-size: 1rem;
+    
     --border-width: 2px;
     position: relative;
     isolation: isolate;
@@ -66,6 +98,7 @@
 .glowing-border::after {
     z-index: -2;
     inset: -0.5rem;
+    /* inset: 0; */
     background: linear-gradient(45deg, #ff6f91, #8d2f45) border-box;
     filter: blur(var(--glow-size, 1rem));
     opacity: var(--glow-intensity, 0.125);
