@@ -25,7 +25,7 @@
     padding-block: var(--glow-size);
     overflow-x: auto;
     scrollbar-width: none;
-    scroll-snap-type: x mandatory;
+    /* scroll-snap-type: x mandatory; */
 }
 
 .review-box {
@@ -35,7 +35,7 @@
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    scroll-snap-align: center;
+    /* scroll-snap-align: center; */
 }
 
 .review-image {

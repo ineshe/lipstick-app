@@ -1,74 +1,62 @@
+import { REVIEWS_DATA } from '../utils/reviews-data';
 import './CustomerReviews.css';
+import { useRef, useState } from 'react';
+import CustomerReview from './CustomerReview';
 
 function CustomerReviews() {
+
+    const reviews = REVIEWS_DATA;
+    const firstSlide = reviews[0];
+    const secondSlide = reviews[1];
+    const thirdSlide = reviews[2];
+
+    const carouselRef = useRef(null);
+
+    // array of refs for each review DOM node (must be direct children of .reviews-grid)
+    const itemRefs = useRef([]);
+
+    const [rvIndex, setRvIndex] = useState(1);
+
+    const onClickNext = () => {
+        const next = (rvIndex + 1) % reviews.length;
+        setRvIndex(next);
+        scrollToIndex(next);
+    };
+
+    const onClickPrev = () => {
+        const prev = (rvIndex - 1 + reviews.length) % reviews.length;
+        setRvIndex(prev);
+        scrollToIndex(prev);
+    };
+
+    const scrollToIndex = (index) => {
+        const el = itemRefs.current[index];
+        if (!el) return;
+        // center the item in the horizontal scroll container; scroll-snap will help final alignment
+        el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    };
+
     return (
         <div className="reviews-container viewport-content">
-            <div className="reviews-grid">
-                <div className="review-box glowing-border">
-                    <div>
-                        <div className="review-image">
-                            <img src="https://placehold.co/50x50/orange/white?text=C" alt="Foto Person" />
-                        </div>
-                        <p className="review-title">Hält super gut :D</p>
-                        <p className="review-content">Ich trage sie täglich im Büro – und selbst nach dem Mittagessen sitzt die Farbe noch perfekt.</p>
+            <div ref={carouselRef} className="reviews-grid">
+                {reviews.map((review, idx) => (
+                    // direct child of .reviews-grid — attach ref here so scrollIntoView targets whole grid item
+                    <div
+                        key={review.id}
+                        ref={el => (itemRefs.current[idx] = el)}
+                        // wrapper class is optional — grid sizing comes from the child (.review-box)
+                        className="review-box glowing-border">
+                        <CustomerReview review={review} />
                     </div>
-                    <p className="review-author">Sophie M., (29), Marketing Managerin aus München</p>
-                </div>
-                <div className="review-box glowing-border">                
-                    <div>
-                        <div className="review-image">
-                            <img src="https://placehold.co/50x50/orange/white?text=C" alt="Foto Person" />
-                        </div>
-                        <p className="review-title">Mein Geheimnis für diesen "Wow"-Moment.</p>
-                        <p className="review-content">Seit ich Luminous Color Crush verwende, bekomme ich oft Komplimente. Die Farbe hält stundenlang, fühlt sich federleicht an und lässt meinen Teint strahlen. Bei jedem Anlass.</p>                    
-                    </div>
-                    <p className="review-author">Clara R., (34), Visagistin</p>
-                </div>
-                <div className="review-box glowing-border">
-                    <div>
-                        <div className="review-image">
-                            <img src="https://placehold.co/50x50/orange/white?text=C" alt="Foto Person" />
-                        </div>
-                        <p className="review-title">Sofort verliebt!</p>
-                        <p className="review-content">Die Farbe macht jedes Outfit komplett – Einmal aufgetragen, und ich bin ready für den Tag.</p>
-                    </div>
-                    <p className="review-author">Mira K., (26), Content Creatorin</p>
-                </div>
-
-                <div className="review-box glowing-border">
-                    <div>
-                        <div className="review-image">
-                            <img src="https://placehold.co/50x50/orange/white?text=C" alt="Foto Person" />
-                        </div>
-                        <p className="review-title">Hält super gut :D</p>
-                        <p className="review-content">Ich trage sie täglich im Büro – und selbst nach dem Mittagessen sitzt die Farbe noch perfekt.</p>
-                    </div>
-                    <p className="review-author">Sophie M., (29), Marketing Managerin aus München</p>
-                </div>
-                <div className="review-box glowing-border">                
-                    <div>
-                        <div className="review-image">
-                            <img src="https://placehold.co/50x50/orange/white?text=C" alt="Foto Person" />
-                        </div>
-                        <p className="review-title">Mein Geheimnis für diesen "Wow"-Moment.</p>
-                        <p className="review-content">Seit ich Luminous Color Crush verwende, bekomme ich oft Komplimente. Die Farbe hält stundenlang, fühlt sich federleicht an und lässt meinen Teint strahlen. Bei jedem Anlass.</p>                    
-                    </div>
-                    <p className="review-author">Clara R., (34), Visagistin</p>
-                </div>
-                <div className="review-box glowing-border">
-                    <div>
-                        <div className="review-image">
-                            <img src="https://placehold.co/50x50/orange/white?text=C" alt="Foto Person" />
-                        </div>
-                        <p className="review-title">Sofort verliebt!</p>
-                        <p className="review-content">Die Farbe macht jedes Outfit komplett – Einmal aufgetragen, und ich bin ready für den Tag.</p>
-                    </div>
-                    <p className="review-author">Mira K., (26), Content Creatorin</p>
-                </div>
+                ))}
+            </div>
+            <div style={{ marginTop: 12 }}>
+                <button onClick={onClickPrev} aria-label="previous review">Prev</button>
+                <button onClick={onClickNext} aria-label="next review" style={{ marginLeft: 8 }}>Next</button>
             </div>
         </div>
-
     );
+
 }
 
 export default CustomerReviews
