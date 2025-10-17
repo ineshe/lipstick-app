@@ -9,9 +9,8 @@
 }
 
 .stage-headline {
-    font-family: 'Sedgwick Ave', cursive;
-    font-weight: 700;
-    font-size: clamp(4rem, 20vw, 10rem);
+    font-family: 'Permanent Marker', cursive;
+    font-size: clamp(4rem, 20vw, 6rem);
     line-height: 1.2;
     margin-block: 0.4em;
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);
