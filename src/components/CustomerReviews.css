@@ -1,37 +1,38 @@
 
 
 .reviews-container {
-    --glow-size: 1rem;
+    --glow-size: 0.4rem;
+    --glow-spacing: 0.8rem;
     padding-block: 1.5rem;
-    padding-inline: 2rem;
     box-sizing: border-box;
 }
 
 .reviews-grid {
     --grid-max-col-count: 3;
     --grid-min-col-size: 200px;
+    --grid-spacing: max(var(--glow-spacing), 3.5rem);
     --grid-gap: 2rem;
-    --grid-padding-inline: 2rem;
-
     --grid-col-size-calc: calc(
-        (100% - var(--grid-gap) * (var(--grid-max-col-count) - 1)) /
+        (100% - var(--grid-gap) * (var(--grid-max-col-count) - 1)) / 
         var(--grid-max-col-count)
     );
-
     display: grid;
     gap: var(--grid-gap);
     grid-auto-flow: column;
     grid-auto-columns: var(--grid-col-size-calc);    
-    padding: calc(var(--glow-size));
+    padding: var(--glow-spacing) var(--grid-spacing);
     overflow-x: auto;
     scrollbar-width: none;
     /* scroll-snap-type: x mandatory; */
+    
+    box-sizing: border-box;
+    mask: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .reviews-flex {
     display: flex;
     gap: 1.2rem;
-    padding-block: var(--glow-size);
+    padding-block: var(--glow-spacing);
     padding-inline: 2rem;
     overflow-x: auto;
     scrollbar-width: none;
