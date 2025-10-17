@@ -10,7 +10,7 @@
 .reviews-grid {
     --grid-max-col-count: 3;
     --grid-min-col-size: 200px;
-    --grid-gap: 1.2rem;
+    --grid-gap: 2rem;
     --grid-padding-inline: 2rem;
 
     --grid-col-size-calc: calc(
@@ -22,13 +22,24 @@
     gap: var(--grid-gap);
     grid-auto-flow: column;
     grid-auto-columns: var(--grid-col-size-calc);    
+    padding: calc(var(--glow-size));
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* scroll-snap-type: x mandatory; */
+}
+
+.reviews-flex {
+    display: flex;
+    gap: 1.2rem;
     padding-block: var(--glow-size);
+    padding-inline: 2rem;
     overflow-x: auto;
     scrollbar-width: none;
     /* scroll-snap-type: x mandatory; */
 }
 
 .review-box {
+    min-width: 300px;
     padding: 1.5rem;
     color: #cccccc;
     display: flex;
