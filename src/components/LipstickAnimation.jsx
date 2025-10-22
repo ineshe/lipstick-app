@@ -85,7 +85,7 @@ function LipstickAnimation() {
     }, [images]);
     
     return (
-        <div ref={animationWrapper} style={{ position: 'relative', height: '400vh', width: '100%' }}>
+        <div ref={animationWrapper} style={{ position: 'relative', height: '300vh', width: '100%' }}>
             <canvas
                 ref={canvasRef}
                 aria-hidden='true'
