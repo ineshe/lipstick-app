@@ -2,52 +2,53 @@
 
 .reviews-container {
     --glow-size: 0.4rem;
-    --glow-spacing: 0.8rem;
+    --glow-space: 0.8rem;
+    --grid-space: max(var(--glow-space), 3%, 3rem);
     padding-block: 1.5rem;
     box-sizing: border-box;
+    /* position: relative; */
 }
 
 .reviews-grid {
-    --grid-max-col-count: 3;
-    --grid-min-col-size: 200px;
-    --grid-spacing: max(var(--glow-spacing), 3.5rem);
-    --grid-gap: 2rem;
-    --grid-col-size-calc: calc(
-        (100% - var(--grid-gap) * (var(--grid-max-col-count) - 1)) / 
+    --grid-max-col-count: 1;    
+    --grid-col-size: calc(
+        (100% - var(--grid-space) * (var(--grid-max-col-count) - 1)) / 
         var(--grid-max-col-count)
     );
     display: grid;
-    gap: var(--grid-gap);
+    gap: var(--grid-space);
     grid-auto-flow: column;
-    grid-auto-columns: var(--grid-col-size-calc);    
-    padding: var(--glow-spacing) var(--grid-spacing);
-    overflow-x: auto;
-    scrollbar-width: none;
-    /* scroll-snap-type: x mandatory; */
-    
+    grid-auto-columns: var(--grid-col-size); 
+    justify-items: stretch;   
+    padding: var(--glow-space) var(--grid-space);
+    overflow-x: scroll;
+    scrollbar-width: none;    
     box-sizing: border-box;
-    mask: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
 }
 
-.reviews-flex {
-    display: flex;
-    gap: 1.2rem;
-    padding-block: var(--glow-spacing);
-    padding-inline: 2rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    /* scroll-snap-type: x mandatory; */
+@media (min-width: 768px) {
+    .reviews-grid {
+        --grid-max-col-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .reviews-grid {
+        --grid-max-col-count: 3;
+    }
 }
 
 .review-box {
-    min-width: 300px;
+    /* min-width: 300px; */
     padding: 1.5rem;
     color: #cccccc;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    /* scroll-snap-align: center; */
+    hyphens: auto;
+    /* hyphenate-limit-chars: auto; */
 }
 
 .review-image {
@@ -98,6 +99,7 @@
 .glowing-border::after {
     content: '';
     position: absolute;
+    pointer-events: none;
 }
 
 .glowing-border::before {
@@ -115,3 +117,25 @@
     opacity: var(--glow-intensity, 0.125);
 }
 
+/* buttons */
+
+.review-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-right: var(--grid-space);
+    padding-top: 1rem;
+}
+
+.review-buttons > button:hover {
+    border-color: transparent;
+}
+
+.review-buttons > button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.review-buttons > button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
