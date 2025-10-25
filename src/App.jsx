@@ -4,6 +4,7 @@ import LipstickAnimation from './components/LipstickAnimation';
 import LipstickLine from './components/LipstickLine';
 import Menu from './components/Menu';
 import CustomerReviews from './components/CustomerReviews';
+import Footer from './components/Footer';
 
 function App() {
     
@@ -14,7 +15,8 @@ function App() {
             <LipstickAnimation />
             <Stage />
             <CustomerReviews />
-            <div style={{ height: '100vh', width: '100%' }}></div>
+            <Footer />
+            {/* <div style={{ height: '100vh', width: '100%' }}></div> */}
         </>
     )
 }
