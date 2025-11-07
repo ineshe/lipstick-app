@@ -1,8 +1,19 @@
+import { useScroll, useMotionValueEvent } from 'motion/react';
+import { useState } from 'react';
 import './Header.css';
 
 function Header() {
+
+    const { scrollY } = useScroll()
+    const [hidden, setHidden] = useState(false)
+
+    useMotionValueEvent(scrollY, "change", (current) => {
+        const diff = current - scrollY.getPrevious()
+        setHidden(diff > 0 ? true : false)
+    })
+
     return (
-        <div className='top-bar-wrapper'>
+        <div className={`top-bar-wrapper ${hidden ? "hidden" : ""}`}>
             <div className='top-bar'>
                 <nav className='menu'>
                     <ul className='menu-list'>
