@@ -2,7 +2,7 @@ import './App.css';
 import Stage from './components/StageText';
 import LipstickAnimation from './components/LipstickAnimation';
 import LipstickLine from './components/LipstickLine';
-import Menu from './components/Menu';
+import Header from './components/Header';
 import CustomerReviews from './components/CustomerReviews';
 import Footer from './components/Footer';
 
@@ -10,7 +10,7 @@ function App() {
     
     return (
         <>
-            <Menu />
+            <Header />
             <LipstickLine />
             <LipstickAnimation />
             <Stage />

@@ -1,6 +1,6 @@
-import './Menu.css';
+import './Header.css';
 
-function Menu() {
+function Header() {
     return (
         <div className='top-bar-wrapper'>
             <div className='top-bar'>
@@ -17,4 +17,4 @@ function Menu() {
     );
 }
 
-export default Menu
+export default Header
