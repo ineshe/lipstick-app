@@ -1,9 +1,19 @@
 import "./LipstickLine.css";
+import { useScroll, useMotionValueEvent } from 'motion/react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
 
 function LipstickLine() {
+    const { scrollY } = useScroll()
+    const [hidden, setHidden] = useState(false);
+    const THRESHOLD = 150;
+
+    useMotionValueEvent(scrollY, "change", (current) => {
+        setHidden(current < THRESHOLD ? false : true)
+    })
+
     return (
-        <div className="lipstick-line-wrapper">
+        <div className={`lipstick-line-wrapper ${hidden ? "hidden" : ""}`}>
             <motion.svg
                 id="lipstick-line"
                 height="100vh"
