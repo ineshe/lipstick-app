@@ -2,6 +2,7 @@
     position: fixed;
     inset: 0;
     transition: opacity 240ms ease;
+    pointer-events: none;
 }
 
 .lipstick-line-wrapper.hidden {
