@@ -3,7 +3,7 @@ import './StageText.css';
 
 function Stage() {
     return (
-        <div className='stage-wrapper'>
+        <div className='stage-wrapper viewport-content'>
             <div className='stage-content'>
                 <h1 className='stage-headline'>
                     <span>Lumines Color Crush</span>
