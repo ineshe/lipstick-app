@@ -328,6 +328,7 @@
 #root {
   width: 100%;
   --global-content-max-width: 1260px;
+  --primary-text-color-toned-down: #dbdbdb;
   font-family: 'Fahkwang', Arial, sans-serif;
 }
 
