@@ -7,14 +7,15 @@ import { motion } from 'motion/react';
 function CustomerReviews() {
 
     const reviews = REVIEWS_DATA;
-    const [currentIndex, setCurrentIndex] = useState(2);
+    const [currentIndex, setCurrentIndex] = useState(1);
     const scrollRef = useRef(null);
     const itemRefs = useRef([]);
 
-    useEffect(() => {
-        const el = itemRefs.current[currentIndex];
-        el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }, [currentIndex]);
+    function handleClick(targetIndex) {
+        setCurrentIndex(targetIndex);
+        const el = itemRefs.current[targetIndex];
+        if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
 
     return (
         <div className="reviews-container viewport-content">
@@ -22,11 +23,11 @@ function CustomerReviews() {
                 className="reviews-grid"
                 ref={scrollRef}
             >
-                {reviews.map(review => (
+                {reviews.map((review, index) => (
                     <motion.div
                         key={review.id}
-                        ref={el => (itemRefs.current[review.id] = el)}
-                        className="review-box glowing-border"
+                        ref={el => (itemRefs.current[index] = el)}
+                        className="review-box"
                         viewport={{ root: scrollRef, amount: 0.2 }}
                     >
                         <CustomerReview review={review} />
@@ -34,12 +35,11 @@ function CustomerReviews() {
                 ))}
             </div>
             <div className="review-buttons">
-                <button className="glowing-border" onClick={() => setCurrentIndex(i => Math.max(2, i - 1))} aria-label="previous review">Prev</button>
-                <button className="glowing-border" onClick={() => setCurrentIndex(i => Math.min(reviews.length - 1, i + 1))} aria-label="next review">Next</button>
+                <button className="background" onClick={() => handleClick(Math.max(1, currentIndex - 1))} aria-label="previous review">Prev</button>
+                <button className="background" onClick={() => handleClick(Math.min(reviews.length - 2, currentIndex + 1))} aria-label="next review">Next</button>
             </div>
         </div>
     );
-
 }
 
 export default CustomerReviews

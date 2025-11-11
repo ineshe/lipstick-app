@@ -7,6 +7,7 @@
     padding-block: 1.5rem;
     box-sizing: border-box;
     /* position: relative; */
+    --color-bg-reviews: #4b0d36;
 }
 
 .reviews-grid {
@@ -42,12 +43,16 @@
 .review-box {
     /* min-width: 300px; */
     padding: 1.5rem;
-    color: #cccccc;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
     hyphens: auto;
+    /* border: black 1px solid; */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    background: var(--color-bg-reviews);
+    /* background: #1f1f1f; */
     /* hyphenate-limit-chars: auto; */
 }
 
@@ -125,6 +130,10 @@
     gap: 1rem;
     padding-right: var(--grid-space);
     padding-top: 1rem;
+}
+
+.review-buttons > button {
+    background: var(--color-bg-reviews);
 }
 
 .review-buttons > button:hover {
