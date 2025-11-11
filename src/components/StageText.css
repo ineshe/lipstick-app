@@ -19,4 +19,5 @@
 .stage-subline {
     margin-block: 1.5rem;
     font-size: larger;
+    color: var(--primary-text-color-toned-down);
 }

@@ -26,6 +26,6 @@
 
 .usp-item-content {
     font-size: 1.25rem;
-    color: #999;
+    color: var(--primary-text-color-toned-down);
     margin-block: 0.5rem;
 }
