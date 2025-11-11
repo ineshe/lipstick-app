@@ -4,28 +4,29 @@ import './UspList.css';
 function UspList() {
     const usps = [{
         id: 0,
+        top: '30%',
         headline: 'Pflegend',
         content: 'Intensive Farbe trifft auf pflegende Inhaltsstoffe – für samtweiche Lippen mit jedem Auftrag.'
     }, {
         id: 1,
+        top: '50%',
         headline: 'Langanhaltend',
         content: 'Strahlende Lippenfarbe, die den ganzen Tag hält – ohne Nachschminken, ohne Kompromisse.'
     }, {
         id: 2,
+        top: '70%',
         headline: 'Glanz-Effekt',
         content: 'Spieglein, Glanz – unwiderstehlich strahlende Lippen mit nur einem Auftrag.'
     }];
 
     const uspList = usps.map((usp) => {
         const side = usp.id % 2 === 0 ? 'left' : 'right';
-        const step = 25;
-        const top = `${(usp.id + 1) * step}%`;
 
         return (
             <motion.div 
                 className={`usp-item ${side}`}
                 style={{
-                    top
+                    top: usp.top,
                 }}
                 key={usp.id}
                 initial= {{ opacity: 0 }}
