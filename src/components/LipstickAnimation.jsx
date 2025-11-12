@@ -2,7 +2,6 @@ import { useRef, useEffect, useMemo, useCallback } from 'react';
 import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react';
 import './LipstickAnimation.css';
 import UspList from './UspList';
-import Stage from './StageText';
 
 function LipstickAnimation() {
     const animationWrapper = useRef(null);
