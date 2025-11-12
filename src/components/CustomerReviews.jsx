@@ -19,6 +19,7 @@ function CustomerReviews() {
 
     return (
         <div className="reviews-container viewport-content">
+            <h2>Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
             <div
                 className="reviews-grid"
                 ref={scrollRef}
