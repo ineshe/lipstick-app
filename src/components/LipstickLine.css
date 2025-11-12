@@ -1,14 +1,11 @@
 .lipstick-line-wrapper {
     position: fixed;
-    inset: 0;
+    inset-inline: -20%;
+    inset-block: 0;
     transition: opacity 240ms ease;
     pointer-events: none;
 }
 
 .lipstick-line-wrapper.hidden {
     opacity: 0;
-}
-
-#lipstick-line {
-    width: 100%;
 }

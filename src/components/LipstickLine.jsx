@@ -16,9 +16,10 @@ function LipstickLine() {
         <div className={`lipstick-line-wrapper ${hidden ? "hidden" : ""}`}>
             <motion.svg
                 id="lipstick-line"
+                width="100%"
                 height="100vh"
                 viewBox="0 0 508.00046 209.23792"
-                preserveAspectRatio="xMidYMid slice"
+                preserveAspectRatio="xMinYMid slice"
             >
                 <g transform="translate(-0.48268955,-43.711266)">
                     <path
