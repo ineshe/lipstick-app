@@ -18,22 +18,21 @@ function Header() {
         hidden: { 
             y: -100, 
             opacity: 0,
-            transition: { duration: 0.18, ease: "easeInOut" }
+            transition: { duration: 0.12, ease: "easeInOut" }
         },
         top: {
             y: 0, opacity: 1,
             backgroundColor: 'rgba(0,0,0,0)',
-            // boxShadow: 'none',
             backdropFilter: 'none',
-            WebkitBackdropFilter: 'none'
+            WebkitBackdropFilter: 'none',
+            transition: { duration: 0.06, ease: "easeInOut" }
         },
         scrolled: {
             y: 0, opacity: 1,
             backgroundColor: 'rgba(0,0,0,0.2)',
-            // boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
             backdropFilter: 'blur(5px)',
             WebkitBackdropFilter: 'blur(5px)',
-            transition: { duration: 0.36, ease: "easeInOut" }
+            transition: { duration: 0.12, ease: "easeInOut" }
         }
     }
 
