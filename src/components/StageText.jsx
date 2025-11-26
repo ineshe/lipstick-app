@@ -6,7 +6,7 @@ function Stage() {
         <div className='stage-wrapper viewport-content'>
             <div className='stage-content'>
                 <h1 className='stage-headline'>
-                    Lumines Lips Color Crush
+                    Lumines Lips ColorCrush&reg;
                 </h1>
                 <p className='stage-subline'>
                     Mauris sit amet risus faucibus, pharetra arcu
