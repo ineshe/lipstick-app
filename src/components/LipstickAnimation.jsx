@@ -1,20 +1,26 @@
-import { useRef, useEffect, useMemo, useCallback } from 'react';
+import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react';
 import './LipstickAnimation.css';
 import UspList from './UspList';
+import useIsMobile from '../hooks/use-is-mobile';
 
 function LipstickAnimation() {
-    const animationWrapper = useRef(null);
+    const animationSpacer = useRef(null);
     const canvasRef = useRef(null);
     const frameCount = 140;
     const { scrollYProgress } = useScroll({
-        target: animationWrapper,
+        target: animationSpacer,
         offset: ['start start', 'end end']
     });
     const currentFrame = index => (
         `/assets/image-sequenz/Render${index
         .toString()
         .padStart(4, '0')}.webp`
+    );
+    const { isMobile } = useIsMobile();
+    const xForMobile = useTransform(
+        scrollYProgress, [0, 0.2],
+        ['25%', '-25%']
     );
 
     const lastIndexRef = useRef(1);
@@ -52,6 +58,8 @@ function LipstickAnimation() {
         const ctx = canvas?.getContext('2d');
         if(!ctx) return;
 
+        const MAX_DRAW_WIDTH = 1000;
+
         const img = images[index - 1];
         if (!img.complete) {
             img.onload = () => drawFrame(index);
@@ -61,20 +69,9 @@ function LipstickAnimation() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // "Cover"-Verhalten wie bei CSS background-size: cover
-        const canvasRatio = canvas.width / canvas.height;
-        const imgRatio = img.naturalWidth / img.naturalHeight;
-
         let drawWidth, drawHeight;
-        if (imgRatio > canvasRatio) {
-            // Bild ist breiter als Canvas, also an Höhe anpassen
-            drawHeight = canvas.height;
-            drawWidth = img.naturalWidth * (canvas.height / img.naturalHeight);
-        } else {
-            // Bild ist höher als Canvas, also an Breite anpassen
-            drawWidth = canvas.width;
-            drawHeight = img.naturalHeight * (canvas.width / img.naturalWidth);
-        }
+        drawWidth = Math.min(canvas.width, MAX_DRAW_WIDTH);
+        drawHeight = img.naturalHeight * (drawWidth / img.naturalWidth);
 
         // center image
         const x = (canvas.width - drawWidth) / 2;
@@ -84,8 +81,9 @@ function LipstickAnimation() {
     }, [images]);
     
     return (
-        <div ref={animationWrapper} style={{ position: 'relative', height: '300vh', width: '100%' }}>
-            <canvas
+        <div ref={animationSpacer} style={{ position: 'relative', height: '300vh', width: '100%' }}>
+            <motion.canvas
+                id='lipstick'
                 ref={canvasRef}
                 aria-hidden='true'
                 role='presentation'
@@ -93,8 +91,9 @@ function LipstickAnimation() {
                     position: 'sticky',
                     left: '0',
                     top: '0',
-                    width: '100%',
+                    width: '100vw',
                     height: '100vh',
+                    x: isMobile ? xForMobile : '0%',
                 }}
             />
             <UspList />
