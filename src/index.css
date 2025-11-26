@@ -57,6 +57,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+* > :first-child { margin-top: 0 !important; margin-left: 0 !important; }
+* > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
