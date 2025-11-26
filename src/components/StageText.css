@@ -1,19 +1,25 @@
 .stage-wrapper {
     position: absolute;
+    display: grid;
+    grid-template-columns: 43% 57%;
+    place-items: center;
     inset: 0px;
 }
 
 .stage-content {
-    position: relative;
-    padding-top: 100px;
+    grid-column: 2;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .stage-headline {
     font-family: 'Permanent Marker', cursive;
-    font-size: clamp(4rem, 20vw, 6rem);
+    font-size: clamp(2.8rem, 12vw, 5.8rem);
     line-height: 1.2;
     margin-block: 0.4em;
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    hyphens: word;
+    word-break: normal;
 }
 
 .stage-subline {
