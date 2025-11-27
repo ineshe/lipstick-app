@@ -81,7 +81,7 @@ function LipstickAnimation() {
     }, [images]);
     
     return (
-        <div ref={animationSpacer} style={{ position: 'relative', height: '300vh', width: '100%' }}>
+        <div className="lipstick-animation-wrapper" ref={animationSpacer}>
             <motion.canvas
                 id='lipstick'
                 ref={canvasRef}
@@ -91,7 +91,7 @@ function LipstickAnimation() {
                     position: 'sticky',
                     left: '0',
                     top: '0',
-                    width: '100vw',
+                    width: '100%',
                     height: '100vh',
                     x: isMobile ? xForMobile : '0%',
                 }}
