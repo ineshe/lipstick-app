@@ -1,5 +1,5 @@
-import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
-import { motion, useScroll, useMotionValueEvent, useTransform } from 'motion/react';
+import { useRef, useEffect, useMemo, useCallback, useState, use } from 'react';
+import { motion, useScroll, useMotionValueEvent, useTransform, scale } from 'motion/react';
 import './LipstickAnimation.css';
 import UspList from './UspList';
 import useIsMobile from '../hooks/use-is-mobile';
@@ -18,9 +18,10 @@ function LipstickAnimation() {
         .padStart(4, '0')}.webp`
     );
     const { isMobile } = useIsMobile();
-    const xForMobile = useTransform(
-        scrollYProgress, [0, 0.2],
-        ['25%', '-25%']
+    const xOffsetNormalized = useTransform(
+        scrollYProgress, 
+        [0, 0.2],
+        isMobile ? [-600, 600] : [0, 0]
     );
 
     const lastIndexRef = useRef(1);
@@ -32,6 +33,10 @@ function LipstickAnimation() {
                 drawFrame(index);
             });
         }
+    });
+
+    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+
     });
     
     const images = useMemo(() => {
@@ -58,8 +63,6 @@ function LipstickAnimation() {
         const ctx = canvas?.getContext('2d');
         if(!ctx) return;
 
-        const MAX_DRAW_WIDTH = 1000;
-
         const img = images[index - 1];
         if (!img.complete) {
             img.onload = () => drawFrame(index);
@@ -69,15 +72,20 @@ function LipstickAnimation() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        let drawWidth, drawHeight;
-        drawWidth = Math.min(canvas.width, MAX_DRAW_WIDTH);
-        drawHeight = img.naturalHeight * (drawWidth / img.naturalWidth);
+        var drawWidth, drawHeight;
+        drawHeight = canvas.height;
+        drawWidth = img.naturalWidth * (drawHeight / img.naturalHeight);
+
+        if(canvas.width < canvas.height) { 
+            drawHeight = drawHeight * 0.75;
+            drawWidth = drawWidth * 0.75;
+        }
 
         // center image
-        const x = (canvas.width - drawWidth) / 2;
-        const y = (canvas.height - drawHeight) / 2;
+        var x = (canvas.width - drawWidth) / 2;
+        var y = (canvas.height - drawHeight) / 2;
 
-        ctx.drawImage(img, x, y, drawWidth, drawHeight);
+        ctx.drawImage(img, xOffsetNormalized.get(), 0, img.naturalWidth, img.naturalHeight, x, y, drawWidth, drawHeight);
     }, [images]);
     
     return (
@@ -93,7 +101,6 @@ function LipstickAnimation() {
                     top: '0',
                     width: '100%',
                     height: '100vh',
-                    x: isMobile ? xForMobile : '0%',
                 }}
             />
             <UspList />
