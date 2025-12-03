@@ -18,25 +18,27 @@ function LipstickAnimation() {
         .padStart(4, '0')}.webp`
     );
     const { isMobile } = useIsMobile();
-    const xOffsetNormalized = useTransform(
+
+    const imgMiddle = useTransform(
         scrollYProgress, 
-        [0, 0.2],
-        isMobile ? [-600, 600] : [0, 0]
+        [0, 0.2], 
+        isMobile ? [0.275, 0.7] : [1, 0.5]
     );
 
     const lastIndexRef = useRef(1);
-    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-        const index = Math.max(1, Math.min(frameCount, Math.floor(latest * frameCount)));
-        if (index !== lastIndexRef.current) {
-            lastIndexRef.current = index; 
-            requestAnimationFrame(() => {
-                drawFrame(index);
-            });
-        }
-    });
+    const reqFrameRef = useRef(null);
 
-    useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+      const index = Math.max(
+        1,
+        Math.min(frameCount, Math.floor(latest * frameCount))
+      );
+      lastIndexRef.current = index;
+      if (reqFrameRef.current) cancelAnimationFrame(reqFrameRef.current);
+      reqFrameRef.current = requestAnimationFrame(() => {
+        drawFrame(index);
+        reqFrameRef.current = null;
+      });
     });
     
     const images = useMemo(() => {
@@ -56,7 +58,11 @@ function LipstickAnimation() {
         const handleResize = () => drawFrame(lastIndexRef.current);
         window.addEventListener('resize', handleResize);
         drawFrame(lastIndexRef.current);
-    }, []);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            if (reqFrameRef.current) cancelAnimationFrame(reqFrameRef.current);
+        };
+    });
 
     const drawFrame = useCallback((index) => {
         const canvas = canvasRef.current;
@@ -69,28 +75,31 @@ function LipstickAnimation() {
             return;
         }
 
+        // set canvas dimensions
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        var drawWidth, drawHeight;
-        drawHeight = canvas.height;
-        drawWidth = img.naturalWidth * (drawHeight / img.naturalHeight);
 
-        if(canvas.width < canvas.height) { 
-            drawHeight = drawHeight * 0.75;
-            drawWidth = drawWidth * 0.75;
+        // set draw dimensions and resets context
+        let drawHeight = canvas.height;
+        let drawWidth = img.naturalWidth * (drawHeight / img.naturalHeight);
+
+        if(isMobile) { 
+            drawHeight *= 0.75;
+            drawWidth *= 0.75;
         }
 
-        // center image
-        var x = (canvas.width - drawWidth) / 2;
+        var x = canvas.width / 2 - drawWidth * imgMiddle.get();
         var y = (canvas.height - drawHeight) / 2;
 
-        ctx.drawImage(img, xOffsetNormalized.get(), 0, img.naturalWidth, img.naturalHeight, x, y, drawWidth, drawHeight);
-    }, [images]);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, x, y, drawWidth, drawHeight);
+
+    }, [images, isMobile, imgMiddle]);
     
     return (
         <div className="lipstick-animation-wrapper" ref={animationSpacer}>
-            <motion.canvas
+            <canvas
                 id='lipstick'
                 ref={canvasRef}
                 aria-hidden='true'
