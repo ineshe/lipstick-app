@@ -1,20 +1,21 @@
 .usp-list-wrapper {
-    position: absolute;
-    inset: 0;
+    position:  relative;
+    /* left: 0; right: 0; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 8rem;
+    align-items: start;
+    width: 100%;
+    overflow: hidden;
 }
 
 .usp-item {
-    position: absolute;
-    max-width: 35%;
-    padding: '1rem';
-}
-
-.usp-item.left {
-    left: 0;
-}
-
-.usp-item.right {
-    right: 0;
+    box-sizing: border-box;
+    width: min(100%, 24ch);
+    padding: 1rem;
+    margin: 1.4rem;
+    grid-column: 2;
 }
 
 .usp-item-headline {
@@ -25,7 +26,17 @@
 }
 
 .usp-item-content {
-    font-size: 1.25rem;
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
     color: var(--primary-text-color-toned-down);
     margin-block: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .usp-item {
+        grid-column: 1 / span 2;
+    }
+
+    .usp-item:nth-child(even) {
+        justify-self: end;
+    }
 }
