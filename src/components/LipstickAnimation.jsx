@@ -3,6 +3,7 @@ import { motion, useScroll, useMotionValueEvent, useTransform, scale } from 'mot
 import './LipstickAnimation.css';
 import UspList from './UspList';
 import useIsMobile from '../hooks/use-is-mobile';
+import Stage from './StageText';
 
 function LipstickAnimation() {
     const animationSpacer = useRef(null);
@@ -112,6 +113,7 @@ function LipstickAnimation() {
                     height: '100vh',
                 }}
             />
+            <Stage />
             <UspList />
         </div>
     )
