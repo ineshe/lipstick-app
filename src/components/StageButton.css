@@ -1,6 +1,15 @@
-.background {
+.btn-bg-translucent {
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.stage-button {
+    color: white;
+    margin-top: 1.5rem;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1rem;
 }
