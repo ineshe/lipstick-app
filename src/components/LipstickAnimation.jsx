@@ -100,6 +100,7 @@ function LipstickAnimation() {
     
     return (
         <div className="lipstick-animation-wrapper" ref={animationSpacer}>
+            
             <canvas
                 id='lipstick'
                 ref={canvasRef}
@@ -111,6 +112,7 @@ function LipstickAnimation() {
                     top: '0',
                     width: '100%',
                     height: '100vh',
+                    zIndex: 7,
                 }}
             />
             <Stage />

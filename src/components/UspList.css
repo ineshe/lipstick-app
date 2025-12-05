@@ -8,6 +8,7 @@
     align-items: start;
     width: 100%;
     overflow: hidden;
+    z-index: 3;
 }
 
 .usp-item {

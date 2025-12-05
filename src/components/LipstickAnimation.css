@@ -1,5 +1,6 @@
 .lipstick-animation-wrapper {
     position: relative;
-    height: 2700px;
+    height: 300vh;
     width: 100%;
+    z-index: 6;
 }
