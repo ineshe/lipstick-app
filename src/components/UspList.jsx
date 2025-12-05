@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
 import './UspList.css';
+import Usp from './Usp';
 
 function UspList() {
     const usps = [{
@@ -16,24 +16,9 @@ function UspList() {
         content: 'Spieglein, Glanz – unwiderstehlich strahlende Lippen mit nur einem Auftrag.'
     }];
 
-    const uspList = usps.map((usp) => {
+    let uspList = usps.map((usp) => {
         return (
-            <motion.div 
-                className='usp-item'
-                key={usp.id}
-                initial= {{ opacity: 0 }}
-                whileInView={{ 
-                    opacity: 1,
-                    transition: { 
-                        duration: 0.8,
-                        default: { ease: 'easeOut' }
-                    }
-                }}
-                viewport={{ margin: '-30% 0px -30% 0px' }}
-            >
-                <h2 className='usp-item-headline'>{usp.headline}</h2>
-                <p className='usp-item-content'>{usp.content}</p>
-            </motion.div>
+            <Usp key={usp.id} usp={usp} />
         );
     });
 

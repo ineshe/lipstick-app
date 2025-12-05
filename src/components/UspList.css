@@ -1,12 +1,10 @@
 .usp-list-wrapper {
     position:  relative;
-    /* left: 0; right: 0; */
+    inset: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    row-gap: 8rem;
+    grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
-    width: 100%;
     overflow: hidden;
     z-index: 3;
 }
