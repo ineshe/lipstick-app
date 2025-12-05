@@ -8,34 +8,3 @@
     overflow: hidden;
     z-index: 3;
 }
-
-.usp-item {
-    box-sizing: border-box;
-    width: min(100%, 24ch);
-    padding: 1rem;
-    margin: 1.4rem;
-    grid-column: 2;
-}
-
-.usp-item-headline {
-    font-size: 2.375rem;
-    letter-spacing: 2px;
-    margin-block: 0;
-    font-family: 'Permanent Marker', cursive;
-}
-
-.usp-item-content {
-    font-size: clamp(0.8rem, 3vw, 1.5rem);
-    color: var(--primary-text-color-toned-down);
-    margin-block: 0.5rem;
-}
-
-@media (min-width: 768px) {
-    .usp-item {
-        grid-column: 1 / span 2;
-    }
-
-    .usp-item:nth-child(even) {
-        justify-self: end;
-    }
-}

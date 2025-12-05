@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import './UspList.css';
+import './Usp.css';
 
 function Usp({ usp }) {
     return (
