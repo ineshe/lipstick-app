@@ -22,7 +22,7 @@ function LipstickAnimation() {
 
     const imgMiddle = useTransform(
         scrollYProgress, 
-        [0, 0.2], 
+        [0, 0.1], 
         isMobile ? [0.275, 0.7] : [1, 0.5]
     );
 
