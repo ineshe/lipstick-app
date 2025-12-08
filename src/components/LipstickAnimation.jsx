@@ -1,7 +1,7 @@
 import { useRef, useEffect, useMemo, useCallback, useState, use } from 'react';
 import { motion, useScroll, useMotionValueEvent, useTransform, scale } from 'motion/react';
 import './LipstickAnimation.css';
-import UspList from './UspList';
+import UspList from './UspList/UspList';
 import useIsMobile from '../hooks/use-is-mobile';
 import Stage from './StageText';
 
