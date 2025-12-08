@@ -1,9 +1,9 @@
 import { motion } from 'motion/react';
 import './Usp.css';
 
-function Usp({ usp }) {
+function Usp({ usp, isActive }) {
     return (
-        <motion.div 
+        <motion.div
             className='usp-item'
             initial= {{ opacity: 0 }}
             whileInView={{ 

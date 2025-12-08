@@ -1,7 +1,10 @@
 import './UspList.css';
 import Usp from './Usp';
+import { useState } from 'react';
 
 function UspList() {
+    const [activeIndex, setActiveIndex] = useState(0);
+
     const usps = [{
         id: 0,
         headline: 'Pflegend',
@@ -16,15 +19,11 @@ function UspList() {
         content: 'Spieglein, Glanz – unwiderstehlich strahlende Lippen mit nur einem Auftrag.'
     }];
 
-    let uspList = usps.map((usp) => {
-        return (
-            <Usp key={usp.id} usp={usp} />
-        );
-    });
-
     return (
-        <div className="usp-list-wrapper">
-            {uspList}
+        <div className="usp-list-wrapper viewport-content">
+            {usps.map((usp, index) => (
+                <Usp key={usp.id} usp={usp} isActive={index === activeIndex} />
+            ))}
         </div>
     );
 }
