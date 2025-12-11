@@ -10,9 +10,19 @@ function App() {
     return (
         <>
             <Header />
-            <LipstickLine />
-            <LipstickAnimation />
-            <CustomerReviews />
+            <div 
+                className='content-wrapper' 
+                style={{
+                    position: 'relative',
+                    top: 0,
+                    zIndex: 5,
+                }}
+            >
+                <LipstickLine />
+                <LipstickAnimation />
+                <CustomerReviews />
+            </div>
+
             <Footer />
             {/* <div style={{ height: '100vh', width: '100%' }}></div> */}
         </>

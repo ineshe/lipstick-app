@@ -1,11 +1,16 @@
 .usp-list-wrapper {
-    position:  relative;
-    inset: 0;
     display: flex;
     flex-direction: column;
-    row-gap: 100px;
     justify-content: space-around;
     align-items: flex-end;
     overflow: hidden;
-    z-index: 3;
+    height: 100%;
+}
+
+.usp-list-mask {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    mask-image: linear-gradient(to top, transparent, black, transparent);
 }

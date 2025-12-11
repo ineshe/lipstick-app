@@ -1,26 +1,14 @@
 .stage-wrapper {
-    position: absolute;
-    display: grid;
-    grid-template-columns: 43% 57%;
-    place-items: center;
-    top: 0;
-    inset-inline: 0;
-    height: calc(100vh - 90px);
-    z-index: 5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100dvh;
 }
 
 .stage-content {
-    grid-column: 1 / span 2;
-    overflow-wrap: break-word;
-    hyphens: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.stage-content {
-    grid-row: 1;
+    max-width: 100%;
 }
 
 .stage-headline {
@@ -39,9 +27,9 @@
     color: var(--primary-text-color-toned-down);
 }
 
+
 @media (min-width: 768px) {
     .stage-content {
-        grid-column: 2;
-        justify-content: start;
-    }
+        max-width: 60%;
+    }    
 }

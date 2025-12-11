@@ -108,15 +108,23 @@ function LipstickAnimation() {
                 role='presentation'
                 style={{
                     position: 'sticky',
-                    left: '0',
-                    top: '0',
-                    width: '100%',
-                    height: '100vh',
+                    inset: '0',
                     zIndex: 7,
                 }}
             />
-            <Stage />
-            <UspList />
+
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    height: '100%',
+                    zIndex: 5,
+                }}
+            >
+                <Stage />
+                <UspList />
+            </div>
+
         </div>
     )
 }
