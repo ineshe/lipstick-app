@@ -1,31 +1,35 @@
-import { motion, useTransform } from 'motion/react';
-import { useState } from 'react';
-import './Usp.css';
+import { motion } from 'motion/react';
+import './UspList.css';
+import { animate } from 'motion';
 
 function Usp({ usp }) {
-    const [activeIndex, setActiveIndex] = useState(0);
-
 
     const variants = {
-        hidden:  {
+        initial:  {
+            y: 20,
             opacity: 0
         },
         visible: {
-            opacity: 1
-        }
+            y: 0,
+            opacity: 1,
+        },
+        exit: {
+            y: -20,
+            opacity: 0,
+        }       
     };
 
-    // const opacity = useTransform(whileInView)
+    const oddEven = usp.id % 2 === 0 ? 'even' : 'odd';
 
     return (
         <motion.div
-            key={activeIndex}
-            // variants={variants}
-            className='usp-item'
-            // initial= 'hidden'
-            // transition={{ duration: 0.3, ease: 'easeOut' }}
-            // whileInView='visible'
-            // viewport={{ margin:'-30% 0px -30% 0px', amount: '0.5' }}
+            key={usp.id}
+            className={'usp-item ' + oddEven}
+            variants={variants}
+            initial="initial"
+            animate="visible"
+            exit="exit"
+            transition={{ duration: 0.25, ease: "easeIn" }}
         >
             <h2 className='usp-item-headline'>{usp.headline}</h2>
             <p className='usp-item-content'>{usp.content}</p>

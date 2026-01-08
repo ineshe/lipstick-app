@@ -1,16 +1,43 @@
 .usp-list-wrapper {
+    position: sticky;
+    inset: 0;
+    width: 100dvw;
+    height: 100dvh;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-end;
-    overflow: hidden;
-    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.usp-list-mask {
-    position: sticky;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    mask-image: linear-gradient(to top, transparent, black, transparent);
+.usp-item {
+    box-sizing: border-box;
+    width: min(60%, 24ch);
+}
+
+.usp-item-headline {
+    font-size: 2.25rem;
+    letter-spacing: 2px;
+    margin-block: 0;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.usp-item-content {
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
+    color: var(--primary-text-color-toned-down);
+    margin-block: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .usp-item {
+        width: 36ch;
+    }
+
+    .usp-item.even {
+        align-self: flex-end;
+    }
+
+    .usp-item-headline {
+        font-size: 2.375rem;
+    }
 }

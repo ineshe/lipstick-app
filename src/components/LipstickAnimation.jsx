@@ -122,7 +122,7 @@ function LipstickAnimation() {
                 }}
             >
                 <Stage />
-                <UspList />
+                <UspList scrollYProgress={scrollYProgress}/>
             </div>
 
         </div>
