@@ -4,6 +4,7 @@
     inset-block: 0;
     transition: opacity 240ms ease;
     pointer-events: none;
+    z-index: 2;
 }
 
 .lipstick-line-wrapper.hidden {

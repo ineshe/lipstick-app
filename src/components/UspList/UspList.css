@@ -1,13 +1,12 @@
-.usp-list-wrapper {
-    position: sticky;
+.usp-wrapper {
+    position: fixed;
     inset: 0;
-    width: 100dvw;
+    width: 100%;
     height: 100dvh;
-
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
 }
 
 .usp-item {
@@ -33,9 +32,9 @@
         width: 36ch;
     }
 
-    .usp-item.even {
+/*     .usp-item.even {
         align-self: flex-end;
-    }
+    } */
 
     .usp-item-headline {
         font-size: 2.375rem;

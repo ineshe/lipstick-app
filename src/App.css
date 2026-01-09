@@ -330,6 +330,9 @@
   --global-content-max-width: 1260px;
   --primary-text-color-toned-down: #dbdbdb;
   font-family: 'Fahkwang', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .viewport-content {

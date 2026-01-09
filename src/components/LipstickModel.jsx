@@ -1,18 +1,12 @@
-import { useRef, useEffect, useMemo, useCallback, useState, use } from 'react';
+import { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, useTransform, scale } from 'motion/react';
-import './LipstickAnimation.css';
-import UspList from './UspList/UspList';
+import './LipstickModel.css';
 import useIsMobile from '../hooks/use-is-mobile';
-import Stage from './StageText';
 
-function LipstickAnimation() {
+function LipstickModel({ scrollYProgress }) {
     const animationSpacer = useRef(null);
     const canvasRef = useRef(null);
     const frameCount = 140;
-    const { scrollYProgress } = useScroll({
-        target: animationSpacer,
-        offset: ['start start', 'end end']
-    });
     const currentFrame = index => (
         `/assets/image-sequenz/Render${index
         .toString()
@@ -121,12 +115,10 @@ function LipstickAnimation() {
                     zIndex: 5,
                 }}
             >
-                <Stage />
-                <UspList scrollYProgress={scrollYProgress}/>
             </div>
 
         </div>
     )
 }
 
-export default LipstickAnimation
+export default LipstickModel

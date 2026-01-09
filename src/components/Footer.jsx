@@ -2,7 +2,7 @@ import './Footer.css';
 
 function Footer() {
     return (
-        <footer className="footer-wrapper ">
+        // <footer className="footer-wrapper ">
             <div className="viewport-content">
                 <div className="footer-columns">
                     <div className="footer-column">
@@ -48,7 +48,7 @@ function Footer() {
                     </ul>
                 </div>
             </div>
-        </footer>
+        // </footer>
     );
 }
 
