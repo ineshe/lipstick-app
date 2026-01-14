@@ -9,26 +9,25 @@ function Header() {
     const [top, setTop] = useState(true)
 
     useMotionValueEvent(scrollY, "change", (current) => {
-        const diff = current - scrollY.getPrevious()
-        setHidden(diff > 0 ? true : false)
+        const scrolled = current - scrollY.getPrevious()
+        setHidden(scrolled > 0 ? true : false)
         setTop(current < 1 ? true : false)
     })
 
     const variants = {
         hidden: { 
-            y: -100, 
-            opacity: 0,
+            y: 0, opacity: 0,
             transition: { duration: 0.12, ease: "easeInOut" }
         },
         top: {
             y: 0, opacity: 1,
-            backgroundColor: 'rgba(0,0,0,0)',
+            backgroundColor: 'rgba(0,0,0,0.2)',
             backdropFilter: 'none',
             WebkitBackdropFilter: 'none',
             transition: { duration: 0.06, ease: "easeInOut" }
         },
         scrolled: {
-            y: 0, opacity: 1,
+            y: 1, opacity: 1,
             backgroundColor: 'rgba(0,0,0,0.2)',
             backdropFilter: 'blur(5px)',
             WebkitBackdropFilter: 'blur(5px)',
