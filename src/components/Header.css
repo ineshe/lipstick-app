@@ -1,5 +1,5 @@
 .header-wrapper {
-    position: sticky;
+    position: fixed;
     top: 0;
     inset-inline: 0;
     width: 100%;
