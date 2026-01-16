@@ -9,10 +9,16 @@ function UspList({ scrollYProgress }) {
     const [uspActiveId, setUspActiveId] = useState(null);
 
     const scrollId = useTransform(scrollYProgress, (value) => {
-        if (value > 0.35 && value < 0.45) return 1;
-        if (value >= 0.5 && value < 0.6) return 2;
-        if (value >= 0.65 && value < 0.75) return 3;
-        return null;
+        const start = 0.2; 
+        const end = 0.7;
+        const sections = 3;
+
+        if (value < start || value > end) return null;
+
+        const progress = (value - start) / (end - start); // 0 → 1
+        const index = Math.min(sections - 1, Math.floor(progress * sections));
+
+        return index + 1; // ids: 1, 2, 3
     });
 
     useMotionValueEvent(scrollId, 'change', (latest) => {
