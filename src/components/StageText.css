@@ -20,10 +20,19 @@
     font-family: 'Story Script', cursive;
     font-size: clamp(2.9rem, 14vw, 8rem);
     line-height: 1.2;
-    margin-block: 0.4em;
+    margin-block: 0;
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);
     hyphens: word;
     word-break: normal;
+}
+
+#r {
+    font-size: clamp(1.4rem, 8vw, 3rem);
+}
+
+.stage-headline, #r {
+    display: inline-block;
+    vertical-align: top;
 }
 
 .stage-subline {
