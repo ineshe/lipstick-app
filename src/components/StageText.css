@@ -18,7 +18,7 @@
 
 .stage-headline {
     font-family: 'Story Script', cursive;
-    font-size: clamp(2.9rem, 14vw, 5.8rem);
+    font-size: clamp(2.9rem, 14vw, 8rem);
     line-height: 1.2;
     margin-block: 0.4em;
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);

@@ -8,10 +8,10 @@ function Stage() {
                 <div className='stage-content'>
                     <div className='stage-text'>
                         <h1 className='stage-headline'>
-                            Lumines Lips Color<wbr />Crush&reg;
+                            Lumines Lips&reg;
                         </h1>
                         <p className='stage-subline'>
-                            Mauris sit amet risus faucibus, pharetra arcu
+                            Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
                         </p>
                     </div>
                     <StageButton />
