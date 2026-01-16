@@ -1,6 +1,8 @@
 .usp-wrapper {
     position: fixed;
     inset: 0;
+    max-width: var(--global-content-max-width);
+    margin-inline: auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
