@@ -37,7 +37,7 @@ function CustomerReviews() {
             </div>
             <div className="review-buttons">
                 <button className="background" onClick={() => handleClick(Math.max(1, currentIndex - 1))} aria-label="previous review">Prev</button>
-                <button className="background" onClick={() => handleClick(Math.min(reviews.length - 2, currentIndex + 1))} aria-label="next review">Next</button>
+                <button className="background" onClick={() => handleClick(Math.min(reviews.length, currentIndex + 1))} aria-label="next review">Next</button>
             </div>
         </div>
     );

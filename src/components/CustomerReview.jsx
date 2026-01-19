@@ -8,14 +8,17 @@ function CustomerReview({ review }) {
     
     return (
         <>
-            <div>
+            <div className="review-header">
                 <div className="review-image">
-                    <img src="https://placehold.co/50x50/orange/white?text=C" alt={`Foto von ${review.author}`} />
+                    <img src="https://placehold.co/50x50/orange/white?text=C" alt={`Foto von ${review.authord}`} />
                 </div>
-                <p className="review-title">{review.title}</p>
-                <p className="review-content">"{review.content}"</p>
+                <div>
+                    <p className="author-name">{review.authorName}</p>
+                    <p className="author-profession">{review.authorProfession}</p>
+                </div>
             </div>
-                <p className="review-author">- {review.author}</p>
+            <p className="review-title">{review.title}</p>
+            <p className="review-content">"{review.content}"</p>
         </>
     );
 }
