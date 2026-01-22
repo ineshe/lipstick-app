@@ -15,7 +15,7 @@ function LipstickModel({ scrollYProgress }) {
     ), []);
     
     const { isMobile } = useIsMobile();
-    const { isLoaded, imageBitmaps } = useImageLoaderWorker(totalFrames, framePath);
+    const { isReady, imageBitmaps } = useImageLoaderWorker(totalFrames, framePath);
 
     const imgMiddle = useTransform(
         scrollYProgress, 
@@ -34,17 +34,38 @@ function LipstickModel({ scrollYProgress }) {
         imageBitmapsRef.current = imageBitmaps;
     }, [imageBitmaps]);
 
-    const drawFrame = useCallback((index) => {
-        if (lastDrawnIndexRef.current === index) return;
+    const findNearestFrame = useCallback((targetIndex) => {
+        // If target frame exists, use it
+        if (imageBitmapsRef.current[targetIndex - 1]) {
+            return targetIndex;
+        }
+        
+        // Find nearest available frame
+        for (let offset = 1; offset < totalFrames; offset++) {
+            if (imageBitmapsRef.current[targetIndex - 1 + offset]) {
+                return targetIndex + offset;
+            }
+            if (imageBitmapsRef.current[targetIndex - 1 - offset]) {
+                return targetIndex - offset;
+            }
+        }
+        return 1;
+    }, [totalFrames]);
 
+    const drawFrame = useCallback((index) => {
         const canvas = canvasRef.current;
         const ctx = ctxRef.current;
         if (!ctx || !canvas) return;
 
-        const img = imageBitmapsRef.current[index - 1];
-        if (!img) return;
+        // Find nearest available frame if exact one isn't loaded yet
+        const actualIndex = findNearestFrame(index);
+        
+        if (lastDrawnIndexRef.current === actualIndex) return;
 
-        const canvasWidth = canvas.width;
+const img = imageBitmapsRef.current[actualIndex - 1];
+if (!img) return;
+
+const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
         const imgNaturalWidth = img.width;
         const imgNaturalHeight = img.height;
@@ -64,7 +85,7 @@ function LipstickModel({ scrollYProgress }) {
         ctx.drawImage(img, x, y, drawWidth, drawHeight);
         
         lastDrawnIndexRef.current = index;
-    }, [isMobile, imgMiddle]);
+    }, [isMobile, imgMiddle, findNearestFrame]);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         const index = Math.max(
@@ -100,12 +121,12 @@ function LipstickModel({ scrollYProgress }) {
         };
     }, [drawFrame]);
 
-    // Draw frame when images are loaded
+    // Draw frame when priority images are ready
     useEffect(() => {
-        if (isLoaded) {
+        if (isReady) {
             drawFrame(lastIndexRef.current);
         }
-    }, [isLoaded, imageBitmaps, drawFrame]);
+    }, [isReady, imageBitmaps, drawFrame]);
     
     return (
         <div className="lipstick-animation-wrapper" ref={animationSpacer}>
@@ -118,7 +139,7 @@ function LipstickModel({ scrollYProgress }) {
                     position: 'sticky',
                     inset: '0',
                     zIndex: 7,
-                    opacity: isLoaded ? 1 : 0,
+                    opacity: isReady ? 1 : 0,
                     transition: 'opacity 0.3s ease'
                 }}
             />

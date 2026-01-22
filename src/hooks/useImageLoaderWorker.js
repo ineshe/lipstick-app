@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function useImageLoaderWorker(totalFrames, framePath) {
     const workerRef = useRef(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isReady, setIsReady] = useState(false); // Priority frames loaded
     const [imageBitmaps, setImageBitmaps] = useState([]);
     
     useEffect(() => {
@@ -19,10 +19,17 @@ export function useImageLoaderWorker(totalFrames, framePath) {
             const { type, payload } = e.data;
 
             switch (type) {
-                case 'LOADED':
-                    // Receive all transferred ImageBitmaps from worker
-                    setImageBitmaps(payload.imageBitmaps);
-                    setIsLoaded(true);
+                case 'FRAME_LOADED':
+                    // Add each frame as it arrives
+                    setImageBitmaps(prev => {
+                        const newBitmaps = [...prev];
+                        newBitmaps[payload.index] = payload.imageBitmap;
+                        return newBitmaps;
+                    });
+                    break;
+                case 'PRIORITY_COMPLETE':
+                    // Priority frames are ready, show UI
+                    setIsReady(true);
                     break;
             }
         };
@@ -42,12 +49,5 @@ export function useImageLoaderWorker(totalFrames, framePath) {
         };
     }, [totalFrames, framePath]);
 
-    const getFrame = useCallback((index) => {
-        workerRef.current?.postMessage({
-            type: 'GET_FRAME',
-            payload: { index }
-        });
-    }, []);
-
-    return { isLoaded, imageBitmaps, getFrame };
+    return { isReady, imageBitmaps };
 }
