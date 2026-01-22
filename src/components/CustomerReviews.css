@@ -6,8 +6,8 @@
     --grid-space: max(var(--glow-space), 3%, 3rem);
     padding-block: 1.5rem;
     box-sizing: border-box;
-    /* position: relative; */
     --color-bg-reviews: #4b0d36;
+    overflow: hidden; /* Prevent animation overflow */
 }
 
 .reviews-grid {
@@ -19,7 +19,11 @@
     display: grid;
     gap: var(--grid-space);
     grid-auto-flow: column;
-    grid-auto-columns: var(--grid-col-size); 
+    grid-auto-columns: var(--grid-col-size);
+    
+    /* Define row template for subgrid alignment */
+    grid-template-rows: auto auto 1fr;
+    
     justify-items: stretch;   
     padding: var(--glow-space) var(--grid-space);
     overflow-x: scroll;
@@ -41,19 +45,18 @@
 }
 
 .review-box {
-    /* min-width: 300px; */
     padding: 2rem;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     box-sizing: border-box;
     hyphens: auto;
-    /* border: black 1px solid; */
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     background: var(--color-bg-reviews);
-    /* background: #1f1f1f; */
-    /* hyphenate-limit-chars: auto; */
+    
+    /* Use subgrid to align rows across cards */
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 0.5rem;
 }
 
 .review-header {
@@ -70,14 +73,14 @@
 
 .author-profession {
     font-size: small;
-    margin-block: 0.5rem 1rem;
+    margin-block: 0.5rem 0;
     opacity: 0.8;
 }
 
 .review-image {
     width: 50px;
     height: 50px;
-    padding-bottom: 0.5rem;
+    flex-shrink: 0;
 }
 
 .review-image img {
@@ -90,10 +93,13 @@
 .review-title {
     font-weight: 600;
     color: white;
+    margin: 0;
+    align-self: start;
 }
 
 .review-content {
-    flex: 1;
+    margin: 0;
+    align-self: start;
 }
 
 .review-author {
@@ -155,6 +161,11 @@
 
 .review-buttons > button:hover {
     border-color: transparent;
+}
+
+.review-buttons > button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .review-buttons > button:focus:not(:focus-visible) {
