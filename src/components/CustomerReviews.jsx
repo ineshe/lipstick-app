@@ -72,7 +72,7 @@ function CustomerReviews() {
             </div>
             <div className="review-buttons">
                 <button 
-                    className="background" 
+                    className="review-button background" 
                     onClick={() => handleClick(currentIndex - 1)} 
                     aria-label="previous review"
                     disabled={currentIndex === 0}
@@ -80,7 +80,7 @@ function CustomerReviews() {
                     Prev
                 </button>
                 <button 
-                    className="background" 
+                    className="review-button background" 
                     onClick={() => handleClick(currentIndex + 1)} 
                     aria-label="next review"
                     disabled={currentIndex >= maxIndex}

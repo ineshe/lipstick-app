@@ -57,7 +57,7 @@
     gap: 0.5rem;
     display: flex;
     flex-direction: column;
-    min-height: 360px; /* or a fixed height */
+    min-height: 360px;
     border-radius: 6px;
 }
 
@@ -161,25 +161,25 @@
     margin-top: 1rem;
 }
 
-.review-buttons > button {
+.review-button {
     background: var(--color-bg-reviews);
     border-radius: 12px;
 }
 
-.review-buttons > button:hover {
+.review-button:hover {
     border-color: transparent;
 }
 
-.review-buttons > button:disabled {
+.review-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.review-buttons > button:focus:not(:focus-visible) {
+.review-button:focus:not(:focus-visible) {
     outline: none;
 }
 
-.review-buttons > button:focus-visible {
+.review-button:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
