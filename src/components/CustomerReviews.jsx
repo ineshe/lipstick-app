@@ -53,7 +53,7 @@ function CustomerReviews() {
         <div className="reviews-container viewport-content">
             <h2>Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
             <div className="reviews-grid">
-                <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+                <AnimatePresence mode="sync" custom={direction} initial={false}>
                     {visibleReviews.map((review) => (
                         <motion.div
                             key={review.id}
@@ -63,7 +63,6 @@ function CustomerReviews() {
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            layout
                         >
                             <CustomerReview review={review} />
                         </motion.div>
