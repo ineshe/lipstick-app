@@ -1,4 +1,4 @@
-import { REVIEWS_DATA } from '../utils/reviews-data';
+import { REVIEWS_DATA } from '../../utils/reviews-data';
 import './CustomerReviews.css';
 import { useState } from 'react';
 import CustomerReview from './CustomerReview';

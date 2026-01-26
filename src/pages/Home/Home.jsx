@@ -1,6 +1,6 @@
 import LipstickLine from "../../components/LipstickLine";
 import LipstickModel from "../../components/LipstickModel";
-import CustomerReviews from "../../components/CustomerReviews";
+import CustomerReviews from "../../components/CustomerReviews/CustomerReviews";
 import Stage from "../../components/StageText";
 import UspList from "../../components/UspList/UspList";
 import { useScroll } from "motion/react";
