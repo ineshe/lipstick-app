@@ -51,7 +51,7 @@ function CustomerReviews() {
 
     return (
         <div className="reviews-container viewport-content">
-            <h2>Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
+            <h2 className="reviews-title">Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
             <div className="reviews-grid">
                 <AnimatePresence mode="sync" custom={direction} initial={false}>
                     {visibleReviews.map((review) => (
@@ -91,4 +91,4 @@ function CustomerReviews() {
     );
 }
 
-export default CustomerReviews
+export default CustomerReviews;
