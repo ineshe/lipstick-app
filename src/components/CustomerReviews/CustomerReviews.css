@@ -106,7 +106,10 @@
     margin: 0;
     align-self: start;
     flex-shrink: 0;
-    min-height: calc(2 * 1.5em);
+    min-height: 3em; /* Approximately 2 lines of text */
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .review-content {
