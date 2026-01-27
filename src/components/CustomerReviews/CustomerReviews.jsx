@@ -25,25 +25,22 @@ function CustomerReviews() {
 
     const cardVariants = {
         enter: (direction) => ({
-            x: direction > 0 ? 300 : -300,
-            opacity: 0,
-            scale: 0.9
+            x: direction > 0 ? '105%' : '-105%',
+            opacity: 1,
         }),
         center: {
             x: 0,
             opacity: 1,
-            scale: 1,
             transition: {
-                duration: 0.4,
+                duration: 0.36,
                 ease: 'easeOut'
             }
         },
         exit: (direction) => ({
-            x: direction > 0 ? -300 : 300,
+            x: direction > 0 ? '-105%' : '105%',
             opacity: 0,
-            scale: 0.9,
             transition: {
-                duration: 0.3,
+                duration: 0.36,
                 ease: 'easeIn'
             }
         })
@@ -54,9 +51,9 @@ function CustomerReviews() {
             <h2 className="reviews-title">Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
             <div className="reviews-grid">
                 <AnimatePresence mode="sync" custom={direction} initial={false}>
-                    {visibleReviews.map((review) => (
+                    {visibleReviews.map((review, index) => (
                         <motion.div
-                            key={review.id}
+                            key={`${currentIndex}-${index}`}
                             className="review-box"
                             custom={direction}
                             variants={cardVariants}

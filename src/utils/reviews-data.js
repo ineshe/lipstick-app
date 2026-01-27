@@ -12,7 +12,7 @@ export const REVIEWS_DATA =
     {
         id: 2,
         title: "Mein Geheimnis für diesen 'Wow'-Moment.",
-        content: "Seit ich Luminous Color Crush verwende, bekomme ich oft Komplimente. Die Farbe hält stundenlang, fühlt sich federleicht an und lässt meinen Teint strahlen. Bei jedem Anlass.",
+        content: "Seit ich Lumines Lips verwende, bekomme ich oft Komplimente. Die Farbe hält stundenlang, fühlt sich federleicht an und lässt meinen Teint strahlen. Bei jedem Anlass.",
         authorName: "Clara R.",
         authorAge: 34,
         authorProfession: "Visagistin",

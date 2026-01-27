@@ -17,6 +17,7 @@ function CustomerReview({ review }) {
                     <p className="author-city">{review.authorCity}</p>
                 </div>
             </div>
+            <hr className='line'/>
             <p className="review-title">{review.title}</p>
             <p className="review-content">"{review.content}"</p>
         </>
