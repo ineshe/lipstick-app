@@ -20,7 +20,7 @@ function CustomerReviews() {
         setCurrentIndex(newIndex);
     }
 
-    // Get the visible slice of reviews
+    // Get the visible slide of reviews
     const visibleReviews = reviews.slice(currentIndex, currentIndex + visibleCount);
 
     const cardVariants = {
