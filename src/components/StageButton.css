@@ -11,6 +11,7 @@
     border-radius: var(--border-radius-clickable);
     font-weight: 700;
     font-size: 1.2rem;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     padding: 1.2rem;
+    text-transform: uppercase;
 }

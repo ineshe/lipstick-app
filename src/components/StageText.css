@@ -24,6 +24,7 @@
     text-shadow: 0 4px 16px rgba(0,0,0,0.15);
     hyphens: word;
     word-break: normal;
+    letter-spacing: 2px;
 }
 
 #r {
@@ -36,9 +37,10 @@
 }
 
 .stage-subline {
-    margin-block: 1.5rem;
+    margin: 2rem 0 4rem;
     font-size: larger;
     color: var(--primary-text-color-toned-down);
+    max-width: 600px;
 }
 
 
