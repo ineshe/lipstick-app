@@ -181,7 +181,7 @@
 
 .review-button {
     background: var(--color-bg-reviews);
-    border-radius: 12px;
+    border-radius: var(--border-radius-clickable);
     min-width: 5rem;
     padding: 0.75rem 1.5rem;
 }

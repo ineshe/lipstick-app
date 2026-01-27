@@ -27,7 +27,7 @@
 .menu-list-item {
     padding: 0.5rem 1rem;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: var(--border-radius-clickable);
     transition: background-color 0.2s ease;
 }
 

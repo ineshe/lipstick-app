@@ -8,7 +8,7 @@
 .stage-button {
     color: white;
     margin-top: 1.5rem;
-    border-radius: 6px;
+    border-radius: var(--border-radius-clickable);
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: 1px;
