@@ -25,23 +25,23 @@ function CustomerReviews() {
 
     const cardVariants = {
         enter: (direction) => ({
-            x: direction > 0 ? '105%' : '-105%',
-            opacity: 1,
+            x: direction > 0 ? '100%' : '-100%',
+            opacity: 0,
         }),
         center: {
             x: 0,
             opacity: 1,
             transition: {
-                duration: 0.36,
-                ease: 'easeOut'
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1]
             }
         },
         exit: (direction) => ({
-            x: direction > 0 ? '-105%' : '105%',
+            x: direction > 0 ? '-100%' : '100%',
             opacity: 0,
             transition: {
-                duration: 0.36,
-                ease: 'easeIn'
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1]
             }
         })
     };
@@ -50,16 +50,17 @@ function CustomerReviews() {
         <div className="reviews-container viewport-content">
             <h2 className="reviews-title">Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
             <div className="reviews-grid">
-                <AnimatePresence mode="sync" custom={direction} initial={false}>
-                    {visibleReviews.map((review, index) => (
+                <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+                    {visibleReviews.map((review) => (
                         <motion.div
-                            key={`${currentIndex}-${index}`}
+                            key={`${currentIndex}-${review.id}`}
                             className="review-box"
                             custom={direction}
                             variants={cardVariants}
                             initial="enter"
                             animate="center"
                             exit="exit"
+                            layout
                         >
                             <CustomerReview review={review} />
                         </motion.div>
