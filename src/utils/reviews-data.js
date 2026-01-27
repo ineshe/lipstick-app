@@ -6,7 +6,8 @@ export const REVIEWS_DATA =
         content: "Ich trage sie täglich im Büro – und selbst nach dem Mittagessen sitzt die Farbe noch perfekt.",
         authorName: "Sophie M.",
         authorAge: 29,
-        authorProfession: "Marketing Managerin"
+        authorProfession: "Marketing Managerin",
+        authorCity: "München"
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ export const REVIEWS_DATA =
         content: "Seit ich Luminous Color Crush verwende, bekomme ich oft Komplimente. Die Farbe hält stundenlang, fühlt sich federleicht an und lässt meinen Teint strahlen. Bei jedem Anlass.",
         authorName: "Clara R.",
         authorAge: 34,
-        authorProfession: "Visagistin"
+        authorProfession: "Visagistin",
+        authorCity: "Berlin"
     },
     {
         id: 3,
@@ -22,7 +24,8 @@ export const REVIEWS_DATA =
         content: "Die Farbe macht jedes Outfit komplett – Einmal aufgetragen, und ich bin ready für den Tag.",
         authorName: "Mira K.",
         authorAge: 26,
-        authorProfession: "Content Creatorin"
+        authorProfession: "Content Creatorin",
+        authorCity: "Hamburg"
     },
     {
         id: 4,
@@ -30,7 +33,8 @@ export const REVIEWS_DATA =
         content: "Die Textur ist samtig und hinterlässt ein gleichmäßiges Finish. Hält den ganzen Tag ohne nachzufärben.",
         authorName: "Lea S.",
         authorAge: 40,
-        authorProfession: "Produktdesignerin"
+        authorProfession: "Produktdesignerin",
+        authorCity: "Köln"
     },
     {
         id: 5,
@@ -38,7 +42,8 @@ export const REVIEWS_DATA =
         content: "Selbst beim Kaffee und kleinen Snacks verwischt nichts — super alltagstauglich.",
         authorName: "Nora B.",
         authorAge: 47,
-        authorProfession: "Architektin"
+        authorProfession: "Architektin",
+        authorCity: "Frankfurt"
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ export const REVIEWS_DATA =
         content: "Die Farbe wirkt natürlich, betont aber trotzdem meine Lippen. Ideal für Büro und Abendveranstaltungen.",
         authorName: "Julia F.",
         authorAge: 36,
-        authorProfession: "Fotografin"
+        authorProfession: "Fotografin",
+        authorCity: "Stuttgart"
     }
 ];

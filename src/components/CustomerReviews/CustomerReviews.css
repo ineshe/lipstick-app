@@ -73,7 +73,6 @@
     align-items: center;
     gap: 1rem;
     padding-bottom: 0.5rem;
-    /* fixed height or flex-shrink: 0 */
 }
 
 .author-name {
@@ -81,7 +80,7 @@
     margin-block: 0;
 }
 
-.author-profession {
+.author-city {
     font-size: small;
     margin-block: 0.5rem 0;
     opacity: 0.8;
@@ -109,7 +108,6 @@
     min-height: 3em; /* Approximately 2 lines of text */
     display: flex;
     align-items: center;
-    flex-grow: 1;
 }
 
 .review-content {
