@@ -80,12 +80,11 @@
   height: 1px;
   border: 0;
   border-top: 1px solid #6b375a;
-  margin: .5em 0;
+  margin: .75em 0;
   padding: 0;
 }
 
 .author-name {
-    font-size: large;
     margin-block: 0;
 }
 
