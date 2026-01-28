@@ -39,7 +39,7 @@
 .stage-subline {
     margin: 2rem 0 4rem;
     font-size: larger;
-    color: var(--primary-text-color-toned-down);
+    color: var(--color-text-light-purple);
     max-width: 600px;
 }
 

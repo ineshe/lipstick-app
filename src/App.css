@@ -363,8 +363,8 @@
 #root {
   width: 100%;
   --global-content-max-width: 1260px;
-  --primary-text-color-toned-down: #dbdbdb;
   --border-radius-clickable: 10px;
+  --color-text-light-purple: #e0d4de;
   font-family: 'PT Sans', Arial, sans-serif;
   min-height: 100vh;
   display: flex;

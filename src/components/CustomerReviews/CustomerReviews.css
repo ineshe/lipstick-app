@@ -2,7 +2,6 @@
     --glow-size: 0.4rem;
     --glow-space: 0.8rem;
     --grid-space: max(var(--glow-space), 3%, 3rem);
-    --color-text-muted: #e0d4de;
     padding-block: 1.5rem;
     box-sizing: border-box;
     --color-bg-reviews: #4b0d36;
@@ -93,7 +92,7 @@
 .author-city {
     font-size: small;
     margin-block: 0.5rem 0;
-    color: var(--color-text-muted);
+    color: var(--color-text-light-purple);
 }
 
 .review-image {
@@ -125,7 +124,7 @@
     margin: 0;
     align-self: start;
     flex-grow: 1; /* takes remaining space */
-    color: var(--color-text-muted);
+    color: var(--color-text-light-purple);
 }
 
 .review-author {
