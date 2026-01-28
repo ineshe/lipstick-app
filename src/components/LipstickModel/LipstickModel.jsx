@@ -1,8 +1,8 @@
 import { useRef, useEffect, useCallback } from 'react';
 import { useMotionValueEvent, useTransform } from 'motion/react';
 import './LipstickModel.css';
-import useIsMobile from '../hooks/use-is-mobile';
-import { useImageLoaderWorker } from '../hooks/useImageLoaderWorker';
+import useIsMobile from '../../hooks/use-is-mobile';
+import { useImageLoaderWorker } from '../../hooks/useImageLoaderWorker';
 
 function LipstickModel({ scrollYProgress }) {
     const animationSpacer = useRef(null);

@@ -1,4 +1,4 @@
-import StageButton from './StageButton';
+import StageButton from '../StageButton';
 import './StageText.css';
 
 function Stage() {
