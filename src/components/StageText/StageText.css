@@ -9,11 +9,7 @@
 }
 
 .stage-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     max-width: 100%;
-    height: 90%;
 }
 
 .stage-headline {
