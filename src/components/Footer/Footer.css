@@ -32,5 +32,7 @@
 }
 
 .footer-nav-link:hover {
+    color: inherit;
     text-decoration: underline;
+    text-underline-offset: 2px;
 }
