@@ -3,6 +3,7 @@ import { useMotionValueEvent, useTransform } from 'motion/react';
 import './LipstickModel.css';
 import useIsMobile from '../../hooks/use-is-mobile';
 import { useImageLoaderWorker } from '../../hooks/useImageLoaderWorker';
+import LipstickBackground from '../LipstickBackground';
 
 function LipstickModel({ scrollYProgress }) {
     const animationSpacer = useRef(null);
@@ -143,7 +144,7 @@ const canvasWidth = canvas.width;
                     transition: 'opacity 0.3s ease'
                 }}
             />
-
+            <LipstickBackground />
             <div
                 style={{
                     position: 'absolute',

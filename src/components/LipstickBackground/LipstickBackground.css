@@ -1,0 +1,49 @@
+.lipstick-bg-group {
+  position: absolute; /* or fixed, depending on your layout */
+  inset: 0;
+
+  width: 100vw; height: 100vh;
+  pointer-events: none; /* so it doesn't block clicks */
+  /* backdrop-filter: blur(8px); */
+  /* -webkit-backdrop-filter: blur(8px); */
+  /* Optional: z-index if needed */
+}
+
+.lipstick-bg-container {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.path {
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  fill: rgb(68, 24, 51);
+  backdrop-filter: blur(8px);
+}
+
+.lipstick-bg-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.lipstick-bg-svg g {
+  fill: rgba(54, 6, 48, 0.6);
+}
+
+.glass-div {
+  /* background-color: aquamarine; */
+  position: absolute;
+  inset: 200px 55% 200px 10%;
+  padding: 1rem;
+  backdrop-filter: blur(8px) brightness(0.6) url(#glass-distortion);
+  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+}
