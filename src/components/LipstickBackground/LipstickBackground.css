@@ -45,5 +45,9 @@
   inset: 200px 55% 200px 10%;
   padding: 1rem;
   backdrop-filter: blur(8px) brightness(0.6) url(#glass-distortion);
-  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  clip-path: polygon(
+    10% 40%, 25% 15%, 75% 15%, 90% 40%, /* top corners */
+    50% 95%, /* bottom tip */
+    10% 40%  /* close path */
+  );
 }
