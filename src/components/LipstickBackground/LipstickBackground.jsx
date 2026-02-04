@@ -10,42 +10,14 @@ const LipstickBackground = () => (
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
+      preserveAspectRatio="xMinYMin slice"
     >
       <defs>
-        <clipPath id="lipstick-clip" clipPathUnits="objectBoundingBox">
-          <path d="m17 2q-15-4-17 10 2 8 13 12 11-10 4-22z" />
-        </clipPath>
-
-        <filter id="lipstick-bg-blur" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.02 0.05"
-            numOctaves="2"
-            result="turbulence"
-            seed="2">
-          </feTurbulence>
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="turbulence"
-            scale="20"
-            xChannelSelector="R"
-            yChannelSelector="G">
-          </feDisplacementMap>
-        </filter>
-
-        <filter id="turbulence-displacement"
-                x="0" y="0"
-                width="100%" height="100%">
-          <feTurbulence type="turbulence"
-                        baseFrequency="0.05"
-                        numOctaves="2"
-                        result="noise" />
-          <feDisplacementMap in="SourceGraphic"
-                              in2="noise"
-                              scale="20"
-                              xChannelSelector="R"
-                              yChannelSelector="G" />
-        </filter>
+        <radialGradient id="RadialGradient">
+          <stop offset="0%" stop-color="#e681d5" stop-opacity="0.4"/>
+          <stop offset="30%" stop-color="#e681d5" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#e681d5" stop-opacity="0"/>
+        </radialGradient>
 
         <filter
           id="glass-distortion"
@@ -99,10 +71,29 @@ const LipstickBackground = () => (
             xChannelSelector="R"
             yChannelSelector="G"
           />
-      </filter>
+        </filter>
+
+        <filter id="spotlight">
+          <feFlood
+            result="floodFill"
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            flood-color="black"
+            flood-opacity="1" />
+          <feBlend in="SourceGraphic" in2="floodFill" mode="screen" />
+        </filter>
       </defs>
+
+      <rect
+        x="-5"
+        y="-10"
+        width="25"
+        height="25" 
+        fill="url(#RadialGradient)"
+      />
     </svg>
-    <div className="glass-div"></div>
   </div>
 );
 
