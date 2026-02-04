@@ -13,8 +13,8 @@ function CustomerReview({ review }) {
                     <img src="https://placehold.co/50x50/orange/white?text=C" alt={`Foto von ${review.authorName}`} />
                 </div>
                 <div>
-                    <p className="author-name">{review.authorName}</p>
-                    <p className="author-city">{review.authorAge} Jahre aus {review.authorCity}</p>
+                    <p className="author-name">{review.authorName}, {review.authorAge}</p>
+                    <p className="author-city">aus {review.authorCity}</p>
                 </div>
             </div>
             <hr className='line'/>
