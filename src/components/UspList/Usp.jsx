@@ -25,7 +25,6 @@ function Usp({ usp }) {
     };
 
     const [isPresent, safeToRemove] = usePresence();
-    const oddEven = usp.id % 2 === 0 ? 'even' : 'odd';
 
     useEffect(() => {
         // Remove from DOM 300ms after being removed from React
@@ -35,7 +34,7 @@ function Usp({ usp }) {
     return (
         <motion.div
             key={usp.id}
-            className={'usp-item ' + oddEven}
+            className={'usp-item '}
             variants={variants}
             initial="initial"
             animate="visible"
