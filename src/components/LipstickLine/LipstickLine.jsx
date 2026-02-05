@@ -52,15 +52,20 @@ function LipstickLine() {
                     </mask>
 
                     <filter id="specular">
-                        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
-                        <feSpecularLighting in="blur" surfaceScale="2" specularConstant="1" 
-                            specularExponent="10" lighting-color="#fd5aa6"  
-                                        result="specOut">
-                        <fePointLight x="-50" y="-100" z="200"/>
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
+                        
+                        <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.7"
+                            specularExponent="8" lighting-color="#fd5aa6" result="specOut">
+                            <feDistantLight azimuth="240" elevation="20" />
                         </feSpecularLighting>
-                        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+
+                        <feGaussianBlur in="specOut" stdDeviation="2" result="blur2"/>
+
+                        <feComposite in="blur2" in2="SourceAlpha" operator="in" result="specOut"/>
+
                         <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" 
                                     k1="0" k2="1" k3="1" k4="0" result="out2"/>
+                        
                         <feMerge>
                         <feMergeNode in="out2"/>
                         </feMerge>
