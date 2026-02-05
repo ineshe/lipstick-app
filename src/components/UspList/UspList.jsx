@@ -10,8 +10,8 @@ function UspList({ scrollYProgress }) {
     const activeUsp = usps.find(usp => usp.id === uspActiveId);
 
     const scrollId = useTransform(scrollYProgress, (value) => {
-        const start = 0.2; 
-        const end = 0.7;
+        const start = 0.15; 
+        const end = 0.75;
         const sections = 3;
 
         if (value < start || value > end) return null;
