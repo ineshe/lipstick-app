@@ -132,14 +132,11 @@ const canvasWidth = canvas.width;
     return (
         <div className="lipstick-animation-wrapper" ref={animationSpacer}>
             <canvas
-                id='lipstick'
+                id='lipstick-canvas'
                 ref={canvasRef}
                 aria-hidden='true'
                 role='presentation'
                 style={{
-                    position: 'sticky',
-                    inset: '0',
-                    zIndex: 7,
                     opacity: isReady ? 1 : 0,
                     transition: 'opacity 0.3s ease'
                 }}

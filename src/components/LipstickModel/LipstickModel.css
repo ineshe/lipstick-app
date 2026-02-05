@@ -4,3 +4,10 @@
     width: 100%;
     z-index: 6;
 }
+
+#lipstick-canvas {
+    position: sticky;
+    inset: 0;
+    z-index: 7;
+    pointer-events: none;
+}
