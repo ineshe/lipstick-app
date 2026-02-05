@@ -7,6 +7,7 @@ import { AnimatePresence, useMotionValueEvent, useTransform } from 'motion/react
 function UspList({ scrollYProgress }) {
 
     const [uspActiveId, setUspActiveId] = useState(null);
+    const activeUsp = usps.find(usp => usp.id === uspActiveId);
 
     const scrollId = useTransform(scrollYProgress, (value) => {
         const start = 0.2; 
@@ -29,8 +30,8 @@ function UspList({ scrollYProgress }) {
         <>
             <div className="usp-wrapper">
                 <AnimatePresence mode="wait">
-                    {uspActiveId !== null && (
-                        <Usp key={uspActiveId} usp={usps.find(usp => usp.id === uspActiveId)} />
+                    {activeUsp && (
+                        <Usp key={activeUsp.id} usp={activeUsp} />
                     )}
                 </AnimatePresence>
             </div>
