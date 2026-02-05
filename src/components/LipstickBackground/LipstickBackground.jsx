@@ -14,9 +14,9 @@ const LipstickBackground = () => (
     >
       <defs>
         <radialGradient id="RadialGradient">
-          <stop offset="0%" stop-color="#e681b0" stop-opacity="0.4"/>
-          <stop offset="30%" stop-color="#e681b0" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#e681b0" stop-opacity="0"/>
+            <stop offset="0%" stopColor="#e681b0" stopOpacity="0.4"/>
+            <stop offset="30%" stopColor="#e681b0" stopOpacity="0.3"/>
+            <stop offset="100%" stopColor="#e681b0" stopOpacity="0"/>
         </radialGradient>
 
         <filter
@@ -48,7 +48,7 @@ const LipstickBackground = () => (
             surfaceScale="5"
             specularConstant="1"
             specularExponent="100"
-            lighting-color="white"
+            lightingColor="white"
             result="specLight"
           >
             <fePointLight x="-200" y="-200" z="300" />
@@ -80,8 +80,8 @@ const LipstickBackground = () => (
             y="0"
             width="100%"
             height="100%"
-            flood-color="black"
-            flood-opacity="1" />
+            floodColor="black"
+            floodOpacity="1" />
           <feBlend in="SourceGraphic" in2="floodFill" mode="screen" />
         </filter>
       </defs>

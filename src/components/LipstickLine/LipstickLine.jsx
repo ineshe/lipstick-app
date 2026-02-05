@@ -55,7 +55,7 @@ function LipstickLine() {
                         <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
                         
                         <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.7"
-                            specularExponent="8" lighting-color="#fd5aa6" result="specOut">
+                            specularExponent="8" lightingColor="#fd5aa6" result="specOut">
                             <feDistantLight azimuth="240" elevation="20" />
                         </feSpecularLighting>
 
