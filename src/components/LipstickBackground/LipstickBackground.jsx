@@ -14,9 +14,9 @@ const LipstickBackground = () => (
     >
       <defs>
         <radialGradient id="RadialGradient">
-          <stop offset="0%" stop-color="#e681d5" stop-opacity="0.4"/>
-          <stop offset="30%" stop-color="#e681d5" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#e681d5" stop-opacity="0"/>
+          <stop offset="0%" stop-color="#e681b0" stop-opacity="0.4"/>
+          <stop offset="30%" stop-color="#e681b0" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#e681b0" stop-opacity="0"/>
         </radialGradient>
 
         <filter
