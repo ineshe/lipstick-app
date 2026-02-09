@@ -21,12 +21,9 @@
     letter-spacing: 2px;
 }
 
-#r {
+#copyright {
     font-size: clamp(1.4rem, 8vw, 3rem);
-}
-
-.stage-headline, #r {
-    display: inline-block;
+    font-family: 'PT Sans', Arial, sans-serif;
     vertical-align: top;
 }
 

@@ -9,9 +9,9 @@ function Stage() {
                     <div className='stage-text'>
                         <div className='page-title'>
                             <h1 className='stage-headline'>
-                                Lumines Lips
+                                Lumines Lips<span id="copyright">&reg;</span>
                             </h1>
-                            <span id="r">&reg;</span>
+                            
                         </div>
                         <p className='stage-subline'>
                             Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
