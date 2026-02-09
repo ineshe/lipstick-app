@@ -1,15 +1,13 @@
 .stage-wrapper {
-    position: sticky;
-    top: 0;
+    position: relative;
+    height: 100dvh;
     z-index: 3;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 80dvh;
 }
 
 .stage-content {
-    max-width: 100%;
+    position: absolute;
+    top: 20%;
+    right: 0;
 }
 
 .stage-headline {
@@ -36,7 +34,6 @@
     margin: 2rem 0 4rem;
     font-size: larger;
     color: var(--color-text-light-purple);
-    max-width: 600px;
 }
 
 
