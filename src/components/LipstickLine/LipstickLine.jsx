@@ -72,8 +72,8 @@ function LipstickLine() {
                         <feDropShadow
                             dx="8"
                             dy="8"
-                            stdDeviation="10"
-                            flood-opacity="0.4" 
+                            stdDeviation="6"
+                            flood-opacity="0.4"
                             result="shadow"/>
                         <feMerge>
                             <feMergeNode in="shadow" />
