@@ -142,14 +142,6 @@ const canvasWidth = canvas.width;
                 }}
             />
             <LipstickBackground />
-            <div
-                style={{
-                    position: 'absolute',
-                    inset: 0,
-                    height: '100%',
-                    zIndex: 5,
-                }}
-            />
         </div>
     )
 }
