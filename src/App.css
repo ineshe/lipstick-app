@@ -365,6 +365,7 @@
   --global-content-max-width: 1260px;
   --border-radius-clickable: 10px;
   --color-text-light-purple: #e0d4de;
+  --color-text-super-light-purple: #f5f0f3;
   font-family: 'PT Sans', Arial, sans-serif;
   min-height: 100vh;
   display: flex;

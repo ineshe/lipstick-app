@@ -21,6 +21,7 @@
     margin-block: 0;
     letter-spacing: 0.1ch;
     margin-block: 1.2rem;
+    color: var(--color-text-super-light-purple);
 }
 
 .usp-item-content {

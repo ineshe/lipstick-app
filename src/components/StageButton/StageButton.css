@@ -6,7 +6,7 @@
 }
 
 .stage-button {
-    color: white;
+    color: var(--color-text-super-light-purple);
     margin-top: 1.5rem;
     border-radius: var(--border-radius-clickable);
     font-weight: 700;
