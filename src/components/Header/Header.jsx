@@ -19,7 +19,7 @@ function Header() {
         },
         visible: {
             y: 0, opacity: 1,
-            backgroundColor: 'rgba(0,0,0,0.2)',
+            backgroundColor: 'rgba(0,0,0,0.1)',
             backdropFilter: 'blur(5px)',
             WebkitBackdropFilter: 'blur(5px)',
             transition: { duration: 0.12, ease: "easeInOut" }
