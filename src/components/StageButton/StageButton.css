@@ -1,12 +1,5 @@
-.btn-bg-translucent {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
 .stage-button {
-    color: var(--color-text-super-light-purple);
+    color: var(--color-text-light-purple);
     margin-top: 1.5rem;
     border-radius: var(--border-radius-clickable);
     font-weight: 700;
@@ -16,10 +9,17 @@
     text-transform: uppercase;
     width: 100%;
     pointer-events: auto;
+    box-shadow: 0 0 3px var(--color-text-light-purple);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 .glow-on-hover:hover {
-    text-shadow: 0 0 4px #ce70a7;
+    box-shadow: 0 0 16px var(--color-text-light-purple);
+    color: var(--color-text-super-light-purple);
+    background: rgba(0, 0, 0, 0.46);
 }
 
 @media (min-width: 600px) {
