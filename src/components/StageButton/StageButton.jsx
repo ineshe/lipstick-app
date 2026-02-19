@@ -5,7 +5,7 @@ function StageButton() {
     return (
         <button className="stage-button glow-on-hover">
             Jetzt sichern
-            <ChevronRight size={50} />
+            <ChevronRight />
         </button>
     );
 }
