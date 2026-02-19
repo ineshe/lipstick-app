@@ -3,6 +3,8 @@ import './CustomerReviews.css';
 import { useState } from 'react';
 import CustomerReview from './CustomerReview';
 import { motion, AnimatePresence } from 'motion/react';
+import ArrowRight from '../../assets/icons/arrow-right.svg';
+import ArrowLeft from '../../assets/icons/arrow-left.svg';
 
 function CustomerReviews() {
     const reviews = REVIEWS_DATA;
@@ -74,7 +76,7 @@ function CustomerReviews() {
                     aria-label="previous review"
                     disabled={currentIndex === 0}
                 >
-                    Prev
+                    <ArrowLeft strokeWidth={2} width={24} height={24} />
                 </button>
                 <button 
                     className="review-button background" 
@@ -82,7 +84,7 @@ function CustomerReviews() {
                     aria-label="next review"
                     disabled={currentIndex >= maxIndex}
                 >
-                    Next
+                    <ArrowRight strokeWidth={2} width={24} height={24} />
                 </button>
             </div>
         </div>
