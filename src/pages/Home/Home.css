@@ -1,12 +1,12 @@
-.hero-section {
-    position: relative;
-    z-index: 2;
-}
-
 .animation-section {
     position: relative;
     inset: 0;
     z-index: 1;
     height: 300dvh;
     pointer-events: none;
+}
+
+.hero-section {
+    position: relative;
+    z-index: 2;
 }
