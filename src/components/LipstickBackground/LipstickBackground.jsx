@@ -1,4 +1,3 @@
-import React from "react";
 import "./LipstickBackground.css";
 
 const LipstickBackground = () => (
@@ -14,9 +13,9 @@ const LipstickBackground = () => (
     >
       <defs>
         <radialGradient id="RadialGradient">
-            <stop offset="0%" stopColor="#e681b0" stopOpacity="0.4"/>
-            <stop offset="30%" stopColor="#e681b0" stopOpacity="0.3"/>
-            <stop offset="100%" stopColor="#e681b0" stopOpacity="0"/>
+            <stop offset="0%" stopColor="#f5738f" stopOpacity="0.4"/>
+            <stop offset="30%" stopColor="#f5738f" stopOpacity="0.3"/>
+            <stop offset="100%" stopColor="#f5738f" stopOpacity="0"/>
         </radialGradient>
 
         <filter
