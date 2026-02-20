@@ -2,13 +2,7 @@
   flex: 1;
 }
 
-/* .app-footer {
-  margin-top: auto;
-} */
-
 .app-footer {
-    font-size: small;
-    line-height: initial;
-    padding-inline: 2rem;
-    border-top: 1px solid #eee;
+  background-color: rgba(0, 0, 0, 0.1);
+  line-height: initial;
 }
