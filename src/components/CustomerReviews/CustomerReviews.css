@@ -109,8 +109,8 @@
 }
 
 .review-title {
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-style: italic;
+    letter-spacing: 2px;
     color: var(--color-text-super-light-purple);
     margin: 0;
     align-self: start;
@@ -122,7 +122,7 @@
 }
 
 .review-content {
-    margin: 0;
+    margin: .8rem 0 0;
     align-self: start;
     flex-grow: 1; /* takes remaining space */
     color: var(--color-text-light-purple);
