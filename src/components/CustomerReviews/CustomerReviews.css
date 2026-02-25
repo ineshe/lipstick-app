@@ -14,6 +14,7 @@
     line-height: 1.3;
     font-weight: normal;
     color: var(--color-text-super-light-purple);
+    text-align: center;
 }
 
 .reviews-grid {
@@ -109,8 +110,6 @@
 }
 
 .review-title {
-    font-style: italic;
-    letter-spacing: 2px;
     color: var(--color-text-super-light-purple);
     margin: 0;
     align-self: start;

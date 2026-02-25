@@ -50,7 +50,7 @@ function CustomerReviews() {
 
     return (
         <div className="reviews-container viewport-content">
-            <h2 className="reviews-title">Lass dich inspirieren von den Meinungen unserer Kunden.</h2>
+            <h2 className="reviews-title">Lass Dich durch die Meinungen unserer Kunden inspirieren.</h2>
             <div className="reviews-grid">
                 <AnimatePresence mode="popLayout" custom={direction} initial={false}>
                     {visibleReviews.map((review) => (
