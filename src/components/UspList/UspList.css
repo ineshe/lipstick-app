@@ -19,7 +19,6 @@
 .usp-item-headline {
     font-size: clamp(1.5rem, 5vw, 2.8rem);
     margin-block: 0;
-    letter-spacing: 0.1ch;
     margin-block: 1.2rem;
     color: var(--color-text-super-light-purple);
 }
