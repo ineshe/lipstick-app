@@ -20,7 +20,7 @@
     hyphens: word;
     word-break: normal;
     letter-spacing: 2px;
-    color: var(--color-text-super-light-purple);
+    color: white;
 }
 
 #copyright {
