@@ -20,6 +20,13 @@
     background: rgba(0, 0, 0, 0.46);
 }
 
+.stage-button > span {
+    display: inline-block;
+    margin-left: .2em;
+    height: 1em;
+    width: 1em;
+}
+
 @media (min-width: 600px) {
     .stage-button {
         width: max(45%, 250px);
