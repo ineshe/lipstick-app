@@ -1,7 +1,7 @@
 .stage-button {
     color: var(--color-text-light-pink);
     margin-top: 1.5rem;
-    border-radius: 999px;
+    border-radius: var(--border-radius-xl);
     font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: 3px;

@@ -380,7 +380,8 @@
 #root {
   width: 100%;
   --global-content-max-width: 1260px;
-  --border-radius-clickable: 10px;
+  --border-radius: 10px;
+  --border-radius-xl: 20px;
   --color-text-light-purple: #e0d4de;
   --color-text-super-light-purple: #f5f0f3;
   --color-text-light-pink: #fff0f2;
