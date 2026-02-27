@@ -181,16 +181,14 @@
 
 .review-button {
     background: var(--color-bg-reviews);
-    border-radius: var(--border-radius-xl);
-    min-width: 5rem;
-    padding: 0.75rem 1.5rem;
-}
-
-@media (max-width: 767px) {
-    .review-button {
-        min-width: 6rem;
-        padding: 1rem 1.75rem;
-    }
+    border-radius: 999px;
+    width: clamp(3rem, 7vw, 3.75rem);
+    aspect-ratio: 1;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .review-button:hover {
