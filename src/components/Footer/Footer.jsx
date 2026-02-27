@@ -2,7 +2,6 @@ import './Footer.css';
 
 function Footer() {
     return (
-        // <footer className="footer-wrapper ">
             <div className="viewport-content">
                 <div className="footer-columns">
                     <div className="footer-column">
@@ -10,9 +9,9 @@ function Footer() {
                             <div>LOGO</div>
                         </div>                
                     </div>
-                    <ul className="footer-nav-list footer-column">
+                    <ul className="footer-column">
                         <li className="footer-nav-list-item">
-                        <a className="footer-nav-link" href="#">Ausstellungen</a>
+                            <a className="footer-nav-link" href="#">Ausstellungen</a>
                         </li>
                         <li className="footer-nav-list-item">
                             <a className="footer-nav-link" href="#">Öffnungszeiten</a>
@@ -24,7 +23,7 @@ function Footer() {
                             <a className="footer-nav-link" href="#">Anfahrt</a>
                         </li>
                     </ul>
-                    <ul className="footer-nav-list footer-column">
+                    <ul className="footer-column">
                         <li className="footer-nav-list-item">
                             <a className="footer-nav-link" href="#">Newsletter</a>
                         </li>
@@ -35,7 +34,7 @@ function Footer() {
                             <a className="footer-nav-link" href="#">Über uns</a>
                         </li>
                     </ul>
-                    <ul className="footer-nav-list footer-column">
+                    <ul className="footer-column">
                         <li className="footer-nav-list-item">
                             <a className="footer-nav-link" href="#">Impressum</a>
                         </li>
@@ -47,8 +46,8 @@ function Footer() {
                         </li>
                     </ul>
                 </div>
+                
             </div>
-        // </footer>
     );
 }
 
