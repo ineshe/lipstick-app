@@ -50,7 +50,7 @@ function CustomerReviews() {
 
     return (
         <div className="reviews-container viewport-content">
-            <h2 className="reviews-title">Lass Dich durch die Meinungen unserer Kunden inspirieren.</h2>
+            <h2 className="reviews-title">Lassen Sie sich inspirieren durch die Meinungen anderer Kunden.</h2>
             <div className="reviews-grid">
                 <AnimatePresence mode="popLayout" custom={direction} initial={false}>
                     {visibleReviews.map((review) => (
@@ -71,7 +71,8 @@ function CustomerReviews() {
             </div>
             <div className="review-buttons">
                 <button 
-                    className="review-button background" 
+                    className="review-button background"
+                    type='button'
                     onClick={() => handleClick(currentIndex - 1)} 
                     aria-label="previous review"
                     disabled={currentIndex === 0}
@@ -79,7 +80,8 @@ function CustomerReviews() {
                     <ArrowLeft strokeWidth={2} width={24} height={24} />
                 </button>
                 <button 
-                    className="review-button background" 
+                    className="review-button background"
+                    type='button'
                     onClick={() => handleClick(currentIndex + 1)} 
                     aria-label="next review"
                     disabled={currentIndex >= maxIndex}
