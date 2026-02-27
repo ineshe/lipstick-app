@@ -29,7 +29,6 @@ function Home() {
         >
           <LipstickModel scrollYProgress={scrollYProgress} />
 
-        
           <div className="hero-section">
             <LipstickLine />
             <Stage />
