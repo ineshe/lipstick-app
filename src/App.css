@@ -385,6 +385,7 @@
   --color-text-light-purple: #e0d4de;
   --color-text-super-light-purple: #f5f0f3;
   --color-text-light-pink: #fff0f2;
+  --font-size-small: .75rem;
   font-family: 'PT Sans', Arial, sans-serif;
   min-height: 100vh;
   display: flex;
