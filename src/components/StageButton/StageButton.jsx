@@ -5,7 +5,7 @@ import ChevronRight from '../../assets/icons/chevron-right.svg';
 const iconVariants = {
     rest: { x: 0 },
     hover: {
-        x: 2,
+        x: 3,
         transition: {
             type: 'spring',
             stiffness: 420,
