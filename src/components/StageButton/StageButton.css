@@ -16,7 +16,7 @@
 
 .glow-on-hover:hover {
     box-shadow: 0 0 98px #ff1a4c, 0 0 42px #ff335f, 0 0 22px #ffd4dc;
-    color: var(--color-text-light-pink);
+    color: var(--color-text-super-light-pink);
     background: rgba(61, 16, 32, 0.4);
     transform: translateY(1px);
 }
