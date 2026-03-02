@@ -17,10 +17,12 @@
 }
 
 .usp-item-headline {
-    font-size: clamp(1.5rem, 5vw, 2.8rem);
+    font-size: clamp(1.25rem, 3vw, 2.2rem);
+    color: var(--color-text-super-light-purple);
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-block: 0;
     margin-block: 1.2rem;
-    color: var(--color-text-super-light-purple);
 }
 
 .usp-item-content {
