@@ -1,3 +1,4 @@
+import LipstickBackground from "../../components/LipstickBackground/LipstickBackground";
 import LipstickLine from "../../components/LipstickLine";
 import LipstickModel from "../../components/LipstickModel";
 import CustomerReviews from "../../components/CustomerReviews/CustomerReviews";
@@ -28,6 +29,8 @@ function Home() {
           ref={animationSectionRef}
         >
           <LipstickModel scrollYProgress={scrollYProgress} />
+
+          <LipstickBackground />
 
           <div className="hero-section">
             <LipstickLine />
