@@ -13,7 +13,6 @@
     margin-block: 0 clamp(2.8rem, 6vw, 7rem);
     line-height: 1.3;
     font-weight: normal;
-    color: var(--color-text-super-light-purple);
     text-align: center;
 }
 
@@ -36,7 +35,6 @@
     overflow-x: scroll;
     scrollbar-width: none;    
     box-sizing: border-box;
-    /* mask: linear-gradient(to right, transparent, black 3%, black 97%, transparent); */
 }
 
 @media (min-width: 768px) {
@@ -58,6 +56,7 @@
     hyphens: auto;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     background: var(--color-bg-reviews);
+    font-size: 0.875rem;
     
     /* Use subgrid to align rows across cards */
     display: grid;
@@ -87,7 +86,6 @@
 
 .author-name {
     margin-block: 0 .25rem;
-    color: var(--color-text-super-light-purple);
 }
 
 .author-city {
@@ -110,7 +108,6 @@
 }
 
 .review-title {
-    color: var(--color-text-super-light-purple);
     margin: 0;
     align-self: start;
     flex-shrink: 0;
@@ -124,12 +121,10 @@
     margin: .8rem 0 0;
     align-self: start;
     flex-grow: 1; /* takes remaining space */
-    color: var(--color-text-light-purple);
 }
 
 .review-author {
     font-style: italic;
-    font-size: 0.875em;
     height: 2.625rem;
     margin-top: 0;
 }
