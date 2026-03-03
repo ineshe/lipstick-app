@@ -1,11 +1,3 @@
-.lipstick-bg-group {
-  position: absolute; /* or fixed, depending on your layout */
-  inset: 0;
-
-  width: 100vw; height: 100vh;
-  pointer-events: none; /* so it doesn't block clicks */
-}
-
 .lipstick-bg-container {
   position: absolute;
   inset: 0;
@@ -15,18 +7,7 @@
   pointer-events: none;
 }
 
-.path {
-  mix-blend-mode: screen;
-  opacity: 0.5;
-  fill: rgb(68, 24, 51);
-  backdrop-filter: blur(8px);
-}
-
 .lipstick-bg-svg {
   z-index: 2;
   pointer-events: none;
-}
-
-.lipstick-bg-svg g {
-  fill: rgba(54, 6, 48, 0.6);
 }
