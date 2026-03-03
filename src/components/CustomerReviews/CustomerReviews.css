@@ -5,7 +5,7 @@
     padding-block: 1.5rem;
     box-sizing: border-box;
     --color-bg-reviews: #4b0d36;
-    overflow: hidden; /* Prevent animation overflow */
+    --color-shadow-reviews: #441039;
 }
 
 .reviews-title {
@@ -32,7 +32,6 @@
     
     justify-items: stretch;   
     margin: var(--glow-space) 0;
-    overflow-x: scroll;
     scrollbar-width: none;    
     box-sizing: border-box;
 }
@@ -54,7 +53,7 @@
     color: white;
     box-sizing: border-box;
     hyphens: auto;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 22px var(--color-shadow-reviews);
     background: var(--color-bg-reviews);
     font-size: 0.875rem;
     
@@ -176,6 +175,7 @@
 
 .review-button {
     background: var(--color-bg-reviews);
+    box-shadow: 3px 3px 22px var(--color-shadow-reviews);
     border-radius: 999px;
     width: clamp(3rem, 7vw, 3.75rem);
     aspect-ratio: 1;
