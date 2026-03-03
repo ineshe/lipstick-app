@@ -8,7 +8,7 @@ function Stage() {
                 <div className='stage-text'>
                     <div className='page-title'>
                         <h1 className='stage-headline'>
-                            Lumines Lips<span id="copyright">&reg;</span>
+                            Lumines&nbsp;Lips<span id="copyright">&reg;</span>
                         </h1>
                         
                     </div>
