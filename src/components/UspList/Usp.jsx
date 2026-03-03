@@ -34,7 +34,7 @@ function Usp({ usp }) {
     return (
         <motion.div
             key={usp.id}
-            className={'usp-item '}
+            className={'usp-item'}
             variants={variants}
             initial="initial"
             animate="visible"
