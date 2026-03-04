@@ -1,19 +1,20 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useInView } from 'motion/react';
 import StageButton from '../StageButton';
 import './StageText.css';
 
 function Stage() {
-    const { scrollY } = useScroll();
-    
-    const x = useTransform(
-        scrollY,
-        [window.innerHeight * 0.3, window.innerHeight * 0.5], // Start at 30vh, complete by 50vh
-        ['0%', '100%']
-    );
+    const ref = useRef(null);
+    const isInView = useInView(ref, { amount: 0.7 }); // true when 70%+ visible
 
     return (
-        <div className='stage-wrapper viewport-content'>
-            <motion.div className='stage-content' style={{ x, y: '-58%' }}>
+        <div className='stage-wrapper viewport-content' ref={ref}>
+            <motion.div 
+                className='stage-content' 
+                style={{ y: '-58%' }}
+                animate={{ x: isInView ? 0 : '100vw' }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+            >
                 <div className='stage-text'>
                     <div className='page-title'>
                         <h1 className='stage-headline'>
