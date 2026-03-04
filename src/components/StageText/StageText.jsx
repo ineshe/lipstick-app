@@ -1,10 +1,19 @@
+import { motion, useScroll, useTransform } from 'motion/react';
 import StageButton from '../StageButton';
 import './StageText.css';
 
 function Stage() {
+    const { scrollY } = useScroll();
+    
+    const x = useTransform(
+        scrollY,
+        [window.innerHeight * 0.3, window.innerHeight * 0.5], // Start at 30vh, complete by 50vh
+        ['0%', '100%']
+    );
+
     return (
         <div className='stage-wrapper viewport-content'>
-            <div className='stage-content'>
+            <motion.div className='stage-content' style={{ x, y: '-58%' }}>
                 <div className='stage-text'>
                     <div className='page-title'>
                         <h1 className='stage-headline'>
@@ -17,7 +26,7 @@ function Stage() {
                     </p>
                 </div>
                 <StageButton />
-            </div>
+            </motion.div>
         </div>
     );
 }
