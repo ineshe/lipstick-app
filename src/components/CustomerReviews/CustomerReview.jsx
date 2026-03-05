@@ -1,17 +1,11 @@
 import './CustomerReviews.css';
 
-import { useScroll } from 'motion/react';
-import { title } from 'motion/react-client';
-import { useRef } from 'react';
-
 function CustomerReview({ review }) {
     
     return (
         <>
             <div className="review-header">
-                <div className="review-image">
-                    <img src="https://placehold.co/50x50/orange/white?text=C" alt={`Foto von ${review.authorName}`} />
-                </div>
+                <div className="review-icon"></div>
                 <div>
                     <p className="author-name">{review.authorName}, {review.authorAge}</p>
                     <p className="author-city">aus {review.authorCity}</p>
