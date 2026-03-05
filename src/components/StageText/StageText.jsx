@@ -1,19 +1,25 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'motion/react';
+import { useRef, useEffect } from 'react';
+import { motion, useInView, useSpring } from 'motion/react';
 import StageButton from '../StageButton';
 import './StageText.css';
 
 function Stage() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { amount: 0.7 }); // true when 70%+ visible
+    const isInView = useInView(ref, { amount: 0.88 });
+    
+    const x = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.2 });
+    const buttonSkewX = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.2 });
+    
+    useEffect(() => {
+        x.set(isInView ? 0 : window.innerWidth);
+        buttonSkewX.set(isInView ? 0 : -15);
+    }, [isInView, x, buttonSkewX]);
 
     return (
         <div className='stage-wrapper viewport-content' ref={ref}>
             <motion.div 
                 className='stage-content' 
-                style={{ y: '-58%' }}
-                animate={{ x: isInView ? 0 : '100vw' }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
+                style={{ x, y: '-58%' }}
             >
                 <div className='stage-text'>
                     <div className='page-title'>
@@ -26,7 +32,7 @@ function Stage() {
                         Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
                     </p>
                 </div>
-                <StageButton />
+                <StageButton skewX={buttonSkewX} />
             </motion.div>
         </div>
     );

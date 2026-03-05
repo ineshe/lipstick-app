@@ -15,11 +15,12 @@ const iconVariants = {
     },
 };
 
-function StageButton() {
+function StageButton({ skewX }) {
     return (
         <motion.button
             type="button"
             className="stage-button glow-on-hover"
+            style={{ skewX }}
             initial="rest"
             whileHover="hover"
         >
