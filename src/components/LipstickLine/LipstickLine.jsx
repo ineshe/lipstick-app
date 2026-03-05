@@ -55,7 +55,7 @@ function LipstickLine() {
                 <g filter="url(#shadow)">
                     <g mask="url(#revealMask)">
                         <image
-                            href="/assets/Strich_Render.webp"
+                            href="/assets/Strich_Render_big.webp"
                             x="0"
                             y="0"
                             width="508"
