@@ -10,3 +10,12 @@
     position: relative;
     z-index: 4;
 }
+
+.section-kicker {
+    font-size: var(--font-size-s);
+    text-transform: uppercase;
+    margin-block: 0.5rem;
+    /* color: var(--color-secondary); */
+    color: rgba(255, 255, 255, 0.644);
+    letter-spacing: 2px;
+}
