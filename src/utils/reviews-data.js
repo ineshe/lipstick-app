@@ -11,7 +11,7 @@ export const REVIEWS_DATA =
     },
     {
         id: 2,
-        title: "Mein Geheimnis für diesen 'Wow'-Moment.",
+        title: "Mein Geheimnis für diesen \u201CWow\u201D-Moment.",
         content: "Seit ich Lumines Lips verwende, bekomme ich oft Komplimente. Die Farbe hält stundenlang, fühlt sich federleicht an und lässt meinen Teint strahlen. Bei jedem Anlass.",
         authorName: "Katharina",
         authorAge: 54,
