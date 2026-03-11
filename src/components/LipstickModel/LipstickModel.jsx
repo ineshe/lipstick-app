@@ -7,7 +7,7 @@ import { useImageLoaderWorker } from '../../hooks/useImageLoaderWorker';
 function LipstickModel({ scrollYProgress }) {
     const animationSpacer = useRef(null);
     const canvasRef = useRef(null);
-    const totalFrames = 140;
+    const totalFrames = 180;
     const framePath = useCallback((index) => (
         `/assets/image-sequenz/Render${index
         .toString()
