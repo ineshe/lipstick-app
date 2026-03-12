@@ -1,4 +1,7 @@
 import './Footer.css';
+import { SlSocialFacebook } from "react-icons/sl";
+import { SlSocialInstagram } from "react-icons/sl";
+import { TiSocialPinterestCircular } from "react-icons/ti";
 
 function Footer() {
     return (
@@ -54,9 +57,9 @@ function Footer() {
                             <h2 className='title'>In Verbindung bleiben</h2>
                         </div>
                         <div className="footer-social">
-                            <span>FB</span>
-                            <span>YT</span>
-                            <span>IG</span>
+                            <SlSocialFacebook size={20} />
+                            <SlSocialInstagram size={20} />
+                            <TiSocialPinterestCircular size={20} />
                         </div>
                     </div>           
                 </div>
