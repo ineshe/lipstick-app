@@ -1,6 +1,14 @@
 import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 import { useState } from 'react';
+import LogoIcon from '../LogoIcon/LogoIcon';
 import './Header.css';
+import { LuLogIn } from "react-icons/lu";
+import { LuShoppingCart } from "react-icons/lu";
+import { FiMapPin } from "react-icons/fi";
+import { BsBag } from "react-icons/bs";
+import { IoBagOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
+
 
 function Header() {
 
@@ -36,16 +44,29 @@ function Header() {
             initial="visible"
             animate={headerMotion}
         >
-            <div className='top-bar'>
-                <nav className='menu'>
-                    <ul className='menu-list'>
-                        <li className='menu-list-item'>Home</li>
-                        <li className='menu-list-item'>Shop</li>
-                        <li className='menu-list-item'>About</li>
-                        <li className='menu-list-item'>Contact</li>
+            <div className='header viewport-content'>
+                <nav className='header__menu'>
+                    <ul className='list'>
+                        <li className='item'>Neu</li>
+                        <li className='item'>Kollektionen</li>
+                        <li className='item'>Online Outlet</li>
                     </ul>
                 </nav>
+                <div className='header__icon'>
+                    <LogoIcon />
+                </div>
+                {/* <div>Filiale suchen <FiMapPin /></div> */}
+                <div className='header__actions'>
+                    <button className='header-action-btn' aria-label="Account">
+                        <IoPersonOutline />
+                    </button>
+                    <button className='header-action-btn' aria-label="Shopping bag">
+                        <BsBag />
+                    </button>
+                </div>
             </div>
+                
+
         </motion.div>
     );
 }
