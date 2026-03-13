@@ -11,7 +11,7 @@
 
 @media (min-width: 768px) {
     .stage-content {
-        inset: 30% 0 0 35%;
+        inset: 25% 0 0 35%;
     }
 }
 
@@ -20,7 +20,6 @@
     font-weight: 200;
     text-transform: uppercase;
     font-size: clamp(3rem, 12vw, 10rem);
-    line-height: 0.9;
     margin-block: 0;
     hyphens: word;
     word-break: normal;
@@ -35,7 +34,7 @@
 }
 
 .stage-subline {
-    margin: 3rem 0 4.5rem;
+    margin: 4rem 0 5rem;
     font-size: clamp(1rem, 4vw, 1.4rem);
     color: var(--color-text-super-light-purple);
 }
