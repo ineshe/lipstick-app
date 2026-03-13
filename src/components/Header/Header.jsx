@@ -44,26 +44,29 @@ function Header() {
             initial="visible"
             animate={headerMotion}
         >
-            <div className='header viewport-content'>
-                <nav className='header__menu'>
-                    <ul className='list'>
-                        <li className='item'>Neu</li>
-                        <li className='item'>Kollektionen</li>
-                        <li className='item'>Online Outlet</li>
-                    </ul>
-                </nav>
-                <div className='header__icon'>
-                    <LogoIcon />
+            <div className='viewport-content'>
+                <div className='header'>
+                    <nav className='header__menu'>
+                        <ul className='list'>
+                            <li className='item'>Neu</li>
+                            <li className='item'>Kollektionen</li>
+                            <li className='item'>Online Outlet</li>
+                        </ul>
+                    </nav>
+                    <div className='header__icon'>
+                        <LogoIcon />
+                    </div>
+                    {/* <div>Filiale suchen <FiMapPin /></div> */}
+                    <div className='header__actions'>
+                        <button className='header-action-btn' aria-label="Account">
+                            <IoPersonOutline />
+                        </button>
+                        <button className='header-action-btn' aria-label="Shopping bag">
+                            <BsBag />
+                        </button>
+                    </div>
                 </div>
-                {/* <div>Filiale suchen <FiMapPin /></div> */}
-                <div className='header__actions'>
-                    <button className='header-action-btn' aria-label="Account">
-                        <IoPersonOutline />
-                    </button>
-                    <button className='header-action-btn' aria-label="Shopping bag">
-                        <BsBag />
-                    </button>
-                </div>
+
             </div>
                 
 
