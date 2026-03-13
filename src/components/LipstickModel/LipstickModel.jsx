@@ -17,10 +17,11 @@ function LipstickModel({ scrollYProgress }) {
     const { isMobile } = useIsMobile();
     const { isReady, imageBitmaps } = useImageLoaderWorker(totalFrames, framePath);
 
+    // 0.7 to left | 0.5 center | 0.3 to right
     const imgMiddle = useTransform(
         scrollYProgress, 
-        [0, 0.1], 
-        isMobile ? [0.275, 0.7] : [1, 0.5]
+        [0, 0.1, 0.5, 1], 
+        isMobile ? [0.275, 0.6, 0.5, 0.5] : [0.85, 0.5, 0.5, 0.5]
     );
 
     const lastIndexRef = useRef(1);
