@@ -19,7 +19,7 @@ function Stage() {
         <div className='stage-wrapper viewport-content' ref={ref}>
             <motion.div 
                 className='stage-content' 
-                style={{ x, y: '-58%' }}
+                style={{ x }}
             >
                 <div className='stage-text'>
                     <div className='page-title'>

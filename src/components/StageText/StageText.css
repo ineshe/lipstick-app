@@ -6,16 +6,22 @@
 
 .stage-content {
     position: absolute;
-    top: 50%;
-    right: 0;
+    inset: 20% 0 0;
+}
+
+@media (min-width: 768px) {
+    .stage-content {
+        inset: 30% 0 0 35%;
+    }
 }
 
 .stage-headline {
-    font-family: 'Story Script', cursive;
-    font-size: clamp(2.9rem, 12vw, 10rem);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 12vw, 10rem);
     line-height: 0.9;
     margin-block: 0;
-    text-shadow: 0 4px 16px rgba(0,0,0,0.15);
     hyphens: word;
     word-break: normal;
     letter-spacing: 2px;
@@ -30,7 +36,7 @@
 
 .stage-subline {
     margin: 3rem 0 4.5rem;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.4rem);
     color: var(--color-text-super-light-purple);
 }
 

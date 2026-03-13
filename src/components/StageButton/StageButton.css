@@ -11,7 +11,13 @@
     pointer-events: auto;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+    .stage-button {
+        position: fixed;
+        bottom: 24px;
+    }
 }
 
 .glow-on-hover:hover {
