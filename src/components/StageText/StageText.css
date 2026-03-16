@@ -9,12 +9,6 @@
     inset: 20% 0 0;
 }
 
-@media (min-width: 768px) {
-    .stage-content {
-        inset: 25% 0 0 35%;
-    }
-}
-
 .stage-headline {
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
@@ -34,7 +28,17 @@
 }
 
 .stage-subline {
-    margin: 3.5rem 0 5rem;
+    margin: 1.5rem 0 0;
     font-size: clamp(1rem, 4vw, 1.4rem);
     color: var(--color-text-super-light-purple);
+}
+
+@media (min-width: 768px) {
+    .stage-content {
+        inset: 25% 0 0 35%;
+    }
+
+    .stage-subline {
+        margin: 3.5rem 0 5rem;
+    }
 }
