@@ -34,15 +34,7 @@
 }
 
 .stage-subline {
-    margin: 4rem 0 5rem;
+    margin: 3.5rem 0 5rem;
     font-size: clamp(1rem, 4vw, 1.4rem);
     color: var(--color-text-super-light-purple);
-}
-
-
-@media (min-width: 768px) {
-    .stage-content {
-        max-width: 65%;
-        height: auto;
-    }    
 }
