@@ -4,20 +4,21 @@
     max-width: var(--global-content-max-width);
     margin-inline: auto;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     pointer-events: none;
 }
 
 .usp-item {
     box-sizing: border-box;
-    width: min(60%, 24ch);
-    margin: 1.2rem;
+    margin: 6rem 1.2rem 0;
     padding: 1.2rem;
+    width: clamp(24ch, 90vw, 36ch);
+    text-align: center;
 }
 
 .usp-item-headline {
-    font-size: clamp(1.25rem, 3vw, 2.2rem);
+    font-size: 2.375rem;
     color: var(--color-text-super-light-purple);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -34,7 +35,16 @@
 }
 
 @media (min-width: 768px) {
+    .usp-wrapper {
+        justify-content: flex-start;
+        align-items: center;
+    }
+
     .usp-item {
-        width: 36ch;
+        margin: 1.2rem;
+    }
+
+    .usp-item-headline {
+        font-size: clamp(1.8rem, 3vw, 2.2rem);
     }
 }
