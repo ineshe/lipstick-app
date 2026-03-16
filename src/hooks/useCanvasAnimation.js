@@ -49,16 +49,17 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
 
         let drawHeight = canvasHeight;
         let drawWidth = imgNaturalWidth * (drawHeight / imgNaturalHeight);
+        let y = (canvasHeight - drawHeight) / 2;
 
         if (isMobile) {
             drawHeight *= 0.75;
             drawWidth *= 0.75;
+            y = (canvasHeight - drawHeight);
         }
 
         const horizontalOffset = getHorizontalOffset();
         const x = canvasWidth / 2 - drawWidth * horizontalOffset;
-        const y = (canvasHeight - drawHeight) / 2;
-
+        
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
         ctx.drawImage(img, x, y, drawWidth, drawHeight);
         
