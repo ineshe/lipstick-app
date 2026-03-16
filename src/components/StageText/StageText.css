@@ -13,7 +13,7 @@
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
     text-transform: uppercase;
-    font-size: clamp(3rem, 12vw, 10rem);
+    font-size: clamp(3.5rem, 12vw, 10rem);
     margin-block: 0;
     hyphens: word;
     word-break: normal;
