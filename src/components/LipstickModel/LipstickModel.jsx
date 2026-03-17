@@ -5,7 +5,7 @@ import useIsMobile from '../../hooks/use-is-mobile';
 import { useImageLoaderWorker } from '../../hooks/useImageLoaderWorker';
 import { useCanvasAnimation } from '../../hooks/useCanvasAnimation';
 
-const TOTAL_FRAMES = 180;
+const TOTAL_FRAMES = 140;
 
 function LipstickModel({ scrollYProgress }) {
     const { isMobile } = useIsMobile();
