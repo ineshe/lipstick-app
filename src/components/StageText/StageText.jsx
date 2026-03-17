@@ -31,8 +31,9 @@ function Stage() {
                         Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
                     </p>
                 </div>
-                <StageButton skewX={buttonSkewX} />
+                {!isMobile && <StageButton skewX={buttonSkewX} />}
             </motion.div>
+            {isMobile && <StageButton skewX={buttonSkewX} />}
         </div>
     );
 }

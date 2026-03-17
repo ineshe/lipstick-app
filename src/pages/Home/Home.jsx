@@ -16,10 +16,6 @@ function Home() {
       offset: ['start start', 'end end']
   });
 
-/*   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(scrollYProgress);
-  }); */
-
   return (
     <>
       <div className="page-home">
@@ -30,12 +26,11 @@ function Home() {
         >
           <LipstickModel scrollYProgress={scrollYProgress} />
 
+          <LipstickLine />
+
           <LipstickBackground />
 
-          <div className="hero-section">
-            <LipstickLine />
-            <Stage />
-          </div>
+          <Stage />
 
           <UspList scrollYProgress={scrollYProgress} />
 
