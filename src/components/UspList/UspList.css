@@ -11,19 +11,18 @@
 
 .usp-item {
     box-sizing: border-box;
-    margin: 6rem 1.2rem 0;
+    margin: 5rem 1.2rem 0;
     padding: 1.2rem;
     width: clamp(24ch, 90vw, 36ch);
     text-align: center;
 }
 
 .usp-item-headline {
-    font-size: 2.375rem;
+    font-size: 2.8rem;
     color: var(--color-text-super-light-purple);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-block: 0;
-    margin-block: 1.2rem;
+    margin-block: 0.5rem;
     font-family: 'Oswald', sans-serif;
 }
 
@@ -31,7 +30,7 @@
     font-size: clamp(0.8rem, 3vw, 1.5rem);
     color: var(--color-text-light-purple);
     margin-block: 0.5rem;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 @media (min-width: 768px) {
@@ -43,9 +42,10 @@
     .usp-item {
         margin: 1.2rem;
         text-align: left;
+        width: clamp(24ch, 90vw, 48ch);
     }
 
     .usp-item-headline {
-        font-size: clamp(1.8rem, 3vw, 2.2rem);
+        font-size: 3.5rem;
     }
 }
