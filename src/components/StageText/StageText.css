@@ -7,7 +7,6 @@
     position: absolute;
     inset: 20% 0 0;
     z-index: 3;
-    line-height: 1.6;
 }
 
 .stage-headline {
@@ -30,9 +29,10 @@
 
 .stage-subline {
     margin: 3rem 0 0;
-    font-size: clamp(1rem, 4vw, 1.4rem);
+    font-size: 1.4rem;
     color: var(--color-text-super-light-purple);
-    width: 50%;
+    width: 48%;
+    line-height: 1.8;
 }
 
 @media (min-width: 768px) {
@@ -43,5 +43,6 @@
     .stage-subline {
         margin: 3.5rem 0 5rem;
         width: 100%;
+        line-height: 1.6;
     }
 }
