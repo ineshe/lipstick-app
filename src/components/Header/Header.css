@@ -28,6 +28,8 @@
 .header .header__menu {
     order: 3;
     grid-column: 1 / -1;
+    display: none;
+    text-transform: uppercase;
 }
 
 .header .header__menu > .list {
@@ -57,6 +59,14 @@
 
     .header .header__menu > .list {
         justify-content: flex-start;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    .header .header__menu {
+        display: block;
     }
 }
 
@@ -114,10 +124,5 @@
     cursor: pointer;
     border-radius: var(--border-radius);
     transition: background-color 0.2s ease;
-}
-
-@media (max-width: 600px) {
-    .header__menu .item {
-        font-size: 0.875rem;
-    }
+    font-size: 0.875rem;
 }

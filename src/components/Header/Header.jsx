@@ -2,16 +2,11 @@ import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 import { useState } from 'react';
 import LogoIcon from '../LogoIcon/LogoIcon';
 import './Header.css';
-import { LuLogIn } from "react-icons/lu";
-import { LuShoppingCart } from "react-icons/lu";
-import { FiMapPin } from "react-icons/fi";
 import { BsBag } from "react-icons/bs";
-import { IoBagOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
-
+import { IoMenu } from "react-icons/io5";
 
 function Header() {
-
     const { scrollY } = useScroll()
     const [scrollDirection, setScrollDirection] = useState("up")
 
@@ -36,8 +31,6 @@ function Header() {
 
     const headerMotion = scrollDirection === "up" ? "visible" : "hidden";
 
-    // console.log('Header render:', {headerMotion, scrollDirection});
-
     return (
         <motion.div className={'header-wrapper'}
             variants={animationStates}
@@ -56,7 +49,6 @@ function Header() {
                     <div className='header__icon'>
                         <LogoIcon />
                     </div>
-                    {/* <div>Filiale suchen <FiMapPin /></div> */}
                     <div className='header__actions'>
                         <button className='header-action-btn' aria-label="Account">
                             <IoPersonOutline />
@@ -64,12 +56,12 @@ function Header() {
                         <button className='header-action-btn' aria-label="Shopping bag">
                             <BsBag />
                         </button>
+                        <button id="menu-button" className='header-action-btn' aria-label="Menu">
+                            <IoMenu />
+                        </button>
                     </div>
                 </div>
-
             </div>
-                
-
         </motion.div>
     );
 }
