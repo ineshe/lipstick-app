@@ -41,22 +41,22 @@ function Header() {
                 <div className='header'>
                     <nav className='header__menu'>
                         <ul className='list'>
-                            <li className='item'>Neu</li>
-                            <li className='item'>Kollektionen</li>
-                            <li className='item'>Online Outlet</li>
+                            <li className='item bg'>Neu</li>
+                            <li className='item bg'>Kollektionen</li>
+                            <li className='item bg'>Online Outlet</li>
                         </ul>
                     </nav>
                     <div className='header__icon'>
                         <LogoIcon />
                     </div>
                     <div className='header__actions'>
-                        <button className='header-action-btn' aria-label="Account">
+                        <button className='header-action-btn bg' aria-label="Account">
                             <IoPersonOutline />
                         </button>
-                        <button className='header-action-btn' aria-label="Shopping bag">
+                        <button className='header-action-btn bg' aria-label="Shopping bag">
                             <BsBag />
                         </button>
-                        <button id="menu-button" className='header-action-btn' aria-label="Menu">
+                        <button id="menu-button" className='header-action-btn bg' aria-label="Menu">
                             <IoMenu />
                         </button>
                     </div>

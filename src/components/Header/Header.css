@@ -30,6 +30,7 @@
     grid-column: 1 / -1;
     display: none;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .header .header__menu > .list {
@@ -92,9 +93,10 @@
     color: inherit;
     cursor: pointer;
     background: transparent;
+    border-radius: 50%;
 }
 
-.header__menu .item:hover {
+.header .bg:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
