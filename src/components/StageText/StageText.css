@@ -7,13 +7,14 @@
     position: absolute;
     inset: 20% 0 0;
     z-index: 3;
+    line-height: 1.6;
 }
 
 .stage-headline {
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
     text-transform: uppercase;
-    font-size: clamp(3.5rem, 12vw, 10rem);
+    font-size: clamp(4rem, 12vw, 10rem);
     margin-block: 0;
     hyphens: word;
     word-break: normal;
@@ -28,9 +29,10 @@
 }
 
 .stage-subline {
-    margin: 1.5rem 0 0;
+    margin: 3rem 0 0;
     font-size: clamp(1rem, 4vw, 1.4rem);
     color: var(--color-text-super-light-purple);
+    width: 50%;
 }
 
 @media (min-width: 768px) {
@@ -40,5 +42,6 @@
 
     .stage-subline {
         margin: 3.5rem 0 5rem;
+        width: 100%;
     }
 }
