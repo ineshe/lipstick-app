@@ -1,5 +1,5 @@
 import './UspList.css';
-import Usp from './Usp';
+import UspItem from './UspItem';
 import { usps } from '../../utils/usp-data.js';
 import { useState } from 'react';
 import { AnimatePresence, useMotionValueEvent, useTransform } from 'motion/react';
@@ -31,7 +31,7 @@ function UspList({ scrollYProgress }) {
             <div className="usp-wrapper">
                 <AnimatePresence mode="wait">
                     {activeUsp && (
-                        <Usp key={activeUsp.id} usp={activeUsp} />
+                        <UspItem key={activeUsp.id} usp={activeUsp} />
                     )}
                 </AnimatePresence>
             </div>

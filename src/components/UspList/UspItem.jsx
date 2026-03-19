@@ -4,7 +4,7 @@ import { animate } from 'motion';
 import { usePresence } from "motion/react"
 import { useEffect } from 'react';
 
-function Usp({ usp }) {
+function UspItem({ usp }) {
 
     const variants = {
         initial:  {
@@ -51,4 +51,4 @@ function Usp({ usp }) {
     );
 }
 
-export default Usp
+export default UspItem
