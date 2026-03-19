@@ -33,7 +33,7 @@
     line-height: 1.8;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .usp-wrapper {
         justify-content: flex-start;
         align-items: center;

@@ -15,7 +15,7 @@
     z-index: 999;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .stage-button {
         position: static;
         width: max(45%, 250px);
