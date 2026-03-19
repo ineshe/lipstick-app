@@ -47,6 +47,11 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
         const imgNaturalWidth = img.width;
         const imgNaturalHeight = img.height;
 
+        // Calculate viewport-content boundaries (90% width, max 1260px, centered)
+        const maxContentWidth = 1260;
+        const contentWidth = Math.min(canvasWidth * 0.9, maxContentWidth);
+        const contentLeft = (canvasWidth - contentWidth) / 2;
+
         let drawHeight = canvasHeight;
         let drawWidth = imgNaturalWidth * (drawHeight / imgNaturalHeight);
         let y = (canvasHeight - drawHeight) / 2;
@@ -58,7 +63,9 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
         }
 
         const horizontalOffset = getHorizontalOffset();
-        const x = canvasWidth / 2 - drawWidth * horizontalOffset;
+        // Position within viewport-content boundaries
+        // horizontalOffset: 0 = left edge, 0.5 = center, 1 = right edge
+        const x = contentLeft + (contentWidth * horizontalOffset) - (drawWidth / 2);
         
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
         ctx.drawImage(img, x, y, drawWidth, drawHeight);
