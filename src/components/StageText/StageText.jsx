@@ -1,12 +1,12 @@
 import { useRef, useEffect } from 'react';
 import { motion, useInView, useSpring } from 'motion/react';
-import { useIsMobile } from '../../hooks/use-is-mobile';
+import { MOBILE_QUERY } from '../../lib/breakpoints';
 import StageButton from '../StageButton';
 import './StageText.css';
 
 function Stage() {
     const ref = useRef(null);
-    const { isMobile } = useIsMobile();
+    const isMobile = window.matchMedia(MOBILE_QUERY).matches;
     const isInView = useInView(ref, { amount: 0.88 });
     
     const x = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.2 });

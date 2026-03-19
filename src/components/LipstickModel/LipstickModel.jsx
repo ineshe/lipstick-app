@@ -1,14 +1,14 @@
 import { useRef, useEffect, useCallback } from 'react';
 import { useMotionValueEvent, useTransform } from 'motion/react';
 import './LipstickModel.css';
-import useIsMobile from '../../hooks/use-is-mobile';
 import { useImageLoaderWorker } from '../../hooks/useImageLoaderWorker';
 import { useCanvasAnimation } from '../../hooks/useCanvasAnimation';
+import { MOBILE_QUERY } from '../../lib/breakpoints';
 
 const TOTAL_FRAMES = 140;
 
 function LipstickModel({ scrollYProgress }) {
-    const { isMobile } = useIsMobile();
+    const isMobile = window.matchMedia(MOBILE_QUERY).matches;
     const lastIndexRef = useRef(1);
 
     const framePath = useCallback((index) => (
@@ -17,11 +17,11 @@ function LipstickModel({ scrollYProgress }) {
 
     const { isReady, imageBitmaps } = useImageLoaderWorker(TOTAL_FRAMES, framePath);
 
-    // upper to left | 0.5 center | lower to right
+    // horizontal position: 0 = left edge, 0.5 = center, 1 = right edge
     const imgMiddle = useTransform(
         scrollYProgress,
-        [0, 0.1, 0.5, 1],
-        isMobile ? [0.35, 0.6, 0.5, 0.5] : [0.85, 0.5, 0.5, 0.5]
+        [0, 0.15, 0.5, 1],
+        isMobile ? [0.75, 0.4, 0.5, 0.5] : [0.1, 0.55, 0.5, 0.5]
     );
 
     const { canvasRef, drawFrame, scheduleFrame } = useCanvasAnimation({
