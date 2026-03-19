@@ -32,10 +32,16 @@
     font-size: 1.4rem;
     color: var(--color-text-super-light-purple);
     width: 48%;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 @media (min-width: 768px) {
+    .stage-subline {
+        line-height: 1.8;
+    }
+}
+
+@media (min-width: 1024px) {
     .stage-content {
         inset: 25% 0 0 35%;
     }
@@ -43,6 +49,6 @@
     .stage-subline {
         margin: 3.5rem 0 5rem;
         width: 100%;
-        line-height: 1.6;
+        line-height: 1.7;
     }
 }
