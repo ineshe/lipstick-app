@@ -3,7 +3,7 @@
     border-radius: var(--border-radius-xl);
     font-weight: 700;
     font-size: 1.1rem;
-    letter-spacing: 3px;
+    letter-spacing: 0.25rem;
     text-transform: uppercase;
     pointer-events: auto;
     background: rgba(0, 0, 0, 0.4);
