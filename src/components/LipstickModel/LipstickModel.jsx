@@ -21,7 +21,7 @@ function LipstickModel({ scrollYProgress }) {
     const imgMiddle = useTransform(
         scrollYProgress,
         [0, 0.15, 0.5, 1],
-        isMobile ? [0.75, 0.4, 0.5, 0.5] : [0.1, 0.55, 0.5, 0.5]
+        isMobile ? [0.75, 0.5, 0.5, 0.5] : [0.1, 0.5, 0.5, 0.5]
     );
 
     const { canvasRef, drawFrame, scheduleFrame } = useCanvasAnimation({
