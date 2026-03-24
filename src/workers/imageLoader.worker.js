@@ -46,7 +46,6 @@ self.onmessage = async (e) => {
             
             for (let i = 0; i < remainingIndices.length; i += batchSize) {
                 const batch = remainingIndices.slice(i, i + batchSize);
-                
                 const batchPromises = batch.map(async (index) => {
                     const imageBitmap = await loadImage(framePaths[index]);
                     // Send each frame as it loads
@@ -58,7 +57,6 @@ self.onmessage = async (e) => {
                     }
                     loadedCount++;
                 });
-                
                 await Promise.all(batchPromises);
 
                 // Report progress
@@ -70,6 +68,9 @@ self.onmessage = async (e) => {
                         percent: Math.round((loadedCount / totalFrames) * 100)
                     }
                 });
+
+                // Yield to event loop to avoid blocking
+                await new Promise(resolve => setTimeout(resolve, 0));
             }
 
             // Signal all frames are loaded
