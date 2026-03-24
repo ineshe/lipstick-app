@@ -88,17 +88,22 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
 
         ctxRef.current = canvas.getContext('2d');
 
-        const handleResize = () => {
+    let resizeTimeout;
+    const handleResize = () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             lastDrawnIndexRef.current = null;
-        };
+        }, 100); // adjust delay as needed
+    };
 
         window.addEventListener('resize', handleResize);
         handleResize();
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            if (resizeTimeout) clearTimeout(resizeTimeout);
             if (reqFrameRef.current) cancelAnimationFrame(reqFrameRef.current);
         };
     }, []);
