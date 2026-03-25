@@ -1,6 +1,6 @@
 import './Usp.css';
 import { useEffect } from 'react';
-import { motion, usePresence } from "motion/react"
+import { m, usePresence } from "motion/react"
 
 function UspItem({ usp }) {
 
@@ -30,7 +30,7 @@ function UspItem({ usp }) {
     }, [isPresent])
 
     return (
-        <motion.div
+        <m.div
             key={usp.id}
             className={'usp-item'}
             variants={variants}
@@ -40,12 +40,12 @@ function UspItem({ usp }) {
             transition={{ 
                 duration: 0.2, 
                 ease: "easeInOut",
-                delay: isPresent ? 0.15 : 0  // Pause before entering, no delay on exit
+                delay: isPresent ? 0.1 : 0  // Pause before entering, no delay on exit
             }}
         >
             <h2 className='usp-item-headline'>{usp.headline}</h2>
             <p className='usp-item-content'>{usp.content}</p>
-        </motion.div>
+        </m.div>
     );
 }
 

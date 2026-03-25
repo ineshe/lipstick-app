@@ -2,7 +2,7 @@ import './Usp.css';
 import UspItem from './UspItem.jsx';
 import { usps } from '../../utils/usp-data.js';
 import { useState } from 'react';
-import { AnimatePresence, useMotionValueEvent, useTransform } from 'motion/react';
+import { LazyMotion, domAnimation, AnimatePresence, useMotionValueEvent, useTransform } from 'motion/react';
 
 function UspList({ scrollYProgress }) {
 
@@ -11,7 +11,7 @@ function UspList({ scrollYProgress }) {
 
     const scrollId = useTransform(scrollYProgress, (value) => {
         const start = 0.15; 
-        const end = 0.75;
+        const end = 0.8;
         const sections = 3;
 
         if (value < start || value > end) return null;
@@ -27,7 +27,7 @@ function UspList({ scrollYProgress }) {
     });
 
     return (
-        <>
+        <LazyMotion features={domAnimation} strict>
             <div className="usp-wrapper">
                 <AnimatePresence mode="wait">
                     {activeUsp && (
@@ -35,7 +35,7 @@ function UspList({ scrollYProgress }) {
                     )}
                 </AnimatePresence>
             </div>
-        </>
+        </LazyMotion>
     );
 }
 
