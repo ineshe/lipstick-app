@@ -1,7 +1,6 @@
-import { motion } from 'motion/react';
 import './Usp.css';
-import { usePresence } from "motion/react"
 import { useEffect } from 'react';
+import { motion, usePresence } from "motion/react"
 
 function UspItem({ usp }) {
 
