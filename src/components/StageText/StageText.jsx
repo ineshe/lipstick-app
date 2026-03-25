@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { motion, useInView, useSpring } from 'motion/react';
+import { LazyMotion, domAnimation, m, useInView, useSpring } from 'motion/react';
 import { MOBILE_QUERY } from '../../lib/breakpoints';
 import StageButton from '../StageButton';
 import './StageText.css';
@@ -18,23 +18,25 @@ function Stage() {
     }, [isInView, isMobile, x, buttonSkewX]);
 
     return (
-        <div className='stage-wrapper viewport-content' ref={ref}>
-            <motion.div 
-                className='stage-content' 
-                style={{ x }}
-            >
-                <div className='stage-text'>
-                    <h1 className='stage-headline'>
-                        Lumines&nbsp;Lips<span id="copyright">&reg;</span>
-                    </h1>
-                    <p className='stage-subline'>
-                        Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
-                    </p>
-                </div>
-                {!isMobile && <StageButton skewX={buttonSkewX} />}
-            </motion.div>
-            {isMobile && <StageButton skewX={buttonSkewX} />}
-        </div>
+        <LazyMotion features={domAnimation} strict>
+            <div className='stage-wrapper viewport-content' ref={ref}>
+                <m.div 
+                    className='stage-content' 
+                    style={{ x }}
+                >
+                    <div className='stage-text'>
+                        <h1 className='stage-headline'>
+                            Lumines&nbsp;Lips<span id="copyright">&reg;</span>
+                        </h1>
+                        <p className='stage-subline'>
+                            Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
+                        </p>
+                    </div>
+                    {!isMobile && <StageButton skewX={buttonSkewX} />}
+                </m.div>
+                {isMobile && <StageButton skewX={buttonSkewX} />}
+            </div>
+        </LazyMotion>
     );
 }
 

@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import './StageButton.css';
 import ChevronRight from '../../assets/icons/chevron-right.svg';
 
@@ -17,7 +17,7 @@ const iconVariants = {
 
 function StageButton({ skewX }) {
     return (
-        <motion.button
+        <m.button
             type="button"
             className="stage-button glow-on-hover"
             style={{ skewX }}
@@ -25,14 +25,14 @@ function StageButton({ skewX }) {
             whileHover="hover"
         >
             Jetzt sichern
-            <motion.span 
+            <m.span 
                 style={{
                     y: '.07em',
                 }}
                 variants={iconVariants}>
                 <ChevronRight />
-            </motion.span>
-        </motion.button>
+            </m.span>
+        </m.button>
     );
 }
 
