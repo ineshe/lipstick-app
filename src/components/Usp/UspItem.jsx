@@ -1,6 +1,5 @@
-import { motion, scale } from 'motion/react';
-import './UspList.css';
-import { animate } from 'motion';
+import { motion } from 'motion/react';
+import './Usp.css';
 import { usePresence } from "motion/react"
 import { useEffect } from 'react';
 

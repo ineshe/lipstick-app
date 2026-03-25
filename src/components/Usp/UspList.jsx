@@ -1,5 +1,5 @@
-import './UspList.css';
-import UspItem from './UspItem';
+import './Usp.css';
+import UspItem from './UspItem.jsx';
 import { usps } from '../../utils/usp-data.js';
 import { useState } from 'react';
 import { AnimatePresence, useMotionValueEvent, useTransform } from 'motion/react';
