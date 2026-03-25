@@ -1,7 +1,7 @@
 import LipstickBackground from "../../components/LipstickBackground/LipstickBackground";
 import LipstickLine from "../../components/LipstickLine";
 import LipstickModel from "../../components/LipstickModel";
-import CustomerReviews from "../../components/CustomerReviews/CustomerReviews";
+import CustomerReviewSlider from "../../components/CustomerReviewSlider/CustomerReviewSlider";
 import Stage from "../../components/StageText";
 import UspList from "../../components/UspList/UspList";
 import { useScroll } from "motion/react";
@@ -36,7 +36,7 @@ function Home() {
 
         </div>
 
-        <CustomerReviews />
+        <CustomerReviewSlider />
       </div>
 
     </>

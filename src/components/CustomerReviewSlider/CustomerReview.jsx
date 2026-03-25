@@ -1,4 +1,4 @@
-import './CustomerReviews.css';
+import './CustomerReview.css';
 
 function CustomerReview({ review }) {
     

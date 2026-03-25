@@ -1,12 +1,12 @@
 import { REVIEWS_DATA } from '../../utils/reviews-data';
-import './CustomerReviews.css';
+import './CustomerReview.css';
 import { useState } from 'react';
 import CustomerReview from './CustomerReview';
 import { motion, AnimatePresence } from 'motion/react';
 import ArrowRight from '../../assets/icons/arrow-right.svg';
 import ArrowLeft from '../../assets/icons/arrow-left.svg';
 
-function CustomerReviews() {
+function CustomerReviewSlider() {
     const reviews = REVIEWS_DATA;
     const visibleCount = 3; // Number of cards visible at once
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -96,4 +96,4 @@ function CustomerReviews() {
     );
 }
 
-export default CustomerReviews;
+export default CustomerReviewSlider;
