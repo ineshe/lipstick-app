@@ -1,14 +1,16 @@
-import { motion, useScroll, useMotionValueEvent } from 'motion/react';
+import { m, LazyMotion, domAnimation, useScroll, useMotionValueEvent } from 'motion/react';
 import { useState } from 'react';
 import LogoIcon from '../LogoIcon/LogoIcon';
 import './Header.css';
 import { BsBag } from "react-icons/bs";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
+import { MOBILE_QUERY } from '../../lib/breakpoints'
 
 function Header() {
     const { scrollY } = useScroll()
     const [scrollDirection, setScrollDirection] = useState("up")
+    const isMobile = window.matchMedia(MOBILE_QUERY).matches
 
     useMotionValueEvent(scrollY, "change", (current) => {
         const scrollDiff = current - scrollY.getPrevious()
@@ -29,40 +31,42 @@ function Header() {
         },
     }
 
-    const headerMotion = scrollDirection === "up" ? "visible" : "hidden";
+    const headerMotion = scrollDirection === "up" || isMobile ? "visible" : "hidden";
 
     return (
-        <motion.div className={'header-wrapper'}
-            variants={animationStates}
-            initial="visible"
-            animate={headerMotion}
-        >
-            <div className='viewport-content'>
-                <div className='header'>
-                    <nav className='header__menu'>
-                        <ul className='list'>
-                            <li className='item bg'>Neu</li>
-                            <li className='item bg'>Kollektionen</li>
-                            <li className='item bg'>Online Outlet</li>
-                        </ul>
-                    </nav>
-                    <div className='header__icon'>
-                        <LogoIcon />
-                    </div>
-                    <div className='header__actions'>
-                        <button className='header-action-btn bg' aria-label="Account">
-                            <IoPersonOutline />
-                        </button>
-                        <button className='header-action-btn bg' aria-label="Shopping bag">
-                            <BsBag />
-                        </button>
-                        <button id="menu-button" className='header-action-btn bg' aria-label="Menu">
-                            <IoMenu />
-                        </button>
+        <LazyMotion features={domAnimation} strict>
+            <m.div className={'header-wrapper'}
+                variants={animationStates}
+                initial="visible"
+                animate={headerMotion}
+            >
+                <div className='viewport-content'>
+                    <div className='header'>
+                        <nav className='header__menu'>
+                            <ul className='list'>
+                                <li className='item bg'>Neu</li>
+                                <li className='item bg'>Kollektionen</li>
+                                <li className='item bg'>Online Outlet</li>
+                            </ul>
+                        </nav>
+                        <div className='header__icon'>
+                            <LogoIcon />
+                        </div>
+                        <div className='header__actions'>
+                            <button className='header-action-btn bg' aria-label="Account">
+                                <IoPersonOutline />
+                            </button>
+                            <button className='header-action-btn bg' aria-label="Shopping bag">
+                                <BsBag />
+                            </button>
+                            <button id="menu-button" className='header-action-btn bg' aria-label="Menu">
+                                <IoMenu />
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </motion.div>
+            </m.div>
+        </LazyMotion>
     );
 }
 
