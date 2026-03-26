@@ -1,73 +1,59 @@
-import { useRef, useEffect } from 'react'
-import { LazyMotion, domAnimation, m, useInView, useSpring, useAnimate } from 'motion/react'
+import { useRef } from 'react'
+import { LazyMotion, domAnimation, m, useInView, useSpring } from 'motion/react'
 import { MOBILE_QUERY } from '../../lib/breakpoints'
 import StageButton from '../StageButton'
 import './StageText.css'
 
 function Stage() {
-    const [scope, animate] = useAnimate()
-
     const ref = useRef(null)
     const stageText = useRef(null)
     const isMobile = window.matchMedia(MOBILE_QUERY).matches
 
     const isStageInView = useInView(ref, { amount: 0.95, initial: true })
     const isTextInView = useInView(stageText, { amount: 0.8, initial: true })
-    
-    const x = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.15 })
-    const skewX = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.15 })
 
-    function desktopExit() {
-        x.set(window.innerWidth)
-        skewX.set(-15)
+    // Animation variants for the main stage-content
+    const stageVariants = {
+        visible: { x: 0, skewX: 0, opacity: 1, 
+            transition: { type: 'spring', stiffness: 180, damping: 35, duration: 1 }
+        },
+        hidden: { x: typeof window !== 'undefined' ? window.innerWidth : 1000, skewX: -15, opacity: 0, 
+            transition: { type: 'spring', stiffness: 180, damping: 35, duration: 1 }
+        }
     }
 
-    function desktopEnter() {
-        x.set(0)
-        skewX.set(0)
+    // Animation variants for the text block
+    const textVariants = {
+        visible: { opacity: 1, transition: { duration: 0.15 } },
+        hidden: { opacity: 0, transition: { duration: 0.15 } }
     }
-
-    useEffect(() => {
-        if (!(isMobile || isStageInView)) {
-            desktopExit()
-        } else {
-            desktopEnter()
-        }
-
-        if (isTextInView) {
-            const enterAnimation = async () => {
-                await animate(scope.current, { opacity: 1 })
-            }
-            enterAnimation()
-        } else {
-            const exitAnimation = async () => {
-                await animate(scope.current, { opacity: 0 })
-            }
-            exitAnimation()
-        }
-    }, [isStageInView, isMobile, x, skewX, isStageInView, isTextInView])
 
     return (
         <LazyMotion features={domAnimation} strict>
             <div className='stage-wrapper viewport-content' ref={ref}>
-                <m.div 
+                <m.div
                     className='stage-content'
-                    ref={scope} 
-                    style={{ x }}
+                    variants={stageVariants}
+                    initial='visible'
+                    animate={isMobile || isStageInView ? 'visible' : 'hidden'}
                 >
-                    <div className='stage-text' ref={stageText}>
+                    <m.div
+                        className='stage-text'
+                        ref={stageText}
+                        variants={textVariants}
+                        initial='visible'
+                        animate={isTextInView ? 'visible' : 'hidden'}
+                    >
                         <h1 className='stage-headline'>
                             Lumines&nbsp;Lips<span id="copyright">&reg;</span>
                         </h1>
                         <p className='stage-subline'>
                             Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
                         </p>
-                    </div>
-                    {!isMobile && <StageButton skewX={skewX} />}
+                    </m.div>
+                    {!isMobile && <StageButton skewX={0} />}
                 </m.div>
-                {isMobile && 
-                    <m.StageButton skewX={skewX} />
-                }
+                {isMobile && <StageButton skewX={0} />}
             </div>
         </LazyMotion>
     )
