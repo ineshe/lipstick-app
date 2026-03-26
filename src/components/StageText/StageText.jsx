@@ -14,11 +14,11 @@ function Stage() {
 
     // Animation variants for the main stage-content
     const stageVariants = {
-        visible: { x: 0, skewX: 0, opacity: 1, 
-            transition: { type: 'spring', stiffness: 180, damping: 35, duration: 1 }
+        visible: { x: 0, opacity: 1, 
+            transition: { type: 'spring', stiffness: 180, damping: 35, duration: 0.15 }
         },
-        hidden: { x: typeof window !== 'undefined' ? window.innerWidth : 1000, skewX: -15, opacity: 0, 
-            transition: { type: 'spring', stiffness: 180, damping: 35, duration: 1 }
+        hidden: { x: typeof window !== 'undefined' ? window.innerWidth : 1000, opacity: 0, 
+            transition: { type: 'spring', stiffness: 180, damping: 35, duration: 0.15 }
         }
     }
 
@@ -27,6 +27,8 @@ function Stage() {
         visible: { opacity: 1, transition: { duration: 0.15 } },
         hidden: { opacity: 0, transition: { duration: 0.15 } }
     }
+
+    const skewX = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.15 })
 
     return (
         <LazyMotion features={domAnimation} strict>
@@ -51,9 +53,9 @@ function Stage() {
                             Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
                         </p>
                     </m.div>
-                    {!isMobile && <StageButton skewX={0} />}
+                    {!isMobile && <StageButton skewX={skewX} />}
                 </m.div>
-                {isMobile && <StageButton skewX={0} />}
+                {isMobile && <StageButton skewX={skewX} />}
             </div>
         </LazyMotion>
     )
