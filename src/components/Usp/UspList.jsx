@@ -2,16 +2,20 @@ import './Usp.css';
 import UspItem from './UspItem.jsx';
 import { usps } from '../../utils/usp-data.js';
 import { useState } from 'react';
+import useIsMobile from '../../hooks/use-is-mobile';
 import { LazyMotion, domAnimation, AnimatePresence, useMotionValueEvent, useTransform } from 'motion/react';
+
 
 function UspList({ scrollYProgress }) {
 
+
     const [uspActiveId, setUspActiveId] = useState(null);
     const activeUsp = usps.find(usp => usp.id === uspActiveId);
+    const { isMobile } = useIsMobile();
 
     const scrollId = useTransform(scrollYProgress, (value) => {
-        const start = 0.15; 
-        const end = 0.8;
+        const start = isMobile ? 0.25 : 0.15;
+        const end = isMobile ? 0.9 : 0.8;
         const sections = 3;
 
         if (value < start || value > end) return null;
