@@ -17,7 +17,7 @@ function Stage() {
         visible: { x: 0, opacity: 1, 
             transition: { type: 'spring', stiffness: 180, damping: 35, duration: 0.15 }
         },
-        hidden: { x: 1200, opacity: 0, 
+        hidden: { x: 600, opacity: 0, 
             transition: { type: 'spring', stiffness: 180, damping: 35, duration: 0.15 }
         }
     }
