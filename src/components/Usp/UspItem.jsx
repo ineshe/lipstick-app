@@ -6,9 +6,8 @@ function UspItem({ usp }) {
 
     const variants = {
         initial:  {
-            y: 50,
+            y: 30,
             opacity: 0,
-            scale: 0.95,
         },
         visible: {
             y: 0,
@@ -16,16 +15,15 @@ function UspItem({ usp }) {
             scale: 1,
         },
         exit: {
-            y: -50,
+            y: -30,
             opacity: 0,
-            scale: 0.95,
         }       
     };
 
     const [isPresent, safeToRemove] = usePresence();
 
     useEffect(() => {
-        // Remove from DOM 300ms after being removed from React
+        // Remove from DOM 400ms after being removed from React
         !isPresent && setTimeout(safeToRemove, 400)
     }, [isPresent])
 
@@ -38,8 +36,8 @@ function UspItem({ usp }) {
             animate="visible"
             exit="exit"
             transition={{ 
-                duration: 0.2, 
-                ease: "easeInOut",
+                duration: 0.15, 
+                ease: "easeOut",
                 delay: isPresent ? 0.1 : 0  // Pause before entering, no delay on exit
             }}
         >
