@@ -22,8 +22,7 @@
 }
 
 #copyright {
-    font-size: clamp(1.4rem, 8vw, 3rem);
-    font-family: 'PT Sans', Arial, sans-serif;
+    font-size: clamp(1.5rem, 6vw, 1.875rem);
     vertical-align: top;
 }
 
