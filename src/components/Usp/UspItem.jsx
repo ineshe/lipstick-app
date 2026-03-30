@@ -1,33 +1,29 @@
-import { delay } from 'motion';
 import './Usp.css';
 import { m } from "motion/react"
+
 
 function UspItem({ usp }) {
 
     const variants = {
         initial:  {
-            y: 10, opacity: 0,
+            y: 30, opacity: 0,
             transition: {
-                default: { type: "spring", stiffness: 180, damping: 35, duration: 0.05 },
+                default: { type: "spring", ease: "easeOut", duration: 0.2 },
                 opacity: { ease: "linear" },
-                delay: 0.02
+                delay: 0.18,
             } 
         },
         visible: {
             y: 0, opacity: 1,
-            scale: 1,
             transition: {
-                default: { type: "spring", stiffness: 180, damping: 35, duration: 0.1 },
-                opacity: { ease: "linear" },
+                default: { ease: "linear", duration: 0.2 },
             }
         },
         exit: {
-            y: -10, opacity: 0,
+            opacity: 0,
             transition: {
-                default: { type: "spring", stiffness: 180, damping: 35, duration: 0.05 },
-                opacity: { ease: "linear" },
+                default: { ease: "linear", duration: 0.1 },
             }
-
         }       
     };
 

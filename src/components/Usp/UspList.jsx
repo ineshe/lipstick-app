@@ -8,14 +8,13 @@ import { LazyMotion, domAnimation, AnimatePresence, useMotionValueEvent, useTran
 
 function UspList({ scrollYProgress }) {
 
-
     const [uspActiveId, setUspActiveId] = useState(null);
     const activeUsp = usps.find(usp => usp.id === uspActiveId);
     const { isMobile } = useIsMobile();
 
     const scrollId = useTransform(scrollYProgress, (value) => {
         const start = isMobile ? 0.25 : 0.15;
-        const end = isMobile ? 0.9 : 0.8;
+        const end = isMobile ? 0.95 : 0.8;
         const sections = 3;
 
         if (value < start || value > end) return null;
