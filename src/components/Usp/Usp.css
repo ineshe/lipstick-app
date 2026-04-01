@@ -11,7 +11,7 @@
 
 .usp-item {
     box-sizing: border-box;
-    margin: 5rem 1.2rem 0;
+    margin: 6rem 1.2rem 0;
     padding: 1.2rem;
     width: clamp(24ch, 90vw, 36ch);
     text-align: center;
