@@ -12,37 +12,37 @@ function Stage() {
     const isStageInView = useInView(ref, { amount: 0.95, initial: true })
     // const isTextInView = useInView(stageSubline, { amount: 0.8, initial: true })
 
+    const skewX = useSpring(0, { type: "tween", ease: "easeOut", duration: 0.1 })
+
     // Animation variants for the main stage-content
     const desktopStates = {
         visible: { 
             x: 0, opacity: 1, 
             transition: {
-                default: { type: "spring", stiffness: 180, damping: 35, duration: 0.1 },
+                default: { type: "tween", ease: "easeOut", duration: 0.1 },
                 opacity: { ease: "linear" }
             }
         },
         hidden: { 
             x: 600, opacity: 0, 
             transition: {
-                default: { type: "spring", stiffness: 180, damping: 35, duration: 0.1 },
-                opacity: { ease: "linear" }
+                opacity: { type:"tween", ease: "easeOut", duration: 0.1 }
             } 
         }
     }
 
     // Animation variants for the text block
     const mobileStates = {
-        visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 180, damping: 35, duration: 0.1 } },
+        visible: { y: 0, opacity: 1, 
+            transition: { type: "tween", ease: "easeOut", duration: 0.16 } },
         hidden: {
             y: -30, opacity: 0,    
             transition: {
-                default: { type: "spring", stiffness: 180, damping: 35, duration: 0.1 },
+                default: { type: "tween", ease: "easeOut", duration: 0.16 },
                 opacity: { ease: "linear" }
             }
         }
     }
-
-    const skewX = useSpring(0, { stiffness: 180, damping: 35, visualDuration: 0.15 })
 
     return (
         <LazyMotion features={domAnimation} strict>
@@ -55,7 +55,7 @@ function Stage() {
                 >
                     <div className='stage-text'>
                         <h1 className='stage-headline'>
-                            Lumines&nbsp;Lips<span id="copyright">&reg;</span>
+                            Lumines&nbsp;Lips<sup id="copyright">&reg;</sup>
                         </h1>
                         <p 
                             ref={ stageSubline }
