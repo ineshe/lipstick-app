@@ -20,14 +20,15 @@ function Header() {
     const animationStates = {
         hidden: { 
             y: -50, opacity: 0,
-            transition: { duration: 0.12, ease: "easeInOut" }
+            transition: { duration: 0.12, ease: "easeOut" }
         },
         visible: {
             y: 0, opacity: 1,
             backgroundColor: 'rgba(0,0,0,0.1)',
-            backdropFilter: 'blur(5px)',
-            WebkitBackdropFilter: 'blur(5px)',
-            transition: { duration: 0.12, ease: "easeInOut" }
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            transition: { duration: 0.12, ease: "easeOut" }
+
         },
     }
 
