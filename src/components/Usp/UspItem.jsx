@@ -6,11 +6,11 @@ function UspItem({ usp }) {
 
     const variants = {
         initial:  {
-            y: 30, opacity: 0,
+            y: 25, opacity: 0,
             transition: {
-                default: { type: "spring", ease: "easeOut", duration: 0.2 },
+                default: { type: "spring", ease: "easeOut", duration: 0.16 },
                 opacity: { ease: "linear" },
-                delay: 0.18,
+                delay: 0.22,
             } 
         },
         visible: {
