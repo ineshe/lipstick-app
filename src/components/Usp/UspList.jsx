@@ -13,9 +13,17 @@ function UspList({ scrollYProgress }) {
     const { isMobile } = useIsMobile();
 
     const scrollId = useTransform(scrollYProgress, (value) => {
-        const start = isMobile ? 0.25 : 0.15;
-        const end = isMobile ? 0.95 : 0.8;
+
+        var start, end;
         const sections = 3;
+        
+        if (isMobile) {
+            start = 0.25;
+            end = 0.9;
+        } else {
+            start = 0.15;
+            end = 0.8;
+        }
 
         if (value < start || value > end) return null;
 
