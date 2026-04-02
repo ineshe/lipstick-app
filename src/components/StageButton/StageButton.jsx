@@ -27,9 +27,6 @@ function StageButton({ skewX }) {
         >
             Jetzt sichern
             <m.span 
-                style={{
-                    y: '.07em',
-                }}
                 variants={iconVariants}>
                 <ChevronRight />
             </m.span>
