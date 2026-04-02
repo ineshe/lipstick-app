@@ -59,7 +59,7 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
         if (isMobile) {
             drawHeight *= 0.75;
             drawWidth *= 0.75;
-            y = (canvasHeight - drawHeight) * 0.4;
+            y = (canvasHeight - drawHeight) * 0.7;
         }
 
         const horizontalOffset = getHorizontalOffset();
