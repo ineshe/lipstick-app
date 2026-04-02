@@ -9,7 +9,7 @@ function Stage() {
     const stageSubline = useRef(null)
     const isMobile = window.matchMedia(MOBILE_QUERY).matches
 
-    const isStageInView = useInView(ref, { amount: 0.95, initial: true })
+    const isStageInView = useInView(ref, { initial: true })
     // const isTextInView = useInView(stageSubline, { amount: 0.8, initial: true })
 
     const skewX = useSpring(0, { type: "tween", ease: "easeOut", duration: 0.1 })
@@ -50,7 +50,6 @@ function Stage() {
                 <m.div
                     className='stage-content'
                     variants={ isMobile ? mobileStates : desktopStates }
-                    initial='visible'
                     animate={ isStageInView ? 'visible' : 'hidden' }
                 >
                     <div className='stage-text'>
@@ -66,7 +65,6 @@ function Stage() {
                     </div>
                     {!isMobile && <StageButton skewX={skewX} />}
                 </m.div>
-                {isMobile && <StageButton skewX={0} />}
             </div>
         </LazyMotion>
     )

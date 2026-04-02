@@ -10,15 +10,20 @@
     backdrop-filter: blur(5px);
     padding: 1.2rem 2rem;
 
-    position: fixed;
-    inset: auto 5% 24px 5%;
+    position: sticky;
+    top: calc(100dvh - 90px);
+    display: block;
+    width: 90%;
+    margin-inline: auto;
     z-index: 999;
 }
 
 @media (min-width: 1024px) {
     .stage-button {
         position: static;
+        top: auto;
         width: max(45%, 250px);
+        margin-inline: 0;
     }
 }
 

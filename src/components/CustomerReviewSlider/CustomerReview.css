@@ -2,7 +2,7 @@
     --glow-size: 0.4rem;
     --glow-space: 0.8rem;
     --grid-space: max(var(--glow-space), 3%, 3rem);
-    padding-block: 1.5rem;
+    padding-block: 1.5rem calc(6.5rem + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
     --color-bg-reviews: #4b0d36;
 }
@@ -45,6 +45,10 @@
 }
 
 @media (min-width: 1024px) {
+    .reviews-container {
+        padding-bottom: 1.5rem;
+    }
+
     .reviews-grid {
         --grid-max-col-count: 3;
     }
