@@ -5,6 +5,7 @@
     padding-block: 1.5rem calc(6.5rem + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
     --color-bg-reviews: #4b0d36;
+    margin-top: -100px;
 }
 
 .reviews-header {
