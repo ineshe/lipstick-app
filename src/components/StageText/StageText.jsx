@@ -60,7 +60,7 @@ function Stage() {
                             ref={ stageSubline }
                             className='stage-subline'
                         >
-                            Mauris sit amet risus faucibus, pharetra arcu sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
+                            Mehr Ausstrahlung in einem Zug. Intensive Farbe, präziser Auftrag und ein Auftritt, der im Kopf bleibt.
                         </p>
                     </div>
                     {!isMobile && <StageButton skewX={skewX} />}
