@@ -51,7 +51,7 @@ function Header() {
                             </ul>
                         </nav>
                         <div className='header__icon'>
-                            <LogoIcon />
+                            <LogoIcon height={40} />
                         </div>
                         <div className='header__actions'>
                             <button className='header-action-btn bg' aria-label="Account">
