@@ -15,7 +15,7 @@
     display: block;
     width: 90%;
     margin-inline: auto;
-    z-index: 999;
+    z-index: 9;
 }
 
 @media (min-width: 1024px) {
