@@ -1,11 +1,11 @@
 .stage-wrapper {
     position: relative;
-    height: 100dvh;
+    height: 90dvh;
 }
 
 .stage-content {
     position: absolute;
-    inset: 10% 0 0;
+    inset: 2.25rem 0;
     z-index: 3;
 }
 
@@ -31,7 +31,6 @@
     font-size: 1.4rem;
     color: var(--color-text-super-light-purple);
     width: 48%;
-    line-height: 1.6;
 }
 
 @media (min-width: 768px) {

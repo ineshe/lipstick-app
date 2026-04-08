@@ -60,7 +60,7 @@ function Stage() {
                             ref={ stageSubline }
                             className='stage-subline'
                         >
-                            Mehr Ausstrahlung in einem Zug. Intensive Farbe, präziser Auftrag und ein Auftritt, der im Kopf bleibt.
+                            Mehr Ausstrahlung mit einem Zug. Erfahre intensive Farbe und einen präzisen Auftrag. Für einen Auftritt, der im Kopf bleibt.
                         </p>
                     </div>
                     {!isMobile && <StageButton skewX={skewX} />}
