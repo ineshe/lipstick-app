@@ -201,6 +201,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    color: var(--color-text-super-light-purple, #f5f0f3);
 }
 
 .review-button:hover {
