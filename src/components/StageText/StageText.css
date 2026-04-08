@@ -22,8 +22,8 @@
 }
 
 #copyright {
-    font-size: 12px;
-    vertical-align: clamp(3rem, 9vw, 7.5rem);
+    font-size: max(0.125em, 0.375rem);
+    vertical-align: 5.8em;
 }
 
 .stage-subline {
