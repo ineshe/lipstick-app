@@ -38,7 +38,7 @@ function LipstickLine() {
                                 strokeLinecap="round"
                                 initial={{ pathLength: 0 }}
                                 animate={{ pathLength: 1 }}
-                                transition={{ duration: 3, ease: "easeInOut" }}
+                                transition={{ duration: 1.5, ease: "easeOut" }}
                             />
                         </mask>
 
