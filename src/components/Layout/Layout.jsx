@@ -1,10 +1,13 @@
 import Header from "../Header";
 import Footer from "../Footer";
+import ConsentNotice from "../ConsentNotice";
 import './Layout.css';
 
 function Layout({ children }) {
   return (
     <>
+      <ConsentNotice />
+
       <header className="app-header">
         <Header />
       </header>
