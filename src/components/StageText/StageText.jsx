@@ -9,7 +9,7 @@ function Stage() {
     const stageSubline = useRef(null)
     const isMobile = window.matchMedia(MOBILE_QUERY).matches
 
-    const isStageInView = useInView(ref, { initial: true })
+    const isStageInView = useInView(ref, { amount: 1, initial: true })
     // const isTextInView = useInView(stageSubline, { amount: 0.8, initial: true })
 
     const skewX = useSpring(0, { type: "tween", ease: "easeOut", duration: 0.1 })
