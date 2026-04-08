@@ -5,8 +5,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 
   /* --background-color: #242424; */
   /* background-color: var(--background-color); */
@@ -63,15 +62,3 @@ button:focus-visible {
 .text-block-no-margin > :first-child { margin-top: 0 !important; margin-left: 0 !important; }
 .text-block-no-margin > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

@@ -10,6 +10,7 @@
 
 .reviews-header {
     text-align: center;
+    color: var(--color-text-super-light-purple, #f5f0f3);
 }
 
 .reviews-title {

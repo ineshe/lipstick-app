@@ -1,3 +1,7 @@
+.footer {
+    color: var(--color-text-super-light-purple, #f5f0f3);
+}
+
 .footer-social {
     display: flex;
     justify-content: flex-start;
