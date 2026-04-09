@@ -18,17 +18,29 @@ function LipstickModel({ scrollYProgress }) {
     const { isReady, imageBitmaps } = useImageLoaderWorker(TOTAL_FRAMES, framePath);
 
     // horizontal position: 0 = left edge, 0.5 = center, 1 = right edge
-    const imgMiddle = useTransform(
+    const offsetXMobile = useTransform(
         scrollYProgress,
         [0, 0.15, 0.5, 1],
-        isMobile ? [0.75, 0.5, 0.5, 0.5] : [0.1, 0.5, 0.5, 0.5]
+        [0.75, 0.5, 0.5, 0.5]
+    );
+
+    const offsetXDesktop = useTransform(
+        scrollYProgress,
+        [0, 0.15, 0.5, 1],
+        [0.1, 0.5, 0.5, 0.5]
+    );
+
+    const offsetY = useTransform(
+        scrollYProgress, [0, 0.6, 1], [0.6, 1, 1]
     );
 
     const { canvasRef, drawFrame, scheduleFrame } = useCanvasAnimation({
         frames: imageBitmaps,
         totalFrames: TOTAL_FRAMES,
         isMobile,
-        getHorizontalOffset: () => imgMiddle.get()
+        getHorizontalOffset: () => isMobile ? offsetXMobile.get() : offsetXDesktop.get(),
+        getVerticalOffset: () => isMobile ? offsetY.get() : 0.5,
+        getScale: () => isMobile ? 0.75 : 1
     });
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {

@@ -6,10 +6,19 @@ import { useRef, useEffect, useCallback } from 'react';
  * @param {ImageBitmap[]} options.frames - Array of ImageBitmap frames
  * @param {number} options.totalFrames - Total number of frames
  * @param {boolean} options.isMobile - Whether device is mobile
- * @param {() => number} options.getHorizontalOffset - Function returning horizontal offset (0-1)
+ * @param {() => number} [options.getHorizontalOffset] - Function returning horizontal offset (0-1)
+ * @param {() => number} [options.getVerticalOffset] - Function returning vertical anchor (0-1)
+ * @param {() => number} [options.getScale] - Function returning additional scale factor
  * @returns {Object} { canvasRef, drawFrame, isCanvasReady }
  */
-export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizontalOffset }) {
+export function useCanvasAnimation({
+    frames,
+    totalFrames,
+    isMobile,
+    getHorizontalOffset = () => 0.5,
+    getVerticalOffset = () => 0.5,
+    getScale = () => 1
+}) {
     const canvasRef = useRef(null);
     const ctxRef = useRef(null);
     const lastDrawnIndexRef = useRef(null);
@@ -54,13 +63,18 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
 
         let drawHeight = canvasHeight;
         let drawWidth = imgNaturalWidth * (drawHeight / imgNaturalHeight);
-        let y = (canvasHeight - drawHeight) * 0.5;
 
         if (isMobile) {
             drawHeight *= 0.75;
             drawWidth *= 0.75;
-            y = (canvasHeight - drawHeight) * 0.7;
         }
+
+        const scale = getScale();
+        drawHeight *= scale;
+        drawWidth *= scale;
+
+        const verticalOffset = getVerticalOffset();
+        const y = (canvasHeight - drawHeight) * verticalOffset;
 
         const horizontalOffset = getHorizontalOffset();
         // Position within viewport-content boundaries
@@ -71,7 +85,7 @@ export function useCanvasAnimation({ frames, totalFrames, isMobile, getHorizonta
         ctx.drawImage(img, x, y, drawWidth, drawHeight);
         
         lastDrawnIndexRef.current = actualIndex;
-    }, [frames, isMobile, getHorizontalOffset, findNearestFrame]);
+    }, [frames, isMobile, getHorizontalOffset, getVerticalOffset, getScale, findNearestFrame]);
 
     const scheduleFrame = useCallback((index) => {
         if (reqFrameRef.current) cancelAnimationFrame(reqFrameRef.current);
