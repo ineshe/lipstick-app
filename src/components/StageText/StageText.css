@@ -27,16 +27,11 @@
 }
 
 .stage-subline {
-    margin: 3rem 0 0;
-    font-size: 1.4rem;
+    margin: 2.5rem 0 0;
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
     color: var(--color-text-super-light-purple);
     width: 48%;
-}
-
-@media (min-width: 768px) {
-    .stage-subline {
-        line-height: 1.8;
-    }
+    line-height: 1.8;
 }
 
 @media (min-width: 1024px) {
@@ -45,7 +40,7 @@
     }
 
     .stage-subline {
-        margin: 3.5rem 0 5rem;
+        margin: 3.5rem 0;
         width: 100%;
         line-height: 1.7;
     }
