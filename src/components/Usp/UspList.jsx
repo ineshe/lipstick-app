@@ -18,8 +18,8 @@ function UspList({ scrollYProgress }) {
         const sections = 3;
         
         if (isMobile) {
-            start = 0.275;
-            end = 0.9;
+            start = 0.24;
+            end = 0.95;
         } else {
             start = 0.2;
             end = 0.8;
