@@ -64,11 +64,6 @@ export function useCanvasAnimation({
         let drawHeight = canvasHeight;
         let drawWidth = imgNaturalWidth * (drawHeight / imgNaturalHeight);
 
-        if (isMobile) {
-            drawHeight *= 0.75;
-            drawWidth *= 0.75;
-        }
-
         const scale = getScale();
         drawHeight *= scale;
         drawWidth *= scale;
