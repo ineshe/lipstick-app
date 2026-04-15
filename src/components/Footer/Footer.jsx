@@ -69,7 +69,7 @@ function Footer() {
                             <div className='footer-item'>© 2026</div>
                             <ul className="footer-bottom-menu">
                                 <li className="footer-item">
-                                    <a className="footer-nav-link" href="#">Impressum</a>
+                                    <a className="footer-nav-link" href="https://www.ines-heilmann.de/impressum">Impressum</a>
                                 </li>
                                 <li className="footer-item">
                                     <a className="footer-nav-link" href="#">AGB</a>
