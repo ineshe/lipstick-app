@@ -39,7 +39,7 @@
 
 /* oswald-200 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: optional;
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 200;
