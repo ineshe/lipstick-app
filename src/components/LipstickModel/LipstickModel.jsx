@@ -5,17 +5,24 @@ import { useImageLoaderWorker } from '../../hooks/useImageLoaderWorker';
 import { useCanvasAnimation } from '../../hooks/useCanvasAnimation';
 import { MOBILE_QUERY } from '../../lib/breakpoints';
 
-const TOTAL_FRAMES = 140;
+// Zwei vorgerenderte Sequenzen (siehe scripts/build-frames.mjs).
+// Ein ImageBitmap belegt Breite x Hoehe x 4 Byte - deshalb bekommt Mobile
+// die kleinere Aufloesung und nur jeden zweiten Frame.
+const SEQUENCES = {
+    mobile: { dir: '/assets/image-sequenz-mobile', totalFrames: 70 },
+    desktop: { dir: '/assets/image-sequenz-desktop', totalFrames: 140 }
+};
 
 function LipstickModel({ scrollYProgress }) {
     const isMobile = window.matchMedia(MOBILE_QUERY).matches;
+    const { dir: frameDir, totalFrames } = isMobile ? SEQUENCES.mobile : SEQUENCES.desktop;
     const lastIndexRef = useRef(1);
 
     const framePath = useCallback((index) => (
-        `/assets/image-sequenz/Render${index.toString().padStart(4, '0')}.webp`
-    ), []);
+        `${frameDir}/Render${index.toString().padStart(4, '0')}.webp`
+    ), [frameDir]);
 
-    const { isReady, imageBitmaps } = useImageLoaderWorker(TOTAL_FRAMES, framePath);
+    const { isReady, imageBitmaps } = useImageLoaderWorker(totalFrames, framePath);
 
     // horizontal position: 0 = left edge, 0.5 = center, 1 = right edge
     const offsetXMobile = useTransform(
@@ -40,7 +47,7 @@ function LipstickModel({ scrollYProgress }) {
 
     const { canvasRef, drawFrame, scheduleFrame } = useCanvasAnimation({
         frames: imageBitmaps,
-        totalFrames: TOTAL_FRAMES,
+        totalFrames,
         isMobile,
         getHorizontalOffset: () => isMobile ? offsetXMobile.get() : offsetXDesktop.get(),
         getVerticalOffset: () => isMobile ? offsetY.get() : 0.5,
@@ -48,7 +55,7 @@ function LipstickModel({ scrollYProgress }) {
     });
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        const index = Math.max(1, Math.min(TOTAL_FRAMES, Math.floor(latest * TOTAL_FRAMES)));
+        const index = Math.max(1, Math.min(totalFrames, Math.floor(latest * totalFrames)));
         lastIndexRef.current = index;
         scheduleFrame(index);
     });
