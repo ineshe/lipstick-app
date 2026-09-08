@@ -22,8 +22,6 @@ function Home() {
   return (
     <>
       <div className="page-home">
-        {isMobile && <StageButton skewX={0} />}
-
         <div 
           className="animation-section"
           ref={animationSectionRef}
@@ -41,6 +39,9 @@ function Home() {
         </div>
 
         <CustomerReviewSlider />
+
+        {/* muss letztes Kind bleiben: der Button klebt per sticky + bottom */}
+        {isMobile && <StageButton skewX={0} />}
       </div>
 
     </>
