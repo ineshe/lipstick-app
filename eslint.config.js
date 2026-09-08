@@ -23,7 +23,9 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // m/motion aus motion/react: ohne eslint-plugin-react sieht no-unused-vars
+      // keine JSX-Verwendung, und ^[A-Z_] deckt nur Großgeschriebenes ab.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]|^(m|motion)$' }],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
