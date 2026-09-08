@@ -11,9 +11,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     align-items: center;
+    /* zentriert die Zeilen als Block, statt sie in die fixe Höhe zu dehnen */
+    align-content: center;
     color: var(--color-text-super-light-purple, #f5f0f3);
-    height: min-content;
-    padding-block: 1.125rem;
+    height: var(--header-height);
     max-width: var(--global-content-max-width);
 }
 
