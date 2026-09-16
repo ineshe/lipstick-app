@@ -37,10 +37,18 @@ function UspList({ scrollYProgress }) {
         setUspActiveId((prev) => (prev === latest ? prev : latest));
     });
 
+    /*
+     * Kein mode="wait": Wechselt die aktive USP während einer laufenden
+     * Exit-Animation mehrfach (schnelles Scrollen auf Mobilgeräten), mountet
+     * AnimatePresence im wait-Modus das nächste Element direkt im Exit-Zustand.
+     * Es bekommt dann nie eine Exit-Animation und bleibt sichtbar hängen.
+     * Im sync-Modus überlappen Exit und Enter; die Items liegen dafür per CSS
+     * übereinander (siehe .usp-item in Usp.css).
+     */
     return (
         <LazyMotion features={domAnimation} strict>
             <div className="usp-wrapper">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="sync">
                     {activeUsp && (
                         <UspItem key={activeUsp.id} usp={activeUsp} />
                     )}

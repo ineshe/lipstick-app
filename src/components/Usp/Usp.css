@@ -3,17 +3,21 @@
     inset: 10% 0;
     max-width: var(--global-content-max-width);
     margin-inline: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: start;
     pointer-events: none;
 }
 
 .usp-item {
+    /* alle Items in derselben Grid-Zelle, damit sich Exit und Enter überlagern */
+    grid-area: 1 / 1;
     box-sizing: border-box;
     margin-inline: 1.2rem;
     padding: 1.2rem;
     width: clamp(24ch, 90vw, 36ch);
+    /* wie flex-shrink zuvor: Item plus Ränder nie breiter als der Wrapper */
+    max-width: calc(100% - 2 * 1.2rem);
     text-align: center;
 }
 
@@ -35,7 +39,7 @@
 
 @media (min-width: 1024px) {
     .usp-wrapper {
-        justify-content: flex-start;
+        justify-items: start;
         align-items: center;
     }
 
