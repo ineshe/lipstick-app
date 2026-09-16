@@ -7,16 +7,13 @@ function UspItem({ usp }) {
     const variants = {
         initial:  {
             y: 25, opacity: 0,
-            transition: {
-                default: { type: "spring", ease: "easeOut", duration: 0.16 },
-                opacity: { ease: "linear" },
-                delay: 0.22,
-            } 
         },
         visible: {
             y: 0, opacity: 1,
             transition: {
-                default: { ease: "linear", duration: 0.2 },
+                // delay = Dauer der Exit-Animation: das neue Item erscheint
+                // erst, wenn das vorherige ausgeblendet ist
+                default: { ease: "linear", duration: 0.2, delay: 0.1 },
             }
         },
         exit: {
