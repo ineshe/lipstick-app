@@ -23,6 +23,9 @@ export function useCanvasAnimation({
     const ctxRef = useRef(null);
     const lastDrawnIndexRef = useRef(null);
     const reqFrameRef = useRef(null);
+    // Immer die aktuelle drawFrame-Instanz, damit der Resize-Handler
+    // (Effect ohne Abhaengigkeiten) nicht mit einem veralteten Closure zeichnet.
+    const drawFrameRef = useRef(null);
 
     const findNearestFrame = useCallback((targetIndex) => {
         if (frames[targetIndex - 1]) {
@@ -82,6 +85,10 @@ export function useCanvasAnimation({
         lastDrawnIndexRef.current = actualIndex;
     }, [frames, isMobile, getHorizontalOffset, getVerticalOffset, getScale, findNearestFrame]);
 
+    useEffect(() => {
+        drawFrameRef.current = drawFrame;
+    }, [drawFrame]);
+
     const scheduleFrame = useCallback((index) => {
         if (reqFrameRef.current) cancelAnimationFrame(reqFrameRef.current);
         reqFrameRef.current = requestAnimationFrame(() => {
@@ -97,15 +104,20 @@ export function useCanvasAnimation({
 
         ctxRef.current = canvas.getContext('2d');
 
-    let resizeTimeout;
-    const handleResize = () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            lastDrawnIndexRef.current = null;
-        }, 100); // adjust delay as needed
-    };
+        let resizeTimeout;
+        const handleResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Das Setzen von width/height leert den Canvas. Auf Mobile passiert
+                // das auch beim Ein-/Ausblenden der Browser-Adressleiste - ohne
+                // weiteres Scrollen wuerde das Modell sonst unsichtbar bleiben.
+                const lastIndex = lastDrawnIndexRef.current;
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                lastDrawnIndexRef.current = null;
+                if (lastIndex) drawFrameRef.current?.(lastIndex);
+            }, 100);
+        };
 
         window.addEventListener('resize', handleResize);
         handleResize();
