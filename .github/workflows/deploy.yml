@@ -2,7 +2,9 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - 'ci/**'
   workflow_dispatch:
 
 concurrency:
@@ -28,6 +30,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check build output
+        run: |
+          test -f dist/index.html || { echo "dist/index.html fehlt"; exit 1; }
+          echo "Groesse: $(du -sh dist | cut -f1)"
+          ls -la dist
+
       - name: Upload dist via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -37,6 +45,11 @@ jobs:
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           local-dir: ./dist/
           server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+          # Nur Pushes auf main laden wirklich hoch. Jeder ci/**-Branch
+          # baut, verbindet sich und protokolliert, ohne etwas zu aendern.
+          dry-run: ${{ github.ref_name != 'main' }}
           exclude: |
             **/.git*
             **/.git*/**
+            **/.well-known/**
+            **/.htaccess
